@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>로그인</title>
+	<link rel="stylesheet" href="../static/css/sign_up_in.css">
+	
+</head>
+<body>
+	<div class="container" id="container">
+		<!-- 회원가입 -->
+		<div class="form-container sign-up-container">
+			<form id="form" class="form" action="#">
+				<h1 class="h1">회원 가입</h1>
+				
+				<span>회원가입을 위해 정보를 입력하세요</span>
+				
+					<input type="text" placeholder="아이디" id="userid" required/>
+					
+					<input type="email" placeholder="이메일" id="email" class="form-control"" required>
+					
+					<input type="password" placeholder="비밀번호" id='password' class="form-control" required>
+					
+					<input type="password" placeholder="비밀번호 확인" id="password2" class="form-control" required>
+					
+					<button style="margin-top: 10px;">회원 가입</button>
+				
+			</form>
+		</div>
+		<!-- 로그인 -->
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>로그인</h1>
+				
+				<span>로그인을 해주세요</span>
+				<input type="text" placeholder="아이디" required>
+				<input type="password" placeholder="비밀번호" required>
+				
+				<a href="#">비밀번호를 잊으셨나요?</a>
+				<button>로그인</button>
+			</form>
+		</div>
+
+		<!-- 설명 -->
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>모닥불</h1>
+					<p>이미 계정이 있으시다면 <br>아래 로그인하러가기 버튼을 눌러주세요!</p>
+					<button class="ghost" id="signIn">로그인하러 가기</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>반갑습니다!</h1>
+					<p>익명 감정 공유 서비스, 모닥불입니다.</p>
+					<button class="ghost" id="signUp">회원가입 하러가기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../static/js/sign_up_in.js"></script>
+</html>
