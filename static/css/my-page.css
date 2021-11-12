@@ -3950,9 +3950,16 @@ textarea.form-control-lg {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding-left: 500px;
   margin-bottom: 0;
   list-style: none;
+}
+
+@media (min-width: 320px) and (max-width: 800px){
+  .nav{
+    padding-left: 0px;
+  }
+  
 }
 
 .nav-link {
@@ -11699,3 +11706,5 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+

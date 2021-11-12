@@ -11,26 +11,31 @@
         
 
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="{{url_for('static',filename='./css/my-page.css')}}" rel="stylesheet">
+        
         <link href="{{url_for('static',filename='./css/base.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename='./css/my-page.css')}}" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
 
     <body class="sb-nav-fixed text-white bg-dark">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href={{ url_for('index') }}><img src="../static/assets/img/logo.png" alt="" width="30" height="30"> 모닥불</a>
+            <a class="mb-auto navbar-brand ps-3" href={{ url_for('index') }}><img src="../static/assets/img/logo.png" alt="" width="30" height="30"> 모닥불</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
             <!-- navigation menu -->
-            <nav class="nav nav-masthead justify-content-center float-md-end">
+            
+            <nav class="nav nav-masthead justify-content-end navbar-right float-md-right">
                 <a class="nav-link active" aria-current="page" href="/login-join">로그인</a>
                 <a class="nav-link" href="/statistics">데이터 분석</a>
                 <a class="nav-link" href="/feed">피드</a>
                 <a class="nav-link" href="/about-us">팀 소개</a>
                 <a class="nav-link" href="/my-info">마이 페이지</a>
             </nav>
+            
+
+            
             <!-- Navbar-->
             <ul class="navbar-nav d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
