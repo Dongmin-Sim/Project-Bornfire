@@ -1,30 +1,45 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800"); */
 
 * {
   box-sizing: border-box;
 }
-
-body {
+.loginbody {
+  text-align: center;
+}
+.logincontainer {
   background: #212529;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
-  margin: -20px 0 50px;
+  /* height: 100vh; */
+  /* margin: 150px 0 150px; */
 }
 
-h1 {
+.form-container h1 {
+  color: black;
   font-weight: bold;
   margin: 0;
+  text-shadow: none;
 }
 
-h2 {
-  text-align: center;
+.form-container span {
+  color: black;
+  margin: 10px;
+  font-size: 12px;
+  text-shadow: none;
 }
 
-p {
+.logincontainer a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+  text-shadow: none;
+}
+
+.overlay-container p {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
@@ -32,44 +47,33 @@ p {
   margin: 20px 0 30px;
 }
 
-span {
-  font-size: 12px;
-}
-
-a {
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
-  margin: 15px 0;
-}
-
-button {
+.logincontainer button {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background-color: #ff4b2b;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 17px;
   font-weight: bold;
-  padding: 12px 45px;
+  padding: 10px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
 
-button:active {
+.logincontainer button:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.logincontainer button:focus {
   outline: none;
 }
 
-button.ghost {
+.logincontainer button.ghost {
   background-color: transparent;
   border-color: #ffffff;
 }
 
-form {
+.logincontainer form {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -80,7 +84,7 @@ form {
   text-align: center;
 }
 
-input {
+.logincontainer input {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -88,7 +92,7 @@ input {
   width: 100%;
 }
 
-.container {
+.logincontainer {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -112,7 +116,7 @@ input {
   z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.logincontainer.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
@@ -123,7 +127,7 @@ input {
   z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.logincontainer.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
@@ -155,14 +159,14 @@ input {
   z-index: 100;
 }
 
-.container.right-panel-active .overlay-container {
+.logincontainer.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
 
 .overlay {
   background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: -webkit-linear-gradient(to right, #ff392b, #ff416c);
+  background: linear-gradient(to right, #ff392b, #ff416c);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -175,7 +179,18 @@ input {
   transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+/* overlay */
+.overlay h1 {
+  font-weight: bold;
+  text-shadow: none;
+  margin: 0;
+}
+
+.overlay p {
+  text-shadow: none;
+}
+
+.logincontainer.right-panel-active .overlay {
   transform: translateX(50%);
 }
 
@@ -198,7 +213,7 @@ input {
   transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.logincontainer.right-panel-active .overlay-left {
   transform: translateX(0);
 }
 
@@ -207,6 +222,6 @@ input {
   transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.logincontainer.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
