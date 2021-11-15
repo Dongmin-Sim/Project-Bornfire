@@ -2,6 +2,9 @@
 {% block head %}
 <!-- place for css link -->
 <link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet">
+
+<!-- chartjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock %}
 
 {% block body %}
@@ -9,7 +12,6 @@
   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg">
     
     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg top-img">
-      
     </div>
     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
       <h1 class="display-4 fw-bold lh-1">모닥불</h1>
@@ -18,10 +20,8 @@
       <li class="lead">모닥불의 서비스는 이러한 서비스입니다</li>
       <li class="lead">모닥불의 서비스는 이러한 서비스입니다</li>
     </div>
-    
   </div>
 </div>
-
 
 
 <!-- 서비스 소개 -->
@@ -68,18 +68,33 @@
 </div>
 <div class="container content clearfix">
   <p>
-    서비스 소개에 대해 적어주세요
+    코로나 블루와 관련된 데이터 분석, 시각화를 알아봅니다.
   </p>
   <div>
     <!-- graph -->
+    chartjs test  
     <div class="graph col-md-6 float-md-end mb-3 ms-md-3 gap-3">
-      [임시공간]여기는 통계그래프가 들어갑니다.
+      <div class="dropdown">
+        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          코로나 전후
+        </button>
+        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          성별
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <canvas id="myChart"></canvas>
     </div>
     <p>
-      A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+      성별에 따른 코로나 블루 추이에 관해서 알아봅니다. 
+
     </p>
     <p>
-      As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+      코로나 전과 후, 어느 성별, 연령에서 차이를 보이는지, 확인
     </p>
     <p>
       A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
@@ -151,4 +166,9 @@
           <button class="btn btn btn-danger btn-round" style="width: 100%">통계 페이지로 </button>
   </div>
 </div>
+
+
+<!-- chartjs -->
+<script src="{{ url_for('static', filename='./js/intro_graph_test.js')}}"></script>
+
 {% endblock %}
