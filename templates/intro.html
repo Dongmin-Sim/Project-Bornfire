@@ -8,15 +8,14 @@
 {% endblock %}
 
 {% block body %}
-<div class="container my-5 top">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg">
-    
-    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg top-img">
+<div class="container top">
+  <div class="row p-5 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg" style="height: 450px;">
+    <div class="col-lg-5 offset-lg-1 p-0 overflow-hidden shadow-lg top-img">
     </div>
-    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+    <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
       <h1 class="display-4 fw-bold lh-1">모닥불</h1>
       <br>
-      <li class="lead">모닥불의 서비스는 이러한 서비스입니다</li>
+      <li class="lead">익명 감정 공유 SNS</li>
       <li class="lead">모닥불의 서비스는 이러한 서비스입니다</li>
       <li class="lead">모닥불의 서비스는 이러한 서비스입니다</li>
     </div>
@@ -24,18 +23,51 @@
 </div>
 
 
-<!-- 서비스 소개 -->
+<!-- 코로나로 인한 우울감 추이 -->
 <div class="container content-title">
-  <h1 class="d-flex justify-content-start">서비스 소개</h1>
+  <h1 class="d-flex justify-content-start">코로나로 인해 우울감은 얼마나 늘었을까?</h1>
 </div>
 <div class="container content clearfix">
   <p>
-    서비스 소개에 대해 적어주세요
+    보건복지부의 21년 1분기 「코로나19 국민 정신건강 실태조사」 2021년 3월 29일부터 4월 12일까지 전국 거준 19~71세의 성인 2,110명을 대상으로 한 정신건강 상태파악 조사에 따르면 코로나로 인해 우울, 자살생각 증가 등 전반적인 <strong>정신건강 지표가 악화</strong>된 것으로 나타났습니다. 
   </p>
-  <div>
+  <p>
+    우울 평균 점수는 5.7점으로(총점 27점), 2018년에 실시된 지역 사회 건강조사 결과인 2.3점에 비해 2배이상 증가한 수치입니다. <br>
+    또한 2021년 3월 자살생각 비율은 16.3%로 2018년 4.7%(2020 자살예방백서)에 비해 약 3.5배 높은 수준이며, 코로나 발생초기인 2020년 3월 9.7%와 비교해도 매우 높은 수치로, 지속적으로 증가하고 있는 추세입니다.
+  </p>
+  <div class="graph-container">
     <!-- graph -->
     <div class="graph col-md-6 float-md-end mb-3 ms-md-3 gap-3">
-      [임시공간]여기는 통계그래프가 들어갑니다.
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" class="btnValue1" value="f411" autocomplete="off" checked> F411
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" class="btnValue2" value="f419" autocomplete="off" checked> F419
+        </label>
+        <label class="btn btn-secondary">
+          <input type="radio" name="options" class="btnValue3" value="f320" autocomplete="off" checked> F320
+        </label>
+      </div>
+
+      <button class="btn btn-secondary" onclick="updateChart();" style="border: None;">update</button>
+      <canvas id="patient"></canvas>
+    </div>
+    <p>
+      보건의료빅데이터의 질병 소분류(4단상병) 통게 데이터 셋(▲범불안장애(F41.1) ▲명시되지 않은 불안장애 (F41.9) ▲경도의 우울병 에피소드(F32.0)에 해당하는 데이터)을 바탕으로 분석한 코로나 블루 통계 분석 결과 역시 코로나 발병 이후 꾸준한 증가세를 보이는 것으로 나타났습니다. 
+    </p>
+    
+    <p>
+      보건의료빅데이터의 질병 소분류(4단상병) 통게 데이터 셋(▲범불안장애(F41.1) ▲명시되지 않은 불안장애 (F41.9) ▲경도의 우울병 에피소드(F32.0)에 해당하는 데이터)을 바탕으로 분석한 코로나 블루 통계 분석 결과 역시 코로나 발병 이후 꾸준한 증가세를 보이는 것으로 나타났습니다. 
+    </p>
+  </div>
+</div>
+<div class="container content clearfix">
+  <div class="graph-container">
+    <!-- graph -->
+    <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-3">
+      <canvas id="count"></canvas>
     </div>
     <p>
       A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
@@ -43,34 +75,19 @@
     <p>
       As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
     </p>
-    <p>
-      A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-    </p>
-  </div>
 </div>
-<div class="container content clearfix">
-  <!-- graph -->
-  <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-3">
-    [임시공간]여기는 통계그래프가 들어갑니다.
-  </div>
-  <p>
-    A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-  </p>
-  <p>
-    As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
-  </p>
 </div>
 
 
 <!-- 서비스 필요성 -->
 <div class="container content-title">
-  <h1 class="d-flex justify-content-start">서비스 필요성</h1>
+  <h1 class="d-flex justify-content-start">성별, 연령별로 알아보는 코로나 블루 추이</h1>
 </div>
 <div class="container content clearfix">
   <p>
     코로나 블루와 관련된 데이터 분석, 시각화를 알아봅니다.
   </p>
-  <div>
+  <div class="graph-container">
     <!-- graph -->
     chartjs test  
     <div class="graph col-md-6 float-md-end mb-3 ms-md-3 gap-3">
@@ -87,7 +104,7 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-      <canvas id="myChart"></canvas>
+      <canvas id="sexAge"></canvas>
     </div>
     <p>
       성별에 따른 코로나 블루 추이에 관해서 알아봅니다. 
@@ -102,31 +119,34 @@
   </div>
 </div>
 <div class="container content clearfix">
-  <!-- graph -->
-  <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-3">
-    [임시공간]여기는 통계그래프가 들어갑니다.
-  </div>
-  <p>
-    A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-  </p>
-  <p>
-    As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
-  </p>
+  
+  <div class="graph-container">
+    <!-- graph -->
+    <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-3">
+      <canvas id="sexAge2"></canvas>
+    </div>
+    <p>
+      A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+    </p>
+    <p>
+      As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+    </p>
+</div>
 </div>
 
 
 <!-- 프로젝트 구성 -->
 <div class="container content-title">
-  <h1 class="d-flex justify-content-start">프로젝트 구성</h1>
+  <h1 class="d-flex justify-content-start">지역별 코로나 블루, 코로나 블루 지역지수</h1>
 </div>
 <div class="container content clearfix">
   <p>
     서비스 소개에 대해 적어주세요
   </p>
-  <div>
+  <div class="graph-container">
     <!-- graph -->
     <div class="graph col-md-6 float-md-end mb-3 ms-md-3 gap-3">
-      [임시공간]여기는 통계그래프가 들어갑니다.
+      <canvas id="temp1"></canvas>
     </div>
     <p>
       A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
@@ -140,35 +160,95 @@
   </div>
 </div>
 <div class="container content clearfix">
-  <!-- graph -->
-  <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-3">
-    [임시공간]여기는 통계그래프가 들어갑니다.
-  </div>
-  <p>
-    A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
-  </p>
-  <p>
-    As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
-  </p>
+  <div class="graph-container">
+    <div class="graph col-md-5 float-md-start mb-3 ms-md-3 gap-1">
+      <canvas id="temp2"></canvas>
+    </div>
+    <div class="graph col-md-6 float-md-start mb-3 ms-md-3 gap-1">
+      <canvas id="temp3"></canvas>
+    </div>
 </div>
-
-
-<!-- col-test -->
-<!-- <div class="container">
-  <div class="row align-items-start">
-    <div class="col-lg-5" style="background-color: red;">test</div>
-    <div class="col-lg-7" style="background-color: blue;">test</div>
-  </div>
-</div> -->
+</div>
 
 <div class="row text-center" style="width: 100%">
   <div style="width: 30%; float:none; margin:30px auto">
-          <button class="btn btn btn-danger btn-round" style="width: 100%">통계 페이지로 </button>
+          <a href="/statistics"><button class="btn btn btn-danger btn-round" style="width: 100%">통계 페이지로 </button></a>
   </div>
 </div>
 
 
 <!-- chartjs -->
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='js/jquery-3.6.0.js') }}" > </script>
+<script>
+  let graph_label;
+  let graph_data;
+  $('.btnValue1, .btnValue2, .btnValue3').click(function(){
+      let $this = $(this);
+      let btnValue;
+      if ($this.hasClass('btnValue1')){
+          btnValue = $('.btnValue1').val();
+      } else if ($this.hasClass('btnValue2')){
+          btnValue = $('.btnValue2').val();
+      } else {
+          btnValue = $('.btnValue3').val();
+      };
+
+      let data = {
+          'option': btnValue
+      }
+      $.ajax({
+          type: 'get',
+          url: '{{url_for("intro.graph")}}',
+          async:false,
+          data: data,
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function(result){
+              // alert(res.result)
+              graph_label = result.result[0]
+              graph_data = result.result[1]
+          },
+          error: function(request, status, error){
+              alert('실패')
+              alert(error)
+          }
+
+      })
+  })
+
+  // chartjs
+  // let olddata = [1, 2, 3, 4, 5];
+  let patient = document.getElementById("patient").getContext('2d');
+          
+  let patientChart = new Chart(patient, {
+      type: 'line',
+      data: {
+          labels: graph_label,
+          datasets : [{
+              label : '환자수',
+              data: graph_data,
+              borderColor: '#D0524C',
+              
+          }]
+      },
+      option: {
+        title: {
+          display:true,
+          text: '환자 수 추이'
+        }
+      }
+  });
+  
+  function updateChart() {
+      console.log(graph_label);
+      console.log(graph_data);
+      patientChart.data.labels = graph_label;
+      patientChart.data.datasets[0].data = graph_data;
+      patientChart.update();
+  };
+
+</script>
 <script src="{{ url_for('static', filename='./js/intro_graph_test.js')}}"></script>
 
 {% endblock %}

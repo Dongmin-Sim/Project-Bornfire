@@ -5,6 +5,16 @@
   text-align: left;
 }
 
+/* 상단 모닥불 이미지 부분 */
+.top {
+  background-image: url(../assets/img/intro/bornfire2.jpg);
+  background-size: 100% 110%;
+  margin-top: 80px;
+  margin-bottom: 150px;
+  box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 본문 제목 */
 .content-title {
   margin-bottom: 0;
 }
@@ -13,26 +23,27 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-.container .content p {
-  margin-top: 10px;
+/* 그래프 본문 */
+.graph-container {
+  margin: 50px 0px;
 }
 
-.top {
-  background-image: url(../assets/img/intro/bornfire2.jpg);
-  background-size: 100% 110%;
+.graph-container p {
+  margin: 20px 0px;
 }
 
 /* 그래프 공간 속성 */
-.graph {
-  background-color: whitesmoke;
+.graph-container .graph {
+  /* border-radius: 3.5%; */
+  background-color: rgba(255, 255, 192, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
   margin: 10px;
-
-  height: 350px;
+  padding: 20px;
+  /* height: 350px; */
 
   max-width: 700px;
   max-height: 500px;
-
-  border-radius: 3.5%;
 }
 
 .graph canvas {
