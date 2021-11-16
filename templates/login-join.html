@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 {% block head %}
-	<link rel="stylesheet" href="../static/css/sign_up_in.css">
+	<link href="{{url_for('static',filename='./css/sign_up_in.css')}}" rel="stylesheet">	
 {% endblock %}
+
 {% block body %}
-<body>
-	<div class="container" id="container">
+<div class='loginbody'>
+	<div class="logincontainer" id="logincontainer">
 		<!-- 회원가입 -->
 		<div class="form-container sign-up-container">
-			<form id="form" class="form" action="#">
-				<h1 class="h1">회원 가입</h1>
+			<form id='form' action="#">
+				<h1>회원 가입</h1>
 				
 				<span>회원가입을 위해 정보를 입력하세요</span>
 				
 					<input type="text" placeholder="아이디" id="userid" required>
 					
-					<input type="email" placeholder="이메일" id="email" class="form-control"" required>
+					<input type="email" placeholder="이메일" id="email"  required>
 					
-					<input type="password" placeholder="비밀번호" id='password' class="form-control" required>
+					<input type="password" placeholder="비밀번호" id='password' required>
 					
-					<input type="password" placeholder="비밀번호 확인" id="password2" class="form-control" required>
+					<input type="password" placeholder="비밀번호 확인" id="password2" required>
 					
 					<button style="margin-top: 10px;">회원 가입</button>
 				
@@ -29,7 +30,7 @@
 			<form action="#">
 				<h1>로그인</h1>
 				
-				<span>로그인을 해주세요</span>
+				<span>아이디와 비밀번호를 입력해주세요</span>
 				<input type="text" placeholder="아이디" required>
 				<input type="password" placeholder="비밀번호" required>
 				
@@ -54,6 +55,6 @@
 			</div>
 		</div>
 	</div>
-</body>
+</div>
 <script src="../static/js/sign_up_in.js"></script>
 {% endblock %}
