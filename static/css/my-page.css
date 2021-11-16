@@ -3950,9 +3950,16 @@ textarea.form-control-lg {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding-left: 500px;
   margin-bottom: 0;
   list-style: none;
+}
+
+@media (min-width: 320px) and (max-width: 800px){
+  .nav{
+    padding-left: 0px;
+  }
+  
 }
 
 .nav-link {
@@ -11481,17 +11488,17 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #212529;
+  background-color: #d0d7db;
   color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
   color: rgba(255, 255, 255, 0.25);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.25);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
   color: rgba(255, 255, 255, 0.25);
@@ -11699,3 +11706,5 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+

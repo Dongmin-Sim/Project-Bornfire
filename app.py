@@ -5,8 +5,13 @@ from main.login_join import login_join
 from main.feed import feed
 from main.my_page import mypage
 from main.about_us import about_us
+from pymongo import MongoClient
 
 app = Flask(__name__)
+
+client = MongoClient('localhost', 27017)
+
+
 
 # Page blueprint
 '''
