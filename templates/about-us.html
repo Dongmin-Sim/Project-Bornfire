@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block head %}
 <!-- place for css link -->
-<link href="about-us.css" rel="stylesheet">
+<link href="{{url_for('static',filename='./css/about-us.css')}}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -9,10 +9,10 @@
     <ul class="team">
         <li class="team-item">
             <div class="profile profile_red">
-                <img src="">
+                <img src="about-us/about-us_image1.jpg">
                 <div class="profile-contents">
                     <h2> 이름 <span>직책</span></h2>
-                    <p>내용</p>
+                    <p>1</p>
             </div>
         </li>
         <li class="team-item">
