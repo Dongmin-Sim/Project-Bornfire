@@ -3,45 +3,61 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <title>🔥 Bornfire-익명 감정공유 서비스</title>
-    
-    <link href="{{url_for('static',filename='./css/base.min.css')}}" rel="stylesheet">
-    <link href="{{url_for('static',filename='./css/base.css')}}" rel="stylesheet">
 
-     
+    <title>🔥 Bornfire-익명 감정공유 서비스</title>
+
+    <link
+      href="{{url_for('static',filename='./css/base.min.css')}}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{url_for('static',filename='./css/base.css')}}"
+      rel="stylesheet"
+    />
+
     <!-- Custom styles for this template -->
-    {% block head %}
-    {% endblock %}
+    {% block head %} {% endblock %}
   </head>
-  
+
   <body class="d-flex h-100 text-center text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <!-- header -->
-      <header class="mb-auto">
-          <!-- logo -->
-          <h3 class="float-md-start mb-0">
-            <a href="/"><img src="../static/assets/img/logo.png" alt="" width="30" height="30"></a>
-            모닥불
-          </h3>
-          <!-- navigation menu -->
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="/login-join">로그인</a>
-            <a class="nav-link" href="/statistics">데이터 분석</a>
-            <a class="nav-link" href="/feed">피드</a>
-            <a class="nav-link" href="/about-us">팀 소개</a>
-            <a class="nav-link" href="/my-info">마이 페이지</a>
-          </nav>
+      <header class="mb-5">
+        <!-- logo -->
+        <h3 class="float-md-start mb-0">
+          <a href="/"
+            ><img
+              src="../static/assets/img/logo.png"
+              alt=""
+              width="30"
+              height="30"
+          /></a>
+          모닥불
+        </h3>
+        <!-- navigation menu -->
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link active" aria-current="page" href="/login"
+            >로그인</a
+          >
+          <a class="nav-link" href="/statistics">데이터 분석</a>
+          <a class="nav-link" href="/feed">피드</a>
+          <a class="nav-link" href="/about-us">팀 소개</a>
+          <a class="nav-link" href="/my-info">마이 페이지</a>
+        </nav>
       </header>
 
       <!-- body -->
-      {% block body %} 
-      {% endblock %}
-
+      {% block body %} {% endblock %}
 
       <!-- footer -->
       <footer class="mt-auto text-white-50">
-        <p>Copyright 🔥 <a href="https://tough-sponge-6ff.notion.site/Bornfire-875a64c2e500490eab38f30147e9e863">Bornfire</a></p>
+        <p>
+          Copyright 🔥
+          <a
+            href="https://tough-sponge-6ff.notion.site/Bornfire-875a64c2e500490eab38f30147e9e863"
+            >Bornfire</a
+          >
+        </p>
       </footer>
     </div>
   </body>
