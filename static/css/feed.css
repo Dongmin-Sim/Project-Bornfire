@@ -1,0 +1,14 @@
+.checkbox-div {
+  display: flexbox;
+  margin-top: 1em;
+}
+
+.feed-comment {
+  margin-top: 2em;
+  color: black;
+}
+
+.feed-button {
+  text-align: end !important;
+  margin-right: 2em;
+}
