@@ -28,6 +28,7 @@ def get_login():
 @login.route("/logout")
 def get_logout():
     session.pop('nickname',None)
+    session.pop('user_email',None)
     return redirect(url_for('intro.get_intro'))
 
     
