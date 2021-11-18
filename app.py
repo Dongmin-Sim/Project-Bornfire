@@ -32,6 +32,11 @@ app.register_blueprint(about_us)
 def index():
     return render_template('intro.html')
 
+#Create Custom Error Pages
+#Invalid URL
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
 
 
 if __name__ == '__main__':

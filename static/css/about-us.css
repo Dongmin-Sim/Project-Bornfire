@@ -15,8 +15,6 @@ body {
 .wrapper {
     display: flex;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
 }
 
 .team {
@@ -26,23 +24,21 @@ body {
 }
 
 .team-item {
-    flex-basis: 100px;
+    flex-basis: 200px;
     flex-shrink: 0;
-    margin: 0 10px;
+    margin: 0 30px;
+    opacity: 0.4;
     transition: all .4s;
 }
 
 .team-item:hover {
-    flex-basis: 160px;
+    opacity: 1;
+    flex-basis: 300px;
     margin: 0 20px;
 }
 
 .team-item img {
     width: 100%;
-}
-
-.team-item:hover .profile-contents p {
-    max-height: 200px;
 }
 
 .profile {
@@ -51,8 +47,13 @@ body {
     overflow: hidden;
 }
 
-.profile::before {
-    content: "wow"; 
+.profile:before {
+    content: ' ';
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 ); /* IE6-9 */
     position: absolute;
     left: 0;
     right: 0;
@@ -61,7 +62,7 @@ body {
 }
 
 .profile_red {
-    color: #ff4949
+    color: #1db1a9;
 }
 
 .profile_beige {
@@ -88,28 +89,51 @@ body {
 }
 
 .profile-contents h2 {
-    font-size: 20px;
+    font-size: 35px;
 }
 
-.profile-contents h2 span{
+.profile-contents h2 span {
     display: block;
-    font-size: 12px;
+    font-size: 25px;
 }
 
 .profile-contents p {
     color: white;
-    font-size: 10px;
+    font-size: 15px;
     min-width: 140px;
     max-height: 0;
     overflow: hidden;
     line-height: 1.2;
-    transition: all .4s;
+    transition: all 1s;
     opacity: 0;
-    transition-delay: .4s;
 }
 
 .team-item:hover .profile-contents p {
     opacity: 1;
+    transition-delay: .4s;
     max-height: 6em;
-    margin-top: 0.2em;
+    margin-top: 0.4em;
+}
+
+
+
+
+@media screen and (max-width: 1024px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: auto;
+        }
+    .wrapper {
+        display: flex;
+        }
+        
+    .team {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+            
 }

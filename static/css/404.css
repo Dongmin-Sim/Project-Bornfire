@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #212529;
   padding: 0;
   margin: 0;
 }
@@ -38,13 +38,13 @@ body {
 }
 
 .notfound .notfound-404 h1 {
+  color: rgb(238, 232, 232);
   font-family: "Titillium Web", sans-serif;
   font-size: 186px;
   font-weight: 900;
   margin: 0px;
   text-transform: uppercase;
-  background: url("../img/text.png");
-  -webkit-background-clip: text;
+  background:#fff;
   -webkit-text-fill-color: transparent;
   background-size: cover;
   background-position: center;
