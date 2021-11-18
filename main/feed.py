@@ -8,4 +8,6 @@ def get_feed():
 
 @feed.route('/feed', methods=['POST'])
 def post_feed():
-    pass
+    data = request.json
+    print(data)
+    return (jsonify("ok"))

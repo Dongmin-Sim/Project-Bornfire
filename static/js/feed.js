@@ -1,19 +1,22 @@
 $('#button-addon2').click(function(){
     // 세션 값 가져오기
     //const user =  sessionStorage.getItem('nickname')
-    const user = "성난 개구리 🐸";
+    const nickname = "성난 개구리 🐸";
     const context = $('#context').val();
-    
 
+    var postdata = {
+        "nickname" : nickname,
+        "context" : context
+    };
 
     $.ajax({
         type: 'POST',
-        url: '{{url_for("post_feed")}}',
+        url: '/feed',
         data: JSON.stringify(postdata),
-        dataType : 'JSON',
+        dataType : 'json',
         contentType: "application/json",
         success: function(data){
-            alert('성공! 데이터 값:' + data.result2['id']+" " + data.result2['password']+ " " + data.result2['email'])
+            alert("통신 성공!!")
         },
         error: function(request, status, error){
             alert('ajax 통신 실패')
