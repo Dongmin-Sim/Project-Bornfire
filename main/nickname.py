@@ -76,4 +76,4 @@ emotion = {1:"기쁜",
                   34 : "매운걸 잘 먹는"}
 
 def make_nickname():
-    return emotion[num] + animal[num2]
+    return emotion[num] + " " + animal[num2]
