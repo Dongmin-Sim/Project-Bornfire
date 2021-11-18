@@ -36,9 +36,15 @@
         </h3>
         <!-- navigation menu -->
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="/login"
+          {% if session.nickname %}
+          <a class="nav-link active" aria-current="page" href="/logout"
+            >로그아웃</a
+          >
+          {% else %}
+          <a class="nav-link active" aria-current="page" href="/login-join"
             >로그인</a
           >
+          {% endif %}
           <a class="nav-link" href="/statistics">데이터 분석</a>
           <a class="nav-link" href="/feed">피드</a>
           <a class="nav-link" href="/about-us">팀 소개</a>
