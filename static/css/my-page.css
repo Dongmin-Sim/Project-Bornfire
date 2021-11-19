@@ -634,7 +634,7 @@ progress {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-right: var(- -bs-gutter-x,0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
@@ -3950,9 +3950,20 @@ textarea.form-control-lg {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding-left: 0px;
   margin-bottom: 0;
   list-style: none;
+}
+
+.pad{
+  padding-left : 50%;
+}
+
+@media all and (max-width: 1000px){
+  .pad{
+    padding-left: 0px;
+  }
+  
 }
 
 .nav-link {
@@ -3962,6 +3973,7 @@ textarea.form-control-lg {
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;
@@ -11481,17 +11493,17 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #212529;
+  background-color: #d0d7db;
   color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
   color: rgba(255, 255, 255, 0.25);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.25);
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
   color: rgba(255, 255, 255, 0.25);
@@ -11698,4 +11710,11 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
+}
+
+
+.image-center{
+  height: 100%;
+  display: block; 
+  margin: 0 auto;
 }

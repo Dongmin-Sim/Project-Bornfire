@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block head %}
 <!-- place for css link -->
 <link href="{{url_for('static',filename='./css/feed.css')}}" rel="stylesheet" />
+<!-- place for jquery CDN -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 {% endblock %} {% block body %}
 <main>
   <div class="card feed-comment rounded-pill bg-primary">
@@ -17,11 +19,12 @@
           class="card-header form-control"
           type="text"
           placeholder=" 따뜻한 마음을 전해요"
+          id = "context"
         />
         <div class="input-group-append input-group-lg">
           <button
             class="btn btn-outline-secondary"
-            type="submit"
+            type="button"
             id="button-addon2"
           >
             포스트
@@ -29,88 +32,107 @@
         </div>
       </div>
     </form>
+  
   </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">성난 개구리 🐸</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>아 언제 코로나 끝나냐.. 마스크 벗고 운동 좀 하고 싶다 진짜</p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;459</span>
-          </button>
+  <div id = "post">
+    {% for data in datas %}
+      <div id="card" class="card feed-comment rounded-pill">
+        <div id="card-header" class="card-header">{{ data.nickname }}</div>
+        <div id="card-body" class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ data.context }}</p>
+            <div class="feed-button">
+              <button type="button" class="btn btn-dark">
+                🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
+              </button>
+            </div>
+          </blockquote>
         </div>
-      </blockquote>
+      </div>
+    {% endfor %}
+
+    <!-- <div id="card" class="card feed-comment rounded-pill">
+      <div id="card-header" class="card-header">성난 개구리 🐸</div>
+      <div id="card-body" class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>아 언제 코로나 끝나냐.. 마스크 벗고 운동 좀 하고 싶다 진짜</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;459</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
     </div>
-  </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">기쁜 펭귄 🐧</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>
-          와 그래도 오늘 프론트 엔드 손좀 봤다. 내일은 또 어떤 지옥이 펼쳐질까
-          하하하
-        </p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;99999</span>
-          </button>
-        </div>
-      </blockquote>
+    <div class="card feed-comment rounded-pill">
+      <div class="card-header">기쁜 펭귄 🐧</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>
+            와 그래도 오늘 프론트 엔드 손좀 봤다. 내일은 또 어떤 지옥이 펼쳐질까
+            하하하
+          </p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;99999</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
     </div>
-  </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">슬픈 원숭이 🐵</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;765</span>
-          </button>
-        </div>
-      </blockquote>
+    <div class="card feed-comment rounded-pill">
+      <div class="card-header">슬픈 원숭이 🐵</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;765</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
     </div>
-  </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">슬픈 원숭이 🐵</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;765</span>
-          </button>
-        </div>
-      </blockquote>
+    <div class="card feed-comment rounded-pill">
+      <div class="card-header">슬픈 원숭이 🐵</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;765</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
     </div>
-  </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">슬픈 원숭이 🐵</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;765</span>
-          </button>
-        </div>
-      </blockquote>
+    <div class="card feed-comment rounded-pill">
+      <div class="card-header">슬픈 원숭이 🐵</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;765</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
     </div>
-  </div>
-  <div class="card feed-comment rounded-pill">
-    <div class="card-header">슬픈 원숭이 🐵</div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
-        <div class="feed-button">
-          <button type="button" class="btn btn-dark">
-            🙌<span> &nbsp;765</span>
-          </button>
-        </div>
-      </blockquote>
-    </div>
+    <div class="card feed-comment rounded-pill">
+      <div class="card-header">슬픈 원숭이 🐵</div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>와 모닥불 언제 출시하는거에요 진짜?? 이렇게 할 게 많다고?</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;765</span>
+            </button>
+          </div>
+        </blockquote>
+      </div>
+    </div> -->
   </div>
 </main>
-
+<script src="../static/js/feed.js"></script>
 {% endblock %}
