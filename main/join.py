@@ -16,6 +16,9 @@ def post_join():
         email = request.form.get("user_email")
         pw = request.form.get("user_pw")
         pw2 = request.form.get("user_pw2")
+        question = request.form.get("user_question")
+        answer = request.form.get("user_answer")
+        answer = answer.replace(" ","")
         if pw != pw2:
             print("비밀번호가 일치 하지 않습니다.")
         if validation_email.match(email) != None:
@@ -30,5 +33,5 @@ def post_join():
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
         hashed_pw=hashed_pw.decode('utf-8')
         collection = db.get_collection("User_collection")
-        collection.insert_one({"User_email":email,"User_pw":hashed_pw,"User_emotion":[]})
+        collection.insert_one({"User_email":email,"User_pw":hashed_pw,"User_emotion":[],"Verify_question": {question:answer}})
         return redirect(url_for('login.get_login'))
