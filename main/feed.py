@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, jsonify, request, redirect
 import pymongo
 import datetime
 
+from pymongo import cursor
+
 feed = Blueprint("feed", __name__)
 
 connection = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -11,8 +13,11 @@ Feed_collection = db.get_collection("Feed_collection")
 
 @feed.route("/feed")
 def get_feed():
-
-    cols = Feed_collection.find().limit(10)
+    # 이값을 받으면 될 듯. 
+    # cursor = request.args.get('cursor')
+    cur= 1
+    #TODO 디비 갯수 확인 필요 할 듯. 
+    cols = Feed_collection.find().sort('_id',-1).skip(10*cur).limit(10)
 
     col_list = []
     for col in cols:
@@ -42,11 +47,10 @@ def post_feed():
         "meta": {'thumps-up': 1, "createAt": datetime.datetime.utcnow()},
         'emotion' : emotion
     }
-
+    # Feed_collection.remove({})
     Feed_collection.insert_one(data)
 
-    cols = Feed_collection.find().limit(10)
-
+    cols = Feed_collection.find().sort('_id',-1).limit(1)
     col_list = []
     for col in cols:
         col_list.append({
@@ -54,6 +58,5 @@ def post_feed():
             'context' : col['feed'],
             'thumbs-up': col['meta']['thumps-up']
         })
-
 
     return (jsonify(col_list))
