@@ -12,7 +12,7 @@
       </blockquote>
     </div>
   </div>
-  <div id="post" class="card mt-5">
+  <div class="card mt-5">
     <form>
       <div class="input-group input-group-lg">
         <input
@@ -24,7 +24,7 @@
         <div class="input-group-append input-group-lg">
           <button
             class="btn btn-outline-secondary"
-            type="submit"
+            type="button"
             id="button-addon2"
           >
             포스트
@@ -32,8 +32,26 @@
         </div>
       </div>
     </form>
+  
   </div>
-    <div id="card" class="card feed-comment rounded-pill">
+  <div id = "post">
+    {% for data in datas %}
+      <div id="card" class="card feed-comment rounded-pill">
+        <div id="card-header" class="card-header">{{ data.nickname }}</div>
+        <div id="card-body" class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ data.context }}</p>
+            <div class="feed-button">
+              <button type="button" class="btn btn-dark">
+                🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
+              </button>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+
+    <!-- <div id="card" class="card feed-comment rounded-pill">
       <div id="card-header" class="card-header">성난 개구리 🐸</div>
       <div id="card-body" class="card-body">
         <blockquote class="blockquote mb-0">
@@ -113,8 +131,8 @@
           </div>
         </blockquote>
       </div>
-    </div>
-  
+    </div> -->
+  </div>
 </main>
 <script src="../static/js/feed.js"></script>
 {% endblock %}

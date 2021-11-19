@@ -11,7 +11,19 @@ Feed_collection = db.get_collection("Feed_collection")
 
 @feed.route("/feed")
 def get_feed():
-    return render_template('feed.html')
+
+    cols = Feed_collection.find().limit(10)
+
+    col_list = []
+    for col in cols:
+        col_list.append({
+            'nickname': col['nickname'],
+            'context' : col['feed'],
+            'thumbs-up': col['meta']['thumps-up']
+        })
+
+
+    return render_template('feed.html', datas = col_list)
 
 @feed.route('/feed', methods=['POST'])
 def post_feed():
@@ -34,7 +46,7 @@ def post_feed():
     Feed_collection.insert_one(data)
 
     cols = Feed_collection.find().limit(10)
-    
+
     col_list = []
     for col in cols:
         col_list.append({

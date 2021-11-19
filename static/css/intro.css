@@ -1,0 +1,74 @@
+.container {
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* title */
+.title-wrapper {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  text-shadow: none;
+}
+
+.title-wrapper .title {
+  margin-bottom: 20px;
+}
+
+.title-wrapper .subtitle {
+  margin-bottom: 20px;
+}
+
+.title-wrapper .today-subject .today-subject-input {
+  background-color: white;
+  color: gray;
+  border-radius: 10px 0px 0px 10px;
+  border: solid 2px #ff4b2b;
+  padding: 50px;
+  font-size: 1.05rem;
+}
+
+.title-wrapper .today-subject .today-subject-btn {
+  display: inline;
+  background-color: #ff4b2b;
+  border-radius: 0px 10px 10px 0px;
+  vertical-align: middle;
+  font-size: 1.05rem;
+}
+.title-wrapper .today-subject a {
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+}
+
+.title-wrapper .today-subject p {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* introduce service */
+.service-intro {
+  box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* content */
+.content {
+  box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.content .btn-group {
+  margin-left: 20px;
+}
+
+@media (min-width: 992px) {
+  .rounded-lg-3 {
+    border-radius: 0.3rem;
+  }
+}

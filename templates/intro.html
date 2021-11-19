@@ -1,18 +1,372 @@
 {% extends "base.html" %} 
 {% block head %}
 <!-- place for css link -->
+<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet">
+
+<!-- chartjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock %}
 
 {% block body %}
-<main class="px-3">
-  <h1>모닥불</h1>
-  <p class="lead">모닥불은 감정 공유를 위해 태어난 익명 서비스 입니다.</p>
-  <div style="background-color: white;">width</div>
-  <p class="lead">오늘 하루 나의감정을 기록하고 서로를 응원해줍시다.</p>
-  <p class="lead">
-    <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white"
-      >시작하기</a
-    >
-  </p>
-</main>
+
+<div class="container title-wrapper ">
+  <!-- 소개글 -->
+  <div class="row">
+    <div class="col-md-12 title">
+      <h1 class="display-3">우울해도 괜찮아요 </h1>
+      <h1 class="display-3">모닥불에서 잠시 쉬어가세요 </h1>
+    </div>  
+  </div>
+  
+  <div class="row subtitle">
+    <h2 class="h4">오늘의 주제에서 나의 감정을 털어 놓아요</h2>
+  </div>
+  <div class="row today-subject">
+    <div class="col-md-4 p-3 m-0 align-middle text-center today-subject-input">
+      우울을 이겨내는 여러분만의 방법은 무엇인가요?
+    </div>
+    <div class="col-md-2 p-3 m-0 align-middle text-center today-subject-btn">
+      <a href="/login-join">
+        나의 감정 말하러 가기
+      </a> 
+    </div>
+  </div>
+
+</div>
+
+<!-- main image -->
+<div class="container-fluid" style="height:500px; background-color: white;">
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <img class='img-fluid rounded-3' src="../static/assets/img/intro/sample_img.png" alt="">
+    </div>
+  </div>
+</div>
+
+<!-- introduce service -->
+<div class="container service-intro">
+  <div class="row  p-3 bg-white service">
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black" style="text-align: left; font-size: 1rem; text-shadow: none;">
+        <h4 style="color: gray;">어두운 숲에서 여러분은 혼자가 아니에요</h4>
+        <h4 class="h4 text-black">나의 생각과 다른 사람들의 생각을 확인하고 공감해보세요</h4>
+        <p class="text-left">코로나와 관련된 감정에 대한 키워드를 기반으로한 주제로 여러분의 감정을 공유해보세요. 다른 사람은 어떻게 느끼는지 확인해보고 또 공감해보세요. 나의 마음과 다른 사람들의 마음을 함께 위로해보세요.</p>
+        
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img class='img-fluid rounded-3' src="../static/assets/img/intro/sample_img.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row  p-3 bg-white service">
+    <div class="col-md-6">
+      <img class='img-fluid rounded-3' src="../static/assets/img/intro/sample_img.png" alt="">
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black">
+        <h4 style="color: gray;">따스한 불빛이 되어드려요</h4>
+        <h4 class="h4 text-black">하루의 감정을 모닥불에 날려보내요</h4>
+        <p class="text-left">오늘 작성한 글은 내일 남지 않습니다. 오늘의 나의 감정을 글로 담아 보내보세요. 마음의 부담없이 나의 감정을 솔직하게 내려놓고 흘려 보내보세요. </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row  p-3 bg-white service">
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black" style="text-align: left; font-size: 1rem; text-shadow: none;">
+        <h4 style="color: gray;">모닥불에서 잠시 쉬어가세요</h4>
+        <h4 class="h4 text-black">마음의 안정, 내게 필요한 힐링을 찾아드려요</h4>
+        <p class="text-left">코로나로 지친 이들의 마음을 달래줄 힐링 콘텐츠를 추천해드려요. 나에게 지금 필요한 다양한 콘텐츠들을 만나보세요. </p>
+        
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img class='img-fluid rounded-3' src="../static/assets/img/intro/sample_img.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row  p-3 bg-white service">
+    <div class="col-md-6">
+      <img class='img-fluid rounded-3' src="../static/assets/img/intro/sample_img.png" alt="">
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black">
+        <h4 style="color: gray;">다시 시작할 힘을 얻어가세요</h4>
+        <h4 class="h4 text-black">내 주변 지원 서비스를 찾아드려요</h4>
+        <p class="text-left">도움이 필요할 때, 어떻게 도움을 받아야할지 모르겠을 때, 놓치고 있는 사회지원 서비스를 찾아드립니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top: 100px;">
+  <div class="row">
+    <h2 class="display-4">
+      통계와 그래프로 보는 코로나 블루
+    </h2>
+    <h2 class="h4">
+      코로나 블루, 나 혼자만의 문제가 아닙니다.
+    </h2>
+  </div>
+</div>
+
+<!-- content -->
+<div class="container content">
+  <div class="row  p-4 bg-white">
+    <h4 class="h4 text-black">
+      1️⃣ 코로나로 인해 우울감은 얼마나 늘었을까?
+    </h4>
+  </div>
+  <div class="row p-3 bg-white">
+    <div class="col-md-4 align-self-center">
+      <div class="p-3 text-black">
+        <p class="text-left">보건복지부의 21년 1분기 「코로나19 국민 정신건강 실태조사」 2021년 3월 29일부터 4월 12일까지 전국 거준 19~71세의 성인 2,110명을 대상으로 한 정신건강 상태파악 조사에 따르면 코로나로 인해 우울, 자살생각 증가 등 <strong><u>전반적인 정신건강 지표가 악화</u></strong>된 것으로 나타났습니다. </p>
+        <p class="text-left">
+          우울 평균 점수는 5.7점으로(총점 27점), 2018년에 실시된 지역 사회 건강조사 결과인 2.3점에 비해 <strong><u>2배 이상</u></strong> 증가한 수치입니다.
+          또한 2021년 3월 자살생각 비율은 16.3%로 2018년 4.7%(2020 자살예방백서)에 비해 약 3.5배 높은 수준이며, 코로나 발생초기인 2020년 3월 9.7%와 비교해도 매우 높은 수치로, <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="btnValue1" value="f411" autocomplete="off" checked> F411
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="btnValue2" value="f419" autocomplete="off" > F419
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="btnValue3" value="f320" autocomplete="off" > F320
+        </label>
+      </div>
+      <canvas id="patient"></canvas>
+    </div>
+  </div>
+  <div class="row p-4 bg-white">
+    <div class="col-md-12 align-self-center">
+      <div class="text-black">
+        <p class="text-left">보건의료빅데이터의 질병 소분류(4단상병) 통게 데이터 셋(▲범불안장애(F41.1) ▲명시되지 않은 불안장애 (F41.9) ▲경도의 우울병 에피소드(F32.0)에 해당하는 데이터)을 바탕으로 분석한 코로나 블루 통계 분석 결과 역시 코로나 발병 이후 <strong><u>꾸준한 증가세</u></strong>를 보이는 것으로 나타났으며, 2021년 3월에는 모든 코로나블루 지표에서 가장 가파른 증가세를 보이고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container content">
+  <div class="row  p-4 bg-white">
+    <h4 class="h4 text-black">
+      2️⃣ 성별, 연령별로 알아보는 코로나 블루 추이
+    </h4>
+  </div>
+  <div class="row bg-white">
+    <div class="col-md-4">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="sexAge-btn-1" value="f411" autocomplete="off" checked> F411
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="sexAge-btn-2" value="f419" autocomplete="off" > F419
+        </label>
+        <label class="btn btn-outline-dark">
+          <input type="radio" name="options" class="sexAge-btn-3" value="f320" autocomplete="off" > F320
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row bg-white align-items-center">
+    <div class="col-md-6">
+      <canvas id="sexAge1"></canvas>
+    </div>
+    <div class="col-md-6">
+      <canvas id="sexAge2"></canvas>
+    </div>
+  </div>
+  <div class="row p-3 bg-white">
+    <div class="col-md-6 align-self-center">
+      <div class="p-3 text-black">
+        <p class="text-left">
+          전반적으로 코로나 블루의 성별의 특성은 <strong><u>남성보다 여성의 비율이 높은 것</u></strong>으로 나타났고, <strong>범불안장애</strong>와, <strong>명시되지 않은 불안장애</strong>는 <u>60-69세의 연령대</u>, <strong>경도의 우울병 에피소드</strong>는 <u>20-29세 연령대</u>의 비율이 가장 높은 것으로 나타났습니다.
+        </p>
+        <p class="text-left">
+          ▲범불안장애(F41.1)의 경우 남성, 여성 모두 60-69, 70-79세에 해당하는 연령대의 여성비율이 확연히 높은 것으로 나타났습니다.
+        </p>
+        <p class="text-left">
+          ▲명시되지 않은 불안장애 (F41.9)의 경우 20-40세의 연령대에서는 근소한 차이를 보였지만, 50-70세의 연령대에서 여성의 비율이 더 높은 것으로 나타났습니다.
+        </p>
+        <p class="text-left">
+          ▲경도의 우울병 에피소드(F32.0)의 경우 거의 모든 연령대에서 여성이 남성에 비해 약 2배 청구건수가 많은 것으로 나타났습니다.
+        </p>
+        
+      </div>
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="p-3 text-black">
+        <p class="text-left">F411, F419에 해당하는 범불안장애와 명시되지 않은 불안장애의 경우 모두 60-69세의 연령대의 요양급여비용총계가 가장 높은 것으로 나타났습니다.</p>
+        <p class="text-left">F320에 해당하는 경도의 우울병 에피소드의 경우에는 20-29세에 해당하는 연령의 요양급여비용총계가 가장 높은 것으로 나타났습니다. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container content">
+  <div class="row  p-4 bg-white">
+    <h4 class="h4 text-black">
+      3️⃣ 지역별 코로나 블루, 코로나 블루 지역지수
+    </h4>
+  </div>
+  <div class="row bg-white align-items-center">
+    <div class="col-md-12">
+      <div class='tableauPlaceholder ' id='viz1637228153981' style='position: relative'>
+        <noscript>
+          <a href='#'><img alt='지역별 코로나 전, 후 1년간 F32~F419 진단 환자수 변동 추이 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1F&#47;1F32F419_16372281397770&#47;1F32F419&#47;1_rss.png' style='border: none' />
+        </a>
+        </noscript>
+        <object class='tableauViz'  style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' /> 
+          <param name='site_root' value='' />
+          <param name='name' value='1F32F419_16372281397770&#47;1F32F419' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1F&#47;1F32F419_16372281397770&#47;1F32F419&#47;1.png' /> 
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='ko-KR' />
+          <param name='filter' value='publish=yes' />
+        </object>
+      </div>
+    </div>
+  </div>
+  <div class="row p-3 bg-white">
+    <div class="col-md-12 align-self-center">
+      <div class="p-3 text-black">
+        <p class="text-left">
+          거의 모든 지역에서 코로나 블루지표가 코로나 전보다 후 환자수가 증가한 것으로 나타났습니다. 
+        </p>    
+      </div>
+    </div>
+    <div class="col-md-12 align-self-center">
+      <div class="p-3 text-black">
+        <p class="text-left">지역과 관련된 내용 더 추가필요합니다. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- go login -->
+<div class="row text-center" style="width: 100%">
+  <div style="width: 30%; float:none; margin:30px auto">
+          <a href="/login-join"><button class="btn btn btn-round" style="width: 100%; background-color: #ff4b2b; color: white;">모닥불 이용하기 </button></a>
+  </div>
+</div>
+
+
+<!-- tableau -->
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1637228153981');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if ( divElement.offsetWidth > 800 ) {
+    vizElement.style.width='100%';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+  } else if ( divElement.offsetWidth > 500 ) {
+    vizElement.style.width='100%';
+    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+  } else { 
+    vizElement.style.width='100%';
+    vizElement.style.height='777px';
+    }                     
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='js/jquery-3.6.0.js') }}" > </script>
+
+<!-- chartjs -->
+<script src="{{ url_for('static', filename='./js/intro_graph.js')}}"></script>
+
+<!-- load data -->
+<script>
+  // 환자수 추이 ajax
+  $('.btnValue1, .btnValue2, .btnValue3').click(function(){
+      let $this = $(this);
+      let btnValue;
+      if ($this.hasClass('btnValue1')){
+          btnValue = $('.btnValue1').val();
+      } else if ($this.hasClass('btnValue2')){
+          btnValue = $('.btnValue2').val();
+      } else {
+          btnValue = $('.btnValue3').val();
+      };
+
+      let data = {
+          'btnValue': btnValue
+      }
+      $.ajax({
+          type: 'get',
+          url: '{{url_for("intro.patient")}}',
+          async:false,
+          data: data,
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function(result){
+              patientChart.data.labels = result.result[0]
+              patientChart.data.datasets[0].data = result.result[1]
+              patientChart.update()
+          },
+          error: function(request, status, error){
+              alert(error)
+          }
+
+      })
+  });
+  
+  // 성별/연령별 ajax
+  $('.sexAge-btn-1, .sexAge-btn-2, .sexAge-btn-3').click(function(){
+      let $this = $(this);
+      let btnValue;
+      if ($this.hasClass('sexAge-btn-1')){
+          btnValue = $('.sexAge-btn-1').val();
+      } else if ($this.hasClass('sexAge-btn-2')) {
+        btnValue = $('.sexAge-btn-2').val();
+      } else {
+          btnValue = $('.sexAge-btn-3').val();
+      };
+      
+      $.ajax({
+          type: 'get',
+          url: '{{url_for("intro.sexAge")}}',
+          async:false,
+          data: {'btnValue':btnValue},
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function(result){
+            // sexAge chart1 - bar
+            sexAge_bar_chart.data.labels = result.result[0]
+            sexAge_bar_chart.data.datasets[0].data = result.result[1][0]
+            sexAge_bar_chart.data.datasets[1].data = result.result[1][1]
+            
+            // sexAge chart2 - pie
+            sexAge_pie_chart.data.labels = result.result[0]
+            sexAge_pie_chart.data.datasets[0].data = result.result[1][2]
+            
+            sexAge_bar_chart.update()
+            sexAge_pie_chart.update()
+          },
+          error: function(request, status, error){
+              alert(error)
+          }
+
+      })
+  });
+</script>
 {% endblock %}
