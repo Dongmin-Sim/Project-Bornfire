@@ -5,9 +5,6 @@ $("#context").keydown(function(key){
 });
 
 
-
-
-
 $('#button-addon2').click(function(){
     // 세션 값 가져오기
     //const user =  sessionStorage.getItem('nickname')
@@ -61,9 +58,6 @@ $(document).on("click",".btn-dark",function(){
 
 });
 
-function post(){
-    
-}
 
 
 function card(datas){
