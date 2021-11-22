@@ -1,13 +1,7 @@
-from urllib.parse import uses_fragment
-from flask import Blueprint, render_template, jsonify, request, redirect, session
-import pymongo
+from flask import Blueprint, render_template, jsonify, request, redirect
+from .models import  User_collection
 
 mypage = Blueprint("mypage", __name__)
-
-connection = pymongo.MongoClient("mongodb://localhost:27017/")
-
-db = connection.get_database("Bornfire")
-
 
 @mypage.route("/my-page", methods=['GET'])
 def get_myPage():
