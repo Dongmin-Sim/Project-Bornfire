@@ -7,6 +7,8 @@ if __name__ == "__main__":
     connection = pymongo.MongoClient('mongodb://localhost:27017/')
     db = connection.get_database("Bornfire")
     list = db.list_collection_names()
+    
+
 
     if "Feed_collection" in list:
         Feed_collection = db.get_collection("Feed_collection")
