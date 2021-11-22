@@ -51,7 +51,8 @@ body {
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-bottom-color: #fff;
 }
 
 .nav-masthead .nav-link + .nav-link {

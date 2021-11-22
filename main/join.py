@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, jsonify, request, redirect,url_for
+from validate_email_address import validate_email
 import pymongo
 import re
 import bcrypt
+
 
 connection = pymongo.MongoClient('mongodb://localhost:27017/')
 db = connection.get_database("Bornfire")
@@ -21,10 +23,10 @@ def post_join():
         answer = answer.replace(" ","")
         if pw != pw2:
             print("비밀번호가 일치 하지 않습니다.")
-        if validation_email.match(email) != None:
+        if validate_email(email, verify=True):
             pass
         else:
-            print("이메일 정규식 에러")
+            print("이메일 정규식/존재하지 않음 에러")
         if validation_pw.match(pw) != None:
             pass
         else:

@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% block head %}
+<title>🔥 Bornfire - 비밀번호 찾기</title>
+
 <link
   href="{{url_for('static',filename='./css/forgot_pw.css')}}"
   rel="stylesheet"
 />
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 {% endblock %} {% block body %}
 
@@ -92,6 +93,6 @@
   </div>
 </div>
 
+{% endblock %} {% block script %}
 <script src="../static/js/forgot_pw.js"></script>
-
 {% endblock %}

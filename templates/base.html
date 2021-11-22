@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🔥 Bornfire-익명 감정공유 서비스</title>
-
     <link
       href="{{url_for('static',filename='./css/base.min.css')}}"
       rel="stylesheet"
@@ -62,6 +60,8 @@
         </p>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    {% block script %} {% endblock %}
   </body>
-  <script src="../static/js/base.js"></script>
 </html>
