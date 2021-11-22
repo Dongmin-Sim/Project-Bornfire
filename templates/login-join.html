@@ -1,4 +1,6 @@
 {% extends "base.html" %} {% block head %}
+<title>🔥 Bornfire - 회원가입</title>
+
 <link
   href="{{url_for('static',filename='./css/sign_up_in.css')}}"
   rel="stylesheet"
@@ -36,6 +38,25 @@
           name="user_pw2"
           required
         />
+        <input
+          list="questions"
+          name="user_question"
+          placeholder="비밀번호 찾기 질문 선택"
+        />
+        <datalist id="questions">
+          <option value="졸업한 초등학교 이름은?"></option>
+          <option value="자신의 보물 1호는?"></option>
+          <option value="가장 친한 친구 이름은?"></option>
+          <option value="자신의 어릴적 별명은?"></option>
+          <option value="기억하는 추억의 장소는?"></option>
+        </datalist>
+
+        <input
+          type="text"
+          placeholder="답변을 작성해주세요"
+          name="user_answer"
+          required
+        />
 
         <button style="margin-top: 10px">회원 가입</button>
       </form>
@@ -49,7 +70,7 @@
         <input type="text" placeholder="아이디" name="user_email" required />
         <input type="password" placeholder="비밀번호" name="user_pw" required />
 
-        <a href="#">비밀번호를 잊으셨나요?</a>
+        <a href="/forgot-pw">비밀번호를 잊으셨나요?</a>
         <button>로그인</button>
       </form>
     </div>
@@ -73,5 +94,7 @@
     </div>
   </div>
 </div>
+{% endblock %} {% block script %}
 <script src="../static/js/sign_up_in.js"></script>
+
 {% endblock %}

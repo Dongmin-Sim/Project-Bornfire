@@ -1,0 +1,104 @@
+{% extends "base.html" %} {% block head %}
+<title>🔥 Bornfire - 비밀번호 찾기</title>
+
+<link
+  href="{{url_for('static',filename='./css/forgot_pw.css')}}"
+  rel="stylesheet"
+/>
+
+{% endblock %} {% block body %}
+
+<div class="card mt-5">
+  <div class="input-group input-group-lg">
+    <input
+      class="card-header form-control"
+      type="text"
+      placeholder=" 이메일을 입력해주세요"
+      id="context"
+      name="user_email"
+    />
+    <div class="input-group-append input-group-lg">
+      <button
+        class="btn btn-outline-secondary"
+        type="submit"
+        id="button-addon2"
+      >
+        제출
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container pw-container text-dark">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">
+            비밀번호 찾기 질문
+          </h5>
+          <div class="card mt-5 mb-3">
+            <div class="input-group input-group-lg">
+              <input
+                class="card-header form-control"
+                type="text"
+                placeholder="답을 입력해주세요"
+                id="user_answer"
+              />
+              <div class="input-group-append input-group-lg">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="submit"
+                  id="answer-btn"
+                >
+                  제출
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <form
+            class="change-form"
+            id="pw-change-form"
+            action="change-pw"
+            method="POST"
+          >
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingInput"
+                name="new_pw"
+              />
+              <label for="floatingInput">새로운 비밀번호</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                name="new_pw2"
+              />
+              <label for="floatingPassword">비밀번호 확인</label>
+            </div>
+
+            <div class="d-grid">
+              <button
+                class="btn btn-secondary btn-login text-uppercase fw-bold"
+                type="submit"
+                id="change-pw-btn"
+              >
+                비밀번호 바꾸기
+              </button>
+            </div>
+            <hr class="my-4" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block script %}
+<script src="../static/js/forgot_pw.js"></script>
+{% endblock %}
