@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🔥 Bornfire-익명 감정공유 서비스</title>
-
     <link
       href="{{url_for('static',filename='./css/base.min.css')}}"
       rel="stylesheet"
@@ -37,13 +35,9 @@
         <!-- navigation menu -->
         <nav class="nav nav-masthead justify-content-center float-md-end">
           {% if session.nickname %}
-          <a class="nav-link active" aria-current="page" href="/logout"
-            >로그아웃</a
-          >
+          <a class="nav-link" aria-current="page" href="/logout">로그아웃</a>
           {% else %}
-          <a class="nav-link active" aria-current="page" href="/login-join"
-            >로그인</a
-          >
+          <a class="nav-link" aria-current="page" href="/login-join">로그인</a>
           {% endif %}
           <a class="nav-link" href="/statistics">데이터 분석</a>
           <a class="nav-link" href="/feed">피드</a>
@@ -66,5 +60,8 @@
         </p>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    {% block script %} {% endblock %}
   </body>
 </html>

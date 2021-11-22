@@ -1,8 +1,9 @@
 {% extends "base.html" %} {% block head %}
 <!-- place for css link -->
+<title>🔥 Bornfire - 피드페이지</title>
+
 <link href="{{url_for('static',filename='./css/feed.css')}}" rel="stylesheet" />
 <!-- place for jquery CDN -->
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 {% endblock %} {% block body %}
 <main>
   <div class="card feed-comment rounded-pill bg-primary">
@@ -19,7 +20,7 @@
           class="card-header form-control"
           type="text"
           placeholder=" 따뜻한 마음을 전해요"
-          id = "context"
+          id="context"
         />
         <div class="input-group-append input-group-lg">
           <button
@@ -32,23 +33,22 @@
         </div>
       </div>
     </form>
-  
   </div>
-  <div id = "post">
+  <div id="post">
     {% for data in datas %}
-      <div id="card" class="card feed-comment rounded-pill">
-        <div id="card-header" class="card-header">{{ data.nickname }}</div>
-        <div id="card-body" class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>{{ data.context }}</p>
-            <div class="feed-button">
-              <button type="button" class="btn btn-dark">
-                🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
-              </button>
-            </div>
-          </blockquote>
-        </div>
+    <div id="card" class="card feed-comment rounded-pill">
+      <div id="card-header" class="card-header">{{ data.nickname }}</div>
+      <div id="card-body" class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{ data.context }}</p>
+          <div class="feed-button">
+            <button type="button" class="btn btn-dark">
+              🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
+            </button>
+          </div>
+        </blockquote>
       </div>
+    </div>
     {% endfor %}
 
     <!-- <div id="card" class="card feed-comment rounded-pill">
@@ -134,5 +134,6 @@
     </div> -->
   </div>
 </main>
+{% endblock %} {% block script %}
 <script src="../static/js/feed.js"></script>
 {% endblock %}

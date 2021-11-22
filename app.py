@@ -6,6 +6,7 @@ from main.join import join
 from main.feed import feed
 from main.my_page import mypage
 from main.about_us import about_us
+from main.forgot_pw import forgot_pw
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -25,6 +26,7 @@ app.register_blueprint(join)
 app.register_blueprint(feed)
 app.register_blueprint(mypage)
 app.register_blueprint(about_us)
+app.register_blueprint(forgot_pw)
 
 
 # root url
