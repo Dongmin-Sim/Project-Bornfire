@@ -20,5 +20,5 @@ def post_join():
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
         hashed_pw=hashed_pw.decode('utf-8')
         collection = db.get_collection("User_collection")
-        collection.insert_one({"User_email":email,"User_pw":hashed_pw,"User_emotion":[],"Verify_question": {question:answer}})
+        collection.insert_one({"User_email":email,"User_pw":hashed_pw,"User_feed_log":[],"Verify_question": {question:answer}})
         return redirect(url_for('login.get_login'))
