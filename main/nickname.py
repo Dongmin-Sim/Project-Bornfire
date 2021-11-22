@@ -1,8 +1,6 @@
 from random import randint
 
-num = randint(1, 34) 
 
-num2 = randint(1, 34) 
 
 
 animal = {1:"강아지🐶",
@@ -76,4 +74,7 @@ emotion = {1:"기쁜",
                   34 : "매운걸 잘 먹는"}
 
 def make_nickname():
+    num = randint(1, 34) 
+
+    num2 = randint(1, 34) 
     return emotion[num] + " " + animal[num2]
