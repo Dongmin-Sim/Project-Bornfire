@@ -5,3 +5,4 @@ db = connection.get_database("Bornfire")
 
 Feed_collection = db.get_collection("Feed_collection")
 User_collection = db.get_collection("User_collection")
+Subject_collection = db.get_collection("Subject_collection")

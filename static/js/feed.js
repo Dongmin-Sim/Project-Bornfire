@@ -6,13 +6,9 @@ $("#context").keydown(function(key){
 
 
 $('#button-addon2').click(function(){
-    // 세션 값 가져오기
-    //const user =  sessionStorage.getItem('nickname')
-    const nickname = "성난 개구리 🐸";
     const context = $('#context').val();
 
     var postdata = {
-        "nickname" : nickname,
         "context" : context
     };
   
@@ -34,15 +30,13 @@ $('#button-addon2').click(function(){
 })
 
 $(document).on("click",".btn-dark",function(){
-    
-    console.log($(this).val())
     let $dom = $(this); 
-    console.log($dom)
     let id = $(this).val();
+
 
     $.ajax({
         type: 'UPDATE',
-        url: '/thumbs',
+        url: '/likes',
         data: JSON.stringify(id),
         dataType : 'json',
         contentType: "application/json",

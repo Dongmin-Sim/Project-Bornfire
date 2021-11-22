@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, jsonify, request, redirect
+from flask import Blueprint, render_template, jsonify, request, redirect, session
 import datetime
 from bson import ObjectId
-from pymongo import cursor
 
 from .models import Feed_collection, User_collection
+from .nickname import make_nickname
 
 feed = Blueprint("feed", __name__)
 
@@ -21,8 +21,7 @@ def get_feed():
     for col in cols:
         col_list.append({
             '_id' : col["_id"],
-            # TODO 생성 필요
-            'nickname': "개구리상",
+            'nickname': make_nickname(),
             'context' : col['Feed'],
             'thumbs-up': len(col['Meta']['Likes'])
         })
@@ -33,18 +32,24 @@ def get_feed():
 @feed.route('/feed', methods=['POST'])
 def post_feed():
     data = request.json
-    nickname = str(data.get('nickname'))
+    email = str(session['user_email'])
     context = str(data.get('context'))
 # 분석 툴이 들어 와서 emotion에 저장. 
-# '''
-# user_collection에 저장한다. 
-# ''' 
+    '''
+        user_collection에 내용 저장
+    User_collection.
+    '''
+    time = datetime.datetime.utcnow()
     emotion = 1
+    
+    log = {str(time): emotion}
+    User_collection.update_one({'User_email': email}, { '$push': { 'User_feed_log': log } })
+
     data = {
         'Main_subject_num' : 1,
         'Side_subject_num': 1,
         'Feed' : context,
-        "Meta": {'Likes': [], "Created_at": datetime.datetime.utcnow()},
+        "Meta": {'Likes': [], "Created_at": time},
         'Predicted_value' : emotion
     }
     # Feed_collection.remove({})
@@ -52,29 +57,37 @@ def post_feed():
 
     cols = Feed_collection.find().sort('_id',-1).limit(1)
     #TODO [DB 정보 확인]DB에서 error가 났을 때,  예외 처리 필요. 
+
     col_list = []
     for col in cols:
         col_list.append({
-            '_id' : str(col["_id"]),
-            #TODO 이거 함수 그냥 돌려서 
-            'nickname': "개구리 상",
+            '_id' : str(col["_id"]), 
+            'nickname': make_nickname(),
             'context' : col['Feed'],
             'thumbs-up': len(col['Meta']['Likes'])
         })
 
     return (jsonify(col_list))
 
-@feed.route('/thumbs', methods=["UPDATE"])
-def thumbs_up():
+@feed.route('/likes', methods=["UPDATE"])
+def like():
     data = request.json
+    email = str(session['user_email'])
 
-    # #update thumbs-up
-    # find_query = {'_id': ObjectId(data)}
-    # update = {'$inc': {'Meta.thumps-up': 1}}
-    # Feed_collection.update_one(find_query, update)
+    #query
+    find_query = {'_id': ObjectId(data)}
+    update_query = { '$push': { 'Meta.Likes': email } }
+    delete_query = {'$pull': { 'Meta.Likes': email }}
 
-    # #for parse thumbs-up data
-    # cols = Feed_collection.find_one(find_query)
-    # dict_cols = dict(cols)
 
-    return(jsonify("3"))
+    like_list = Feed_collection.find_one(find_query)['Meta']['Likes']
+
+    if len(like_list)==0 and email not in like_list:
+        Feed_collection.update_one(find_query, update_query)
+        return jsonify(len(like_list)+1)
+
+
+
+    Feed_collection.update_one(find_query, delete_query)
+    return jsonify(len(like_list)-1)
+    
