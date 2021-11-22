@@ -6,15 +6,25 @@
     text-align: left;
 }
 
-.container .content-row {
-    border: solid 1px black;
+/* account */
+.container .my-account {
+    margin-bottom: 0px;
 }
+
 
 .container .content-box {
     padding-bottom: 20px o !important;
 }
 
+
+/* chart */
+.container .my-chart {
+    margin-top: 0px;
+}
+
+
 .row {
     text-shadow: none;
 }
+
 
