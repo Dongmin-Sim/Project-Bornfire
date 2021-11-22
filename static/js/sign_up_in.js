@@ -20,7 +20,10 @@ const password2 = document.getElementById("password2");
 // Check passwords match
 function checkPasswordsMatch(input1, input2) {
   if (input1.value !== input2.value) {
-    alert("Passwords do not match");
+    alert("비밀번호가 일치하지 않습니다.");
+    return false;
+  } else {
+    return true;
   }
 }
 
@@ -28,6 +31,7 @@ function checkPasswordsMatch(input1, input2) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  checkPasswordsMatch(password, password2);
-  form.submit();
+  if (checkPasswordsMatch(password, password2) == true) {
+    form.submit();
+  }
 });
