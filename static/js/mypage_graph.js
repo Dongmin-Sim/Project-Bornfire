@@ -26,10 +26,10 @@ let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
 let sentiment_chart = new Chart(feed_sentiment, {
     type: 'doughnut',
     data: {
-        labels: ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80'],
+        labels: ['긍정', '부정'],
         datasets: [{
             label: '# 긍정',
-            data: [90415, 905522, 2794352, 2868808, 3285230, 3772975, 4333064, 3156063, 1448510],
+            data: [90415, 905522],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.5)',
                 'rgba(250, 158, 64, 0.5)',
