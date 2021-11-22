@@ -30,3 +30,23 @@ $("#answer-btn").click(function () {
     alert("답이 틀렸습니다. 다시 한번 입력해주세요.");
   }
 });
+
+$("#change-pw-btn").click(function (e) {
+  e.preventDefault();
+  const pw = $("#floatingInput").val();
+  const pw2 = $("#floatingPassword").val();
+  const form = $("#pw-change-form");
+
+  if (checkPasswordsMatch(pw, pw2) == true) {
+    form.submit();
+  }
+});
+
+function checkPasswordsMatch(input1, input2) {
+  if (input1 !== input2) {
+    alert("비밀번호가 일치하지 않습니다.");
+    return false;
+  } else {
+    return true;
+  }
+}

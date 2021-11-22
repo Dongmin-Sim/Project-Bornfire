@@ -57,7 +57,12 @@
             </div>
           </div>
 
-          <form class="change-form" action="change-pw" method="POST">
+          <form
+            class="change-form"
+            id="pw-change-form"
+            action="change-pw"
+            method="POST"
+          >
             <div class="form-floating mb-3">
               <input
                 type="password"
@@ -81,6 +86,7 @@
               <button
                 class="btn btn-secondary btn-login text-uppercase fw-bold"
                 type="submit"
+                id="change-pw-btn"
               >
                 비밀번호 바꾸기
               </button>
