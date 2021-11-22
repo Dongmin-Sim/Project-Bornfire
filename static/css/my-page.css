@@ -6,3 +6,15 @@
     text-align: left;
 }
 
+.container .content-row {
+    border: solid 1px black;
+}
+
+.container .content-box {
+    padding-bottom: 20px o !important;
+}
+
+.row {
+    text-shadow: none;
+}
+
