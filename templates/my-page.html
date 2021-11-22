@@ -1,12 +1,44 @@
 {% extends "base.html" %} {% block head %}
 <!-- place for css link -->
-<title>🔥 Bornfire - 마이페이지</title>
-
 <link
   href="{{url_for('static',filename='./css/intro.css')}}"
   rel="stylesheet"
 />
-{% endblock %} {% block body %}
 
-<div style="height: 1000px">마이페이지 입니다.</div>
-{% endblock %} {% block script %} {% endblock %}
+{% endblock %} 
+
+{% block body %}
+<!-- introduce service -->
+<div class="container my-account">
+  <div class="row p-3 bg-white">
+    <div class="col-md-12 align-self-center">
+      <div
+        class="p-5 text-black"
+        style="text-align: left; font-size: 1rem; text-shadow: none"
+      >
+        <div>
+          <h4 class="h4 text-black">이메일</h4>
+          <div>{% useremail %}</div>
+        </div>
+        <div>
+          <h4 class="h4 text-black">비밀번호 변경</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row p-3 bg-white">
+    <div class="col-md-6">
+      월별 일일 감정 통계 그래프 (line 그래프 예정)
+      <canvas>stastics</canvas>
+    </div>
+    <div class="col-md-6">
+      나의 게시글 감정 통계 (pi그래프 예정)
+      <canvas>stastics</canvas>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+
+
+{% block script %} {% endblock %}
