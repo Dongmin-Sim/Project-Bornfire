@@ -32,12 +32,13 @@ def change():
     validation_pw = re.compile('(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$') 
 
     if validation_pw.match(pw) != None:
-            pass
+        pass
     else:
-            print("비밀번호 정규식 에러")
+        return redirect(url_for('forgot_pw.forgot'))
+            
 
     if pw != pw2:
-            print("비밀번호가 일치 하지 않습니다.")
+        return redirect(url_for('forgot_pw.forgot'))
     
     if pw == pw2:
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
