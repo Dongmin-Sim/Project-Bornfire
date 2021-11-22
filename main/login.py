@@ -18,16 +18,13 @@ def get_login():
         pw = request.form.get("user_pw")
         user = db.User_collection.find_one({"User_email":email})
         if bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
-            session['nickname'] = nickname.make_nickname()
             session['user_email'] = email
             return redirect(url_for('intro.get_intro'))
         else:
-            print("비밀번호가 일치하지 않습니다.")
             return redirect(url_for('login.get_login'))
 
 @login.route("/logout")
 def get_logout():
-    session.pop('nickname',None)
     session.pop('user_email',None)
     return redirect(url_for('intro.get_intro'))
 
