@@ -1,11 +1,7 @@
 from flask import Blueprint, render_template, jsonify, request, redirect,url_for
 from . import user_validate
-import pymongo
+from .models import db
 import bcrypt
-
-
-connection = pymongo.MongoClient('mongodb://localhost:27017/')
-db = connection.get_database("Bornfire")
 
 join = Blueprint("join", __name__)
 

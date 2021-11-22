@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request, redirect
-import pymongo
+from .models import  User_collection
 
 mypage = Blueprint("mypage", __name__)
 

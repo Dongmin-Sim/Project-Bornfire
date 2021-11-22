@@ -1,12 +1,7 @@
 from flask import Blueprint, render_template, jsonify, request, redirect, url_for
 import bcrypt
 import re
-import pymongo
-
-
-connection = pymongo.MongoClient('mongodb://localhost:27017/')
-db = connection.get_database("Bornfire")
-collection = db.get_collection("User_collection")
+from .models import User_collection as collection
 
 
 forgot_pw = Blueprint("forgot_pw", __name__)
