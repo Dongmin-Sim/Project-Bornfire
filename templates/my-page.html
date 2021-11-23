@@ -23,28 +23,17 @@
     </div>
 
     <div class="row p-3 bg-white">
-      <div class="p-5 pb-2 text-black" style="text-align: left; font-size: 1rem; text-shadow: none;">
-        <div class="col-md-3">
-          <h5 class="h5 text-black">기존 비밀번호</h5>
-        </div>
-        <div class="col-md-5">
-          <form action="/my-page", method="POST">
-            <input type="text" name="password" id="password">
-          </form>
-        </div>
-        
-      </div>
       <div class="p-5 pb-2 text-black" style="text-align: left; font-size: 1rem; text-shadow: none">
-        <div class="col-md-3">
-          <h5 class="h5 text-black">비밀번호 변경</h5>
-        </div>
-        <div class="col-md-5">
-          <form action="/my-page", method="POST">
-            <input type="text" name="password2" id="password2">
-            <button>submit</button>
-          </form>
+          <div class="col-md-3">
+            <h5 class="h5 text-black">기존 비밀번호</h5>
+            <input type="password" name="origin_pw" id="origin_pw" class="origin_pw" required />
+          </div>
           
-        </div>
+          <div class="col-md-3">
+            <h5 class="h5 text-black">비밀번호 변경</h5>
+            <input type="password" name="new_pw" id="new_pw" class="new_pw" required />
+          </div>
+          <button class="btnValue1">변경</button>
       </div>
     </div>
   </div>
@@ -69,6 +58,37 @@
 
 
 {% block script %}
+<script>
+  $(".btnValue1").click(function () {
+    console.log($("#origin_pw").val())
+    data = {
+      "origin_pw": $("#origin_pw").val(),
+      "new_pw": $("#new_pw").val()
+    }
+
+    $.ajax({
+      type: "POST",
+      // url_for을 사용할 때는 Blueprint.function
+      url: '{{url_for("mypage.change_pw")}}',
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      dataType: "json",
+      success: function (result) {
+        if (result['result'] == 'ok') {
+          alert('비밀번호 변경 성공~!')
+        } else {
+          alert('비밀번호 변경 실패ㅠ')
+        }
+        $("#origin_pw").val("");
+        $("#new_pw").val("");
+      },
+      error: function (request, status, error) {
+        alert(error);
+      },
+    });
+  });
+</script>
+
 <!-- chartjs -->
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
