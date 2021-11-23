@@ -8,10 +8,10 @@ let daily_statistics = document.getElementById("daily_statistics").getContext('2
 let daily_chart = new Chart(daily_statistics, {
     type: 'line',
     data: {
-        labels: orginLabels,
+        labels: week_labels,
         datasets : [{
             label : '일일 통계량',
-            data: orginData,
+            data: week_value,
             borderColor: '#ff4b2b',
         }]
     },
@@ -28,10 +28,10 @@ let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
 let sentiment_chart = new Chart(feed_sentiment, {
     type: 'doughnut',
     data: {
-        labels: ['긍정', '부정'],
+        labels: Object.keys(predicted_value),
         datasets: [{
             label: '# 긍정',
-            data: [90415, 905522],
+            data: Object.values(predicted_value),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.5)',
                 'rgba(250, 158, 64, 0.5)',

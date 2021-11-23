@@ -8,50 +8,71 @@
 {% endblock %} 
 
 {% block body %}
-<!-- introduce service -->
 <div class="container">
-  <div class="container my-account">
-    <div class="row p-3 bg-white content-row">
-      <div class="p-5 pb-2 text-black content-box" style="text-align: left; font-size: 1rem; text-shadow: none">
-        <div class="col-md-3">
-          <h5 class="h5 text-black">나의 계정</h5>
+  <!-- 나의 계정 -->
+  <div class="container my-account bg-white">
+    <div class="row p-3 content-row">
+      <div class="p-5 pb-2 text-black content-box">
+        <div class="col-md-6 title">
+          <h5 class="display-5">나의 계정</h5>
         </div>
         <div class="col-md-5">
-          {{data.user_email}}
+          <h5 class="h5">{{data.user_email}}</h5>
         </div>
-      </div>
-    </div>
-
-    <div class="row p-3 bg-white">
-      <div class="p-5 pb-2 text-black" style="text-align: left; font-size: 1rem; text-shadow: none">
-          <div class="col-md-3">
-            <h5 class="h5 text-black">기존 비밀번호</h5>
-            <input type="password" name="origin_pw" id="origin_pw" class="origin_pw" required />
-          </div>
-          
-          <div class="col-md-3">
-            <h5 class="h5 text-black">비밀번호 변경</h5>
-            <input type="password" name="new_pw" id="new_pw" class="new_pw" required />
-          </div>
-          <button class="btnValue1">변경</button>
       </div>
     </div>
   </div>
+  
+  <!-- 비밀번호 변경 -->
+  <div class="container my-account bg-white">
+      <div class="row p-3 content-row">
+        <div class="p-5 pb-2 text-black content-box">
+          <div class="col-md-6 title">
+            <h5 class="display-5">비밀번호 변경</h5>
+          </div>
 
-  <div class="container my-chart">
-    <div class="row p-5 bg-white text-black">
-      <div class="col-md-6">나의 일일 피드 통계량</div>
-      <div class="col-md-6">나의 게시글 감정 통계 (pi그래프 예정)</div>
-    </div>
-    <div class="row p-3 bg-white">
-      <div class="col-md-6 align-self-center">
-        
-        <canvas id="daily_statistics"></canvas>
+          <!-- 기존 비밀번호 -->
+          <div class="col-md-5">
+            <h5 class="h5">기존 비밀번호</h5>
+            <input type="password" name="origin_pw" id="origin_pw" class="origin_pw" placeholder="*****" required />
+          </div>
+          
+          <!-- 변경할 비밀번호 -->
+          <div class="col-md-5 mt-5">
+            <h5 class="h5">변경할 비밀번호</h5>
+            <input type="password" name="new_pw" id="new_pw" class="new_pw" placeholder="*****" required />
+          </div>
+        </div>
       </div>
+      <div class="row p-3 content-row justify-content-end">
+        <div class="col-md-3">
+          <button class="btnValue1">변경</button>
+        </div>
+      </div>
+  </div>
+  <!-- 나의 피드 통계 -->
+  <div class="container my-account bg-white">
+    <div class="row p-5 content-row">
       <div class="col-md-6">
-        <canvas id="feed_sentiment"></canvas>
+        <div class="col-md-12 title">
+          <h5 class="display-6">주간 피드 통계</h5>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <canvas id="daily_statistics"></canvas>
+          </div>
+        </div>
+        
       </div>
-    </div>
+
+      <div class="col-md-6">
+        <div class="col-md-12 title">
+          <h5 class="display-6">나의 게시글 감정 통계</h5>
+        </div>
+        <div class="col-md-12">
+          <canvas id="feed_sentiment"></canvas>
+        </div>
+      </div>
   </div>
 </div>
 {% endblock %} 
@@ -59,6 +80,7 @@
 
 {% block script %}
 <script>
+  // 비밀번호 변경
   $(".btnValue1").click(function () {
     console.log($("#origin_pw").val())
     data = {
@@ -75,9 +97,9 @@
       dataType: "json",
       success: function (result) {
         if (result['result'] == 'ok') {
-          alert('비밀번호 변경 성공~!')
+          alert('비밀번호가 성공적으로 변경되었습니다!')
         } else {
-          alert('비밀번호 변경 실패ㅠ')
+          alert('비밀번호가 올바르지 않습니다.')
         }
         $("#origin_pw").val("");
         $("#new_pw").val("");
@@ -87,6 +109,14 @@
       },
     });
   });
+
+  // 일일 피드 통계량
+  let temp = {{ data|tojson }}
+  let week_labels = temp['my_feed_log'][0]
+  let week_value = temp['my_feed_log'][1]
+  
+  let predicted_value = temp['predicted_value']
+
 </script>
 
 <!-- chartjs -->
