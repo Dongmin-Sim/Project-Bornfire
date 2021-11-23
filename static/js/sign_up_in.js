@@ -32,6 +32,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (checkPasswordsMatch(password, password2) == true) {
+    alert("회원가입이 완료되었습니다 🔥");
+
     form.submit();
   }
 });

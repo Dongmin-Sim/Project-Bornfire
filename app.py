@@ -10,6 +10,8 @@ from main.forgot_pw import forgot_pw
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
+
+
 # Page blueprint
 '''
 intro : 인트로 페이지

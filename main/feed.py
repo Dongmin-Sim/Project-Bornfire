@@ -3,11 +3,10 @@ import pymongo
 import datetime
 from bson import ObjectId
 from pymongo import cursor
+from .mongo_connect import db
 
 feed = Blueprint("feed", __name__)
 
-connection = pymongo.MongoClient('mongodb://localhost:27017/')
-db = connection.get_database("Bornfire")
 
 Feed_collection = db.get_collection("Feed_collection")
 
