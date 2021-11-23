@@ -9,7 +9,7 @@ def create_feed():
     vexpr = { 
         '$jsonSchema':{
                 'bsonType': "object",
-                'required': ["Main_subject_num",'Side_subject_num', 'Meta', 'emotion' ],
+                'required': ["Main_subject_num",'Side_subject_num', 'Meta', 'Predicted_value' ],
                 'properties': {
                     'Main_subject_num' :{
                         'bsonType' : "int",
@@ -29,12 +29,12 @@ def create_feed():
                                 'bsonType' : 'array',
                                 'items':{
                                     "bsonType" : "string",
-                                     "pattern" : "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                                    "pattern" : "^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
                                 },
                                 "uniqueItems": True
                             },
                             'Created_at':{
-                                'bsonType': 'timestamp'
+                                'bsonType': 'date'
                             }
                         }
                     },

@@ -1,0 +1,83 @@
+{% extends "base.html" %} {% block head %}
+<!-- place for css link -->
+<link
+  href="{{url_for('static',filename='./css/my-page.css')}}"
+  rel="stylesheet"
+/>
+
+{% endblock %} 
+
+{% block body %}
+<!-- introduce service -->
+<div class="container">
+  <div class="container my-account">
+    <div class="row p-3 bg-white content-row">
+      <div class="p-5 pb-2 text-black content-box" style="text-align: left; font-size: 1rem; text-shadow: none">
+        <div class="col-md-3">
+          <h5 class="h5 text-black">나의 계정</h5>
+        </div>
+        <div class="col-md-5">
+            user_email {{user_email}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-3 bg-white">
+      <div class="p-5 pb-2 text-black" style="text-align: left; font-size: 1rem; text-shadow: none;">
+        <div class="col-md-3">
+          <h5 class="h5 text-black">기존 비밀번호</h5>
+        </div>
+        <div class="col-md-5">
+          <form action="/my-page", method="POST">
+            <input type="text" name="password" id="password">
+          </form>
+        </div>
+        
+      </div>
+      <div class="p-5 pb-2 text-black" style="text-align: left; font-size: 1rem; text-shadow: none">
+        <div class="col-md-3">
+          <h5 class="h5 text-black">비밀번호 변경</h5>
+        </div>
+        <div class="col-md-5">
+          <form action="/my-page", method="POST">
+            <input type="text" name="password2" id="password2">
+            <button>submit</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-chart">
+    <div class="row p-5 bg-white text-black">
+      <div class="col-md-6">나의 일일 피드 통계량</div>
+      <div class="col-md-6">나의 게시글 감정 통계 (pi그래프 예정)</div>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-6 align-self-center">
+        
+        <canvas id="daily_statistics"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="feed_sentiment"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 
+
+
+{% block script %}
+<!-- chartjs -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+  integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<!-- chart -->
+<script src="{{ url_for('static', filename='./js/mypage_graph.js')}}"></script>
+
+
+{% endblock %}

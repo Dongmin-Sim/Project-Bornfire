@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for
-from .nickname import make_nickname
 from .mongo_connect import db
 import pymongo
 import re

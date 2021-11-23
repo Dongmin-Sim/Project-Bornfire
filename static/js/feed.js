@@ -1,21 +1,15 @@
 $("#context").keydown(function(key){
     if(key.keyCode==13) {
+        key.preventDefault();
         $('#button-addon2').click();
     }
 });
 
 
-
-
-
-$('#button-addon2').click(function(){
-    // 세션 값 가져오기
-    //const user =  sessionStorage.getItem('nickname')
-    const nickname = "성난 개구리 🐸";
+$('#button-addon2').click(function(e){
     const context = $('#context').val();
-
+    e.preventDefault();
     var postdata = {
-        "nickname" : nickname,
         "context" : context
     };
   
@@ -27,7 +21,8 @@ $('#button-addon2').click(function(){
         contentType: "application/json",
 
         success: function(datas){
-            card(datas)
+            card(datas);
+            $("#context").val('');
         },
         error: function(request, status, error){
             alert('ajax 통신 실패')
@@ -37,15 +32,13 @@ $('#button-addon2').click(function(){
 })
 
 $(document).on("click",".btn-dark",function(){
-    
-    console.log($(this).val())
     let $dom = $(this); 
-    console.log($dom)
     let id = $(this).val();
+
 
     $.ajax({
         type: 'UPDATE',
-        url: '/thumbs',
+        url: '/likes',
         data: JSON.stringify(id),
         dataType : 'json',
         contentType: "application/json",
@@ -61,19 +54,21 @@ $(document).on("click",".btn-dark",function(){
 
 });
 
-function post(){
-    
-}
 
 
 function card(datas){
-    parent = document.getElementById('post');
+    parent = document.getElementById('card-row');
     for(var i=0; i<datas.length; i++){
+        var card_col = document.createElement("div");
+        card_col.setAttribute("class", "col-md-6");
+        parent.insertBefore(card_col, parent.firstChild);
+
         var card = document.createElement("div");
         card.setAttribute("id", "card");
-        card.setAttribute("class", "card feed-comment rounded-pill");
+        card.setAttribute("class", "card col-md-12 feed-comment");
         // document.getElementById('post').appendChild(card);
-        parent.insertBefore(card, parent.firstChild);
+        card_col.appendChild(card);
+        
 
         var card_header = document.createElement("div");
         card_header.setAttribute("id", "card-header");
