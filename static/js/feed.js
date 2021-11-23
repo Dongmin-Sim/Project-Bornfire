@@ -1,13 +1,14 @@
 $("#context").keydown(function(key){
     if(key.keyCode==13) {
+        key.preventDefault();
         $('#button-addon2').click();
     }
 });
 
 
-$('#button-addon2').click(function(){
+$('#button-addon2').click(function(e){
     const context = $('#context').val();
-
+    e.preventDefault();
     var postdata = {
         "context" : context
     };
@@ -20,7 +21,8 @@ $('#button-addon2').click(function(){
         contentType: "application/json",
 
         success: function(datas){
-            card(datas)
+            card(datas);
+            $("#context").val('');
         },
         error: function(request, status, error){
             alert('ajax 통신 실패')
@@ -55,13 +57,18 @@ $(document).on("click",".btn-dark",function(){
 
 
 function card(datas){
-    parent = document.getElementById('post');
+    parent = document.getElementById('card-row');
     for(var i=0; i<datas.length; i++){
+        var card_col = document.createElement("div");
+        card_col.setAttribute("class", "col-md-6");
+        parent.insertBefore(card_col, parent.firstChild);
+
         var card = document.createElement("div");
         card.setAttribute("id", "card");
-        card.setAttribute("class", "card feed-comment rounded-pill");
+        card.setAttribute("class", "card col-md-12 feed-comment");
         // document.getElementById('post').appendChild(card);
-        parent.insertBefore(card, parent.firstChild);
+        card_col.appendChild(card);
+        
 
         var card_header = document.createElement("div");
         card_header.setAttribute("id", "card-header");
