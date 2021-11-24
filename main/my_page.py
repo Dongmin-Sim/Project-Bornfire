@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, session
+from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for
+import functools
 from .models import  User_collection
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -7,10 +8,20 @@ import bcrypt
 
 mypage = Blueprint("mypage", __name__)
 
+def login_required(func):
+    @functools.wraps(func)
+    def wrapped_view(**kwargs):
+        user = session.get('user_email')
+        if user is None:
+            return redirect(url_for('index'))
+        return func(**kwargs)
+    return wrapped_view
+
 
 col = User_collection
 
 @mypage.route("/my-page", methods=['GET'])
+@login_required
 def get_myPage():
     global col
     if session.get('user_email') is not None:
