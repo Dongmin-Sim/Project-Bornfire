@@ -23,7 +23,11 @@
       우울을 이겨내는 여러분만의 방법은 무엇인가요?
     </div>
     <div class="col-md-2 p-3 m-0 align-middle text-center today-subject-btn">
+      {% if session.user_email %}
+      <a href="/feed"> 나의 감정 말하러 가기 </a>
+      {% else %}
       <a href="/login-join"> 나의 감정 말하러 가기 </a>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -139,6 +143,16 @@
 <!-- go login -->
 <div class="row text-center" style="width: 100%">
   <div style="width: 30%; float: none; margin: 30px auto">
+    {% if session.user_email %}
+    <a href="/feed"
+      ><button
+        class="btn btn btn-round"
+        style="width: 100%; background-color: #ff4b2b; color: white"
+      >
+        모닥불 이용하기
+      </button></a
+    >
+    {% else %}
     <a href="/login-join"
       ><button
         class="btn btn btn-round"
@@ -147,6 +161,7 @@
         모닥불 이용하기
       </button></a
     >
+    {% endif %}
   </div>
 </div>
 
