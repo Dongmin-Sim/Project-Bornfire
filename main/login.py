@@ -28,7 +28,7 @@ def get_login():
         user = db.User_collection.find_one({"User_email":email})
         if bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
             session['user_email'] = email
-            return redirect(url_for('intro.get_intro'))
+            return redirect(url_for('feed.get_feed'))
         else:
             return redirect(url_for('login.get_login'))
 
