@@ -4,11 +4,31 @@ from bson import ObjectId
 from pymongo import cursor
 from .mongo_connect import db
 from .nickname import make_nickname
-
-feed = Blueprint("feed", __name__)
+import time
+import random
+from apscheduler.schedulers.background import BackgroundScheduler
 
 User_collection = db.get_collection("User_collection")
 Feed_collection = db.get_collection("Feed_collection")
+Subject_collection = db.get_collection("Subject_collection")
+
+
+def s_supply():
+    global m_num
+    global s_num
+    global subject
+    m_num = random.randint(1,4)
+    s_num = random.randint(1,5)
+    subject = Subject_collection.find_one({"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]})['Side_subject']
+
+s_supply()
+
+sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
+sched.add_job(s_supply,'interval',seconds=20)
+sched.start()
+
+feed = Blueprint("feed", __name__)
+
 
 
 
@@ -30,7 +50,7 @@ def get_feed():
         })
 
 # TODO subject collection 넘겨 주는 것 필요.
-    return render_template('feed.html', datas = col_list)
+    return render_template('feed.html', datas = col_list, subject = subject)
 
 @feed.route('/feed', methods=['POST'])
 def post_feed():

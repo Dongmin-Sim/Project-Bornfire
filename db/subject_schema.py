@@ -1,5 +1,5 @@
 import pymongo
-from .db_connect import db as db
+from db_connect import db
 
 def create_subject():
 
