@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, session
-from .models import  User_collection
+from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for
+import functools
+from .mongo_connect import db
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from collections import defaultdict
@@ -7,19 +8,27 @@ import bcrypt
 
 mypage = Blueprint("mypage", __name__)
 
+def login_required(func):
+    @functools.wraps(func)
+    def wrapped_view(**kwargs):
+        user = session.get('user_email')
+        if user is None:
+            return redirect(url_for('index'))
+        return func(**kwargs)
+    return wrapped_view
 
-col = User_collection
+
+col = db.get_collection("User_collection")
 
 @mypage.route("/my-page", methods=['GET'])
+@login_required
 def get_myPage():
     global col
     if session.get('user_email') is not None:
         # user
         user_email = session['user_email']
-        
         # 유저의 feed_log 불러오기
         feed_log = col.find_one({"User_email": user_email}, {"User_feed_log":True, "_id":False})['User_feed_log']
-        
         # 피드 작성 최신 순으로 
         feed_log.reverse()
 
@@ -28,7 +37,7 @@ def get_myPage():
         daily_feed = defaultdict(int)
         now = datetime.today()
         today = datetime(now.year, now.month, now.day)
-
+        
         for i in range(0, 8):
             new_date = today + relativedelta(days=-i)
             new_date = str(new_date.date())
@@ -46,7 +55,6 @@ def get_myPage():
                 break
             daily_feed[feed_date] += 1
 
-
         # TODO: 월별 긍/부정 비율 그래프
         predicted_value = defaultdict(int)
         month = str(today.month)
@@ -60,10 +68,6 @@ def get_myPage():
                 break
             predicted_value[value] += 1
         
-        temp = dict({'a':5, 'b':1})
-        print(type(temp))
-        print((list(temp.values())))
-        # return data
         data = {
             'user_email': user_email, 
             'my_feed_log': [list(daily_feed.keys()), list(daily_feed.values())],

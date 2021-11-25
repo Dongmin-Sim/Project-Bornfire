@@ -25,8 +25,7 @@ $('#button-addon2').click(function(e){
             $("#context").val('');
         },
         error: function(request, status, error){
-            alert('ajax 통신 실패')
-            alert(error);
+            alert('로그인이 필요합니다.')
         }
     })
 })

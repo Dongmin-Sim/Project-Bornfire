@@ -16,6 +16,8 @@ const form = document.getElementById("form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
+const question = document.getElementById("question");
+const user_answer = document.getElementById("user_answer");
 
 // Check passwords match
 function checkPasswordsMatch(input1, input2) {
@@ -31,7 +33,13 @@ function checkPasswordsMatch(input1, input2) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  if (user_answer.value.length == 0 || question.value.length == 0) {
+    return alert("비밀번호 찾기 질문과 답을 입력해주세요 🔥");
+  }
+
   if (checkPasswordsMatch(password, password2) == true) {
+    alert("회원가입이 완료되었습니다 🔥");
+
     form.submit();
   }
 });
