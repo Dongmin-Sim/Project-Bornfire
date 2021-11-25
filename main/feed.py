@@ -68,6 +68,9 @@ def post_feed():
     data = request.json
     email = str(session['user_email'])
     context = str(data.get('context'))
+    if len(context) == 0:
+        return abort(501)
+    
     #TODO 분석 툴이 들어 와서 emotion에 저장. 
     
 
@@ -122,6 +125,7 @@ def infinity_page():
     return jsonify(col_list)
 
 @feed.route('/likes', methods=["UPDATE"])
+@login_required
 def like():
     data = request.json
     email = str(session['user_email'])

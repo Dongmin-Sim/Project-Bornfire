@@ -24,8 +24,17 @@ $('#button-addon2').click(function(e){
             card(datas);
             $("#context").val('');
         },
-        error: function(request, status, error){
-            alert('로그인이 필요합니다.')
+        error: function(jqXHR, status, error){
+            if(jqXHR.status == 500){
+                alert("잘못된 접근입니다.")
+            }
+            if(jqXHR.status == 404){
+                alert('로그인이 필요합니다.')
+            }
+
+            if(jqXHR.status == 501){
+                alert("메세지를 입력해주세요.")
+            }
         }
     })
 })
@@ -45,9 +54,10 @@ $(document).on("click",".btn-dark",function(){
             console.log(thumbs_up)
             $dom.html("🙌 <span> &nbsp;" + thumbs_up + "</span>"); 
         },
-        error: function(request, status, error){
-            alert('ajax 통신 실패')
-            alert(error);
+        error: function(jqXHR, exception){
+            if(jqXHR.status==404){
+                alert("로그인이 필요합니다.")
+            }
         }
     })
 
