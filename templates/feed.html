@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block head %}
+<!-- place for css link -->
+<title>Bornfire - 피드페이지</title>
+
+<link href="{{url_for('static',filename='./css/feed.css')}}" rel="stylesheet" />
+<!-- place for jquery CDN -->
+{% endblock %} {% block body %}
+<main>
+  <div class="container" style="max-width: 100rem!important;">
+  <div class="jumbotron">
+    <div class="container">
+      <blockquote class="blockquote mb-0">
+        <p>우울한 기분이 들때 주로 무슨일을 하시나요?</p>
+      </blockquote>
+    </div>
+    <div class="card mt-5">
+      <form>
+        <div class="input-group input-group-lg">
+          <input
+            class="card-header form-control"
+            type="text"
+            placeholder=" 따뜻한 마음을 전해요"
+            id="context"
+          />
+          <div class="input-group-append input-group-lg">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+            >
+              포스트
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="post">
+    <div class= "row" id="card-row"> 
+      {% for data in datas %}
+        <div class ="col-md-4">
+          <div id="card" class="col-md-12 card feed-comment ">
+            <!-- header -->
+            <div id="card-header">{{ data.nickname }}</div>
+            <!-- content -->
+            <div id="card-body" class="card-body card-content ">
+              <blockquote class="blockquote mb-0">
+                <p>{{ data.context }}</p>
+              </blockquote>
+            </div>
+            
+            <!-- button -->
+            <div class="feed-button">
+              <button type="button" class="btn btn-dark" value="{{ data._id }}">
+                🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %} {% block script %}
+<script src="../static/js/feed.js"></script>
+{% endblock %}

@@ -1,0 +1,36 @@
+.container {
+    height: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* content */
+.content {
+    box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.content .btn-group {
+margin-left: 20px;
+}
+
+@media (min-width: 992px) {
+.rounded-lg-3 {
+    border-radius: 0.3rem;
+}
+}
+  
+
+.content-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.content-img img {
+    width: 100%;
+}

@@ -1,0 +1,169 @@
+{% extends "base.html" %} {% block head %}
+<!-- place for css link -->
+<title>Bornfire</title>
+
+<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+
+{% endblock %} {% block body %}
+
+<div class="container title-wrapper">
+  <!-- 소개글 -->
+  <div class="row">
+    <div class="col-md-12 title">
+      <h1 class="display-3">우울해도 괜찮아요</h1>
+      <h1 class="display-3">모닥불에서 잠시 쉬어가세요</h1>
+    </div>
+  </div>
+
+  <div class="row subtitle">
+    <h2 class="h4">오늘의 주제에서 나의 감정을 털어 놓아요</h2>
+  </div>
+  <div class="row today-subject">
+    <div class="col-md-4 p-3 m-0 align-middle text-center today-subject-input">
+      우울을 이겨내는 여러분만의 방법은 무엇인가요?
+    </div>
+    <div class="col-md-2 p-3 m-0 align-middle text-center today-subject-btn">
+      {% if session.user_email %}
+      <a href="/feed"> 나의 감정 말하러 가기 </a>
+      {% else %}
+      <a href="/login-join"> 나의 감정 말하러 가기 </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- main image -->
+<div class="container-fluid" style="height: 500px; background-color: white">
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <Canvas>THIS ISCAMVAS</Canvas>
+    </div>
+  </div>
+</div>
+
+<!-- introduce service -->
+<div class="container service-intro">
+  <div class="row p-3 bg-white service">
+    <div class="col-md-6 align-self-center">
+      <div
+        class="p-5 text-black"
+        style="text-align: left; font-size: 1rem; text-shadow: none"
+      >
+        <h4 style="color: gray">어두운 숲에서 여러분은 혼자가 아니에요</h4>
+        <h4 class="h4 text-black">
+          나의 생각과 다른 사람들의 생각을 확인하고 공감해보세요
+        </h4>
+        <p class="text-left">
+          코로나와 관련된 감정에 대한 키워드를 기반으로한 주제로 여러분의 감정을
+          공유해보세요. 다른 사람은 어떻게 느끼는지 확인해보고 또 공감해보세요.
+          나의 마음과 다른 사람들의 마음을 함께 위로해보세요.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img
+        class="img-fluid rounded-3"
+        src="../static/assets/img/intro/sample_img.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row p-3 bg-white service">
+    <div class="col-md-6">
+      <img
+        class="img-fluid rounded-3"
+        src="../static/assets/img/intro/sample_img.png"
+        alt=""
+      />
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black">
+        <h4 style="color: gray">따스한 불빛이 되어드려요</h4>
+        <h4 class="h4 text-black">하루의 감정을 모닥불에 날려보내요</h4>
+        <p class="text-left">
+          오늘 작성한 글은 내일 남지 않습니다. 오늘의 나의 감정을 글로 담아
+          보내보세요. 마음의 부담없이 나의 감정을 솔직하게 내려놓고 흘려
+          보내보세요.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row p-3 bg-white service">
+    <div class="col-md-6 align-self-center">
+      <div
+        class="p-5 text-black"
+        style="text-align: left; font-size: 1rem; text-shadow: none"
+      >
+        <h4 style="color: gray">모닥불에서 잠시 쉬어가세요</h4>
+        <h4 class="h4 text-black">
+          마음의 안정, 내게 필요한 힐링을 찾아드려요
+        </h4>
+        <p class="text-left">
+          코로나로 지친 이들의 마음을 달래줄 힐링 콘텐츠를 추천해드려요. 나에게
+          지금 필요한 다양한 콘텐츠들을 만나보세요.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <img
+        class="img-fluid rounded-3"
+        src="../static/assets/img/intro/sample_img.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<div class="container service-intro">
+  <div class="row p-3 bg-white service">
+    <div class="col-md-6">
+      <img
+        class="img-fluid rounded-3"
+        src="../static/assets/img/intro/sample_img.png"
+        alt=""
+      />
+    </div>
+    <div class="col-md-6 align-self-center">
+      <div class="p-5 text-black">
+        <h4 style="color: gray">다시 시작할 힘을 얻어가세요</h4>
+        <h4 class="h4 text-black">내 주변 지원 서비스를 찾아드려요</h4>
+        <p class="text-left">
+          도움이 필요할 때, 어떻게 도움을 받아야할지 모르겠을 때, 놓치고 있는
+          사회지원 서비스를 찾아드립니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- go login -->
+<div class="row text-center" style="width: 100%">
+  <div style="width: 30%; float: none; margin: 30px auto">
+    {% if session.user_email %}
+    <a href="/feed"
+      ><button
+        class="btn btn btn-round"
+        style="width: 100%; background-color: #ff4b2b; color: white"
+      >
+        모닥불 이용하기
+      </button></a
+    >
+    {% else %}
+    <a href="/login-join"
+      ><button
+        class="btn btn btn-round"
+        style="width: 100%; background-color: #ff4b2b; color: white"
+      >
+        모닥불 이용하기
+      </button></a
+    >
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %} {% block script %}
+{% endblock %}

@@ -1,0 +1,66 @@
+
+body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+main{
+  width: 100%;
+}
+
+.feed-comment::-webkit-scrollbar{
+  width: 6px;
+}
+
+.feed-comment::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+.feed-comment::-webkit-scrollbar-thumb{
+  border-radius: 3px;
+  background-color: gray;
+}
+
+.feed-comment::-webkit-scrollbar-button{
+  width: 0px;
+  height: 0px;
+}
+
+.feed-comment {
+  transition: all 1.5s ease;
+  max-height: 300px;
+  min-height: 300px;
+}
+
+.feed-comment:hover{
+  transform: scale(1.2);
+  z-index: 1;
+}
+#card-row{
+  width: 100%
+}
+
+.checkbox-div {
+  display: flexbox;
+  margin-top: 1em;
+}
+
+.container{
+  height: 100%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.feed-comment {
+  margin-top: 2em;
+  /* margin-right: 2em; */
+  overflow: auto;
+  color: black;
+}
+
+.feed-button {
+  text-align: end !important;
+  
+}
+#card-header{
+  text-align: left;
+}
