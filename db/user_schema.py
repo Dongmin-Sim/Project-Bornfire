@@ -1,16 +1,10 @@
 import pymongo
-from collections import OrderedDict
-# from datetime import datetime
+from db_connect import db
+
 
 def create_user():
-    connection = pymongo.MongoClient('mongodb://localhost:27017/')
-    db = connection.get_database("Bornfire")
 
-    # usercollection 스키마
-    db.User_collection.drop()
-
-    User_collection = db.create_collection("User_collection")
-
+    db.create_collection("User_collection")
     vexpr = {
         "$jsonSchema" : {
             "title" : "User_schema",
@@ -37,15 +31,15 @@ def create_user():
             }
         }
     }
+    db.command({
+        'collMod' : "User_collection",
+        'validator' : vexpr,
+        'validationLevel' : "moderate"
+    })
+    
     db.User_collection.create_index([('User_email', 1)], name='User_email', unique=True)
 
+create_user()
 
 
 
-    cmd = OrderedDict([('collMod','User_collection'),
-                                    ('validator', vexpr),
-                                    ('validationLevel', 'strict')])
-
-    db.command(cmd)
-
-    return User_collection

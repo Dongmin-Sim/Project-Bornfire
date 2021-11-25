@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify,request, redirect, Blueprint
+from datetime import timedelta
 from main.intro import intro 
 from main.statistics import statistics
 from main.login import login
@@ -8,8 +9,12 @@ from main.my_page import mypage
 from main.about_us import about_us
 from main.forgot_pw import forgot_pw
 
+
 app = Flask(__name__)
 app.secret_key = "super secret key"
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=3) # 로그인 지속시간을 정합니다. 현재 1분
+
+
 # Page blueprint
 '''
 intro : 인트로 페이지
@@ -39,6 +44,7 @@ def index():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
+
 
 
 if __name__ == '__main__':

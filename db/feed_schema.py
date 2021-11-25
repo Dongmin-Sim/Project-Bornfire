@@ -1,18 +1,12 @@
 import pymongo
+from db_connect import db as db
 
 def create_feed():
-    connection = pymongo.MongoClient('mongodb://localhost:27017/')
-    db = connection.get_database("Bornfire")
 
-    # usercollection 스키마
-    # Feed_collection = db.get_collection("Feed_collection")
-    # db.Feed_collection.drop()
-    Feed_collection = db.create_collection("Feed_collection")
+    db.create_collection("Feed_collection")
 
-    #validator 적용하기
-    db.command( {
-        'collMod': "Feed_collection",
-        'validator' :{ '$jsonSchema':{
+    vexpr = { 
+        '$jsonSchema':{
                 'bsonType': "object",
                 'required': ["Main_subject_num",'Side_subject_num', 'Meta', 'Predicted_value' ],
                 'properties': {
@@ -48,9 +42,12 @@ def create_feed():
                     }
                 }
             }
+        }
 
-        },
-        'validationLevel': "moderate"
+    db.command({
+        'collMod' : "Feed_collection",
+        'validator' : vexpr,
+        'validationLevel' : "moderate"
     })
 
-    return Feed_collection
+create_feed()

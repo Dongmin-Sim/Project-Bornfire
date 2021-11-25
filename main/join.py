@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, jsonify, request, redirect,url_for
-from . import user_validate
-from .models import db
+from .user_validate import password_validate,email_validate
+import pymongo
 import bcrypt
+from .mongo_connect import db
+
 
 join = Blueprint("join", __name__)
 
@@ -14,6 +16,11 @@ def post_join():
         question = request.form.get("user_question")
         answer = request.form.get("user_answer")
         answer = answer.replace(" ","")
+        password_validate(pw,pw2)
+        email_validate(email)
+        if len(question) == 0 or len(answer) == 0:
+            return redirect(url_for('login.get_login'))
+            
         user_validate.password_validate(pw,pw2)
         user_validate.email_validate(email)
         

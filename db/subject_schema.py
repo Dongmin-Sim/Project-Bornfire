@@ -1,17 +1,12 @@
 import pymongo
-from collections import OrderedDict
-# from datetime import datetime
+from db_connect import db
 
 def create_subject():
-    connection = pymongo.MongoClient('mongodb://localhost:27017/')
-    db = connection.get_database("Bornfire")
 
-    # usercollection 스키마
-    Subject_collection = db.create_collection("Subject_collection")
+    db.create_collection("Subject_collection")
 
-    db.command({
-        'collMod':'Subject_collection',
-        'validator' :{"$jsonSchema" : {
+    vexpr = {
+        "$jsonSchema" : {
             "title" : "Subject_schema",
             "description" : "Schema for supply subject",
             "bsonType" : "object",
@@ -30,8 +25,11 @@ def create_subject():
                 }
             }
         }
-    },
-    'validationLevel': 'moderate'
-})
+    }
+    db.command({
+        'collMod' : "Subject_collection",
+        'validator' : vexpr,
+        'validationLevel' : "moderate"
+    })
 
-    return Subject_collection
+create_subject()
