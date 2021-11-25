@@ -55,18 +55,6 @@
   font-size: 1rem;
 }
 
-/* content */
-.content {
-  box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
-  text-shadow: none;
-  text-align: left;
-  font-size: 1rem;
-}
-
-.content .btn-group {
-  margin-left: 20px;
-}
-
 @media (min-width: 992px) {
   .rounded-lg-3 {
     border-radius: 0.3rem;

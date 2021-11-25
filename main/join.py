@@ -5,7 +5,6 @@ import bcrypt
 from .mongo_connect import db
 
 
-
 join = Blueprint("join", __name__)
 
 @join.route("/join", methods=["POST"])
@@ -18,10 +17,12 @@ def post_join():
         answer = request.form.get("user_answer")
         answer = answer.replace(" ","")
         password_validate(pw,pw2)
-        # email_validate(email)
+        email_validate(email)
         if len(question) == 0 or len(answer) == 0:
             return redirect(url_for('login.get_login'))
             
+        user_validate.password_validate(pw,pw2)
+        user_validate.email_validate(email)
         
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
         hashed_pw=hashed_pw.decode('utf-8')
