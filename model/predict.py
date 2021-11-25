@@ -1,5 +1,5 @@
-from .model import new_model
-from .tokenizer import tokenizer, stopwords, okt
+from tokenizer import tokenizer, stopwords, okt
+from model import new_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 

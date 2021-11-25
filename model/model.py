@@ -12,6 +12,6 @@ new_model = Sequential([
     Dense(1, activation='sigmoid')
 ])
 
-new_model.load_weights('../static/assets/model/lstm_model.h5')
-
+new_model.load_weights('static/assets/model/lstm_model.h5')
+print('모델 로드 완료')
 
