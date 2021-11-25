@@ -68,10 +68,6 @@ def get_myPage():
                 break
             predicted_value[value] += 1
         
-        # temp = dict({'a':5, 'b':1})
-        # print(type(temp))
-        # print((list(temp.values())))
-        # return data
         data = {
             'user_email': user_email, 
             'my_feed_log': [list(daily_feed.keys()), list(daily_feed.values())],

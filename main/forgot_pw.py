@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, url_for
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for, session
 import bcrypt
 import re
 import pymongo
@@ -13,6 +13,9 @@ forgot_pw = Blueprint("forgot_pw", __name__)
 @forgot_pw.route("/forgot-pw", methods=["GET","POST"])
 def forgot():
     if request.method=="GET":
+        user = session.get('user_email')
+        if user:
+            return redirect(url_for('index'))
         return render_template('forgot-pw.html')
     else:
         email = request.json
