@@ -21,8 +21,6 @@ def post_join():
         if len(question) == 0 or len(answer) == 0:
             return redirect(url_for('login.get_login'))
             
-        user_validate.password_validate(pw,pw2)
-        user_validate.email_validate(email)
         
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
         hashed_pw=hashed_pw.decode('utf-8')

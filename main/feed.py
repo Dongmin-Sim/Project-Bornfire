@@ -74,8 +74,8 @@ def post_feed():
     User_collection.update_one({'User_email': email}, { '$push': { 'User_feed_log': log } })
 
     data = {
-        'Main_subject_num' : 1,
-        'Side_subject_num': 1,
+        'Main_subject_num' : m_num,
+        'Side_subject_num': s_num,
         'Feed' : context,
         "Meta": {'Likes': [], "Created_at": time},
         'Predicted_value' : emotion

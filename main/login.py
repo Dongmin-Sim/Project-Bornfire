@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for
-from . import nickname
 import functools
-from .models import db
 import re
 import bcrypt
+from .mongo_connect import db
+
+User_collection = db.get_collection("User_collection")
 
 def login_required(func):
     @functools.wraps(func)
