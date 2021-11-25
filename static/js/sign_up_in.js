@@ -18,7 +18,7 @@ const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 const question = document.getElementById("question");
 const user_answer = document.getElementById("user_answer");
-
+const login_form = document.getElementById("login-form");
 // Check passwords match
 function checkPasswordsMatch(input1, input2) {
   if (input1.value !== input2.value) {
@@ -39,7 +39,6 @@ form.addEventListener("submit", function (e) {
 
   if (checkPasswordsMatch(password, password2) == true) {
     alert("회원가입이 완료되었습니다 🔥");
-
     form.submit();
   }
 });
