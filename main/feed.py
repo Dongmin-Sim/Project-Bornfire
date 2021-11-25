@@ -19,13 +19,13 @@ def s_supply():
     global s_num
     global subject
     m_num = random.randint(1,4)
-    s_num = random.randint(1,5)
+    s_num = random.randint(0,4)
     subject = Subject_collection.find_one({"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]})['Side_subject']
 
 s_supply()
 
 sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
-sched.add_job(s_supply,'interval',seconds=20)
+sched.add_job(s_supply,'interval',seconds=10)
 sched.start()
 
 feed = Blueprint("feed", __name__)
@@ -44,10 +44,14 @@ def login_required(func):
 
 @feed.route("/feed")
 def get_feed():
-    cols = Feed_collection.find().sort('_id',-1).limit(9)
+    
+    query = {"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]}
+
+    cols = Feed_collection.find(query).sort('_id',-1).limit(9)
 
     col_list = []
     for col in cols:
+        print(col)
         col_list.append({
             '_id' : col["_id"],
             'nickname': make_nickname(),
@@ -64,7 +68,7 @@ def post_feed():
     data = request.json
     email = str(session['user_email'])
     context = str(data.get('context'))
-    # 분석 툴이 들어 와서 emotion에 저장. 
+    #TODO 분석 툴이 들어 와서 emotion에 저장. 
     
 
     time = datetime.datetime.utcnow()
@@ -82,10 +86,11 @@ def post_feed():
     }
     # Feed_collection.remove({})
     Feed_collection.insert_one(data)
+    query = {"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]}
 
-    cols = Feed_collection.find().sort('_id',-1).limit(1)
+    cols = Feed_collection.find(query).sort('_id',-1).limit(1)
     #TODO [DB 정보 확인]DB에서 error가 났을 때,  예외 처리 필요. 
-
+    print(cols)
     col_list = []
     for col in cols:
         col_list.append({
@@ -100,7 +105,9 @@ def post_feed():
 @feed.route("/inifinity", methods=['POST'])
 def infinity_page():
     data = request.json
-    cols = Feed_collection.find().sort('_id',-1).skip(10*data['page']).limit(9)
+    query = {"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]}
+
+    cols = Feed_collection.find(query).sort('_id',-1).skip(10*data['page']).limit(9)
 
     col_list = []
     for col in cols:
