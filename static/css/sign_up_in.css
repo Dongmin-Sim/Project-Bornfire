@@ -225,3 +225,8 @@
 .logincontainer.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
+
+.pw-error {
+  color: #ff416c;
+  margin-top: 5px;
+}

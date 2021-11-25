@@ -19,7 +19,7 @@ def s_supply():
     global s_num
     global subject
     m_num = random.randint(1,4)
-    s_num = random.randint(1,5)
+    s_num = random.randint(0,4)
     subject = Subject_collection.find_one({"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]})['Side_subject']
 
 s_supply()

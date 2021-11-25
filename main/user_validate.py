@@ -1,4 +1,3 @@
-from validate_email_address import validate_email
 from flask import redirect,url_for
 import re
 
@@ -13,10 +12,10 @@ def password_validate(pw,pw2):
         pass
     else:
         return redirect(url_for('login.get_login'))
-        
+
 def email_validate(email):
-    if validate_email(email, verify=True):
+    validation_email = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+    if validation_email.match(email) != None:
         pass
     else:
         return redirect(url_for('login.get_login'))
-        

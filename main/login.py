@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for
+from flask import Blueprint, render_template, jsonify, request, redirect, session, url_for, abort
 import functools
 import re
 import bcrypt
@@ -31,7 +31,8 @@ def get_login():
             session['user_email'] = email
             return redirect(url_for('feed.get_feed'))
         else:
-            return redirect(url_for('login.get_login'))
+            msg='비밀번호가 일치하지 않습니다.'
+            return render_template('login-join.html', data=msg)
 
 @login.route("/logout")
 def get_logout():
