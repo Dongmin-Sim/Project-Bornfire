@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, jsonify, request, redirect, session
+from flask import Blueprint, render_template, jsonify, request, redirect, session, abort
 import datetime
 from bson import ObjectId
 from pymongo import cursor
 from .mongo_connect import db
 from .nickname import make_nickname
+import functools
 import time
 import random
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -29,13 +30,6 @@ sched.start()
 
 feed = Blueprint("feed", __name__)
 
-
-
-
-@feed.route("/feed")
-def get_feed():
-    cur= 0
-    cols = Feed_collection.find().sort('_id',-1).skip(10*cur).limit(10)
 
 
 def login_required(func):
