@@ -28,50 +28,49 @@
             <div class="col-md-4 align-self-center">
                 <div class="p-3 text-black">
                     <p class="text-left">
-                        보건복지부의 21년 1분기 「코로나19 국민 정신건강 실태조사」 2021년 3월
-                        29일부터 4월 12일까지 전국 거준 19~71세의 성인 2,110명을 대상으로 한
-                        정신건강 상태파악 조사에 따르면 코로나로 인해 우울, 자살생각 증가 등
+                        21년 1분기 「코로나19 국민 정신건강 실태조사」
+                        에 따르면 코로나로 인해 우울, 자살생각 증가 등
                         <strong><u>전반적인 정신건강 지표가 악화</u></strong
                         >된 것으로 나타났습니다.
                     </p>
                     <p class="text-left">
-                        우울 평균 점수는 5.7점으로(총점 27점), 2018년에 실시된 지역 사회
-                        건강조사 결과인 2.3점에 비해 <strong><u>2배 이상</u></strong> 증가한
-                        수치입니다. 또한 2021년 3월 자살생각 비율은 16.3%로 2018년 4.7%(2020
-                        자살예방백서)에 비해 약 3.5배 높은 수준이며, 코로나 발생초기인 2020년
-                        3월 9.7%와 비교해도 매우 높은 수치로,
-                        <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
+                        우울 평균 점수는 2018년에 실시된 지역 사회 건강조사 결과에 비해 <strong><u>2배 이상</u></strong> 증가한
+                        수치입니다. 
                     </p>
+                    <div class="text-left">
+                        또한 자살생각 비율(2021.3)은 16.3%로 2018년 4.7%에 비해 약 3.5배 높은 수준, 코로나 발생초기인 2020년
+                        3월 9.7%와 비교해 <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-dark">
-                    <input
-                    type="radio"
-                    name="options"
-                    class="btnValue1"
-                    value="f411"
-                    autocomplete="off"
-                    checked
-                    />
-                    F411
-                </label>
-                <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" class="btnValue2" value="f419" autocomplete="off"
-                    />
-                    F419
-                </label>
-                <label class="btn btn-outline-dark">
-                    <input
-                    type="radio"
-                    name="options"
-                    class="btnValue3"
-                    value="f320"
-                    autocomplete="off"
-                    />
-                    F320
-                </label>
+                    <label class="btn btn-outline-dark">
+                        <input
+                        type="radio"
+                        name="options"
+                        class="btnValue1"
+                        value="f411"
+                        autocomplete="off"
+                        checked
+                        />
+                        범불안장애
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <input type="radio" name="options" class="btnValue2" value="f419" autocomplete="off"
+                        />
+                        명시되지 않은 불안장애
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <input
+                        type="radio"
+                        name="options"
+                        class="btnValue3"
+                        value="f320"
+                        autocomplete="off"
+                        />
+                        경도 우울 에피소드
+                    </label>
                 </div>
                 <canvas id="patient"></canvas>
             </div>
@@ -79,14 +78,14 @@
         <div class="row p-4 bg-white">
         <div class="col-md-12 align-self-center">
             <div class="text-black">
-            <p class="text-left">
+            <!-- <p class="text-left">
                 보건의료빅데이터의 질병 소분류(4단상병) 통게 데이터
                 셋(▲범불안장애(F41.1) ▲명시되지 않은 불안장애 (F41.9) ▲경도의 우울병
                 에피소드(F32.0)에 해당하는 데이터)을 바탕으로 분석한 코로나 블루 통계
                 분석 결과 역시 코로나 발병 이후 <strong><u>꾸준한 증가세</u></strong
                 >를 보이는 것으로 나타났으며, 2021년 3월에는 모든 코로나블루 지표에서
                 가장 가파른 증가세를 보이고 있습니다.
-            </p>
+            </p> -->
             </div>
         </div>
         </div>
@@ -97,7 +96,7 @@
             <h4 class="h4 text-black">2️⃣ 성별, 연령별로 알아보는 코로나 블루 추이</h4>
         </div>
         <div class="row bg-white">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-outline-dark">
                 <input
@@ -108,7 +107,7 @@
                 autocomplete="off"
                 checked
                 />
-                F411
+                범불안장애
             </label>
             <label class="btn btn-outline-dark">
                 <input
@@ -118,7 +117,7 @@
                 value="f419"
                 autocomplete="off"
                 />
-                F419
+                명시되지 않은 불안장애
             </label>
             <label class="btn btn-outline-dark">
                 <input
@@ -128,7 +127,7 @@
                 value="f320"
                 autocomplete="off"
                 />
-                F320
+                경도 우울 에피소드
             </label>
             </div>
         </div>
@@ -138,7 +137,7 @@
             <canvas id="sexAge1"></canvas>
         </div>
         <div class="col-md-6">
-            <canvas id="sexAge2"></canvas>
+            <canvas id="sexAge2" style="height:50vh; width:50vw"></canvas>
         </div>
         </div>
         <div class="row p-3 bg-white">
@@ -189,54 +188,42 @@
         </div>
         <div class="row bg-white align-items-center">
         <div class="col-md-12">
-            <div
-            class="tableauPlaceholder"
-            id="viz1637228153981"
-            style="position: relative"
-            >
-            <noscript>
-                <a href="#"
-                ><img
-                    alt="지역별 코로나 전, 후 1년간 F32~F419 진단 환자수 변동 추이 "
-                    src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1F&#47;1F32F419_16372281397770&#47;1F32F419&#47;1_rss.png"
-                    style="border: none"
-                />
-                </a>
-            </noscript>
-            <object class="tableauViz" style="display: none">
-                <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-                <param name="embed_code_version" value="3" />
-                <param name="site_root" value="" />
-                <param name="name" value="1F32F419_16372281397770&#47;1F32F419" />
-                <param name="tabs" value="no" />
-                <param name="toolbar" value="yes" />
-                <param
-                name="static_image"
-                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1F&#47;1F32F419_16372281397770&#47;1F32F419&#47;1.png"
-                />
-                <param name="animate_transition" value="yes" />
-                <param name="display_static_image" value="yes" />
-                <param name="display_spinner" value="yes" />
-                <param name="display_overlay" value="yes" />
-                <param name="display_count" value="yes" />
-                <param name="language" value="ko-KR" />
-                <param name="filter" value="publish=yes" />
-            </object>
-            </div>
+            <div class='tableauPlaceholder' id='viz1637902527976' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='지역별 코로나 전, 후 1년간 F32, F411 진단 환자수 변동 추이 (2) ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='path' value='shared&#47;5BPH5F7GP' /> 
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='ko-KR' />
+                    <param name='filter' value='publish=yes' />
+                </object>
+            </div>                
         </div>
         </div>
         <div class="row p-3 bg-white">
         <div class="col-md-12 align-self-center">
             <div class="p-3 text-black">
             <p class="text-left">
-                거의 모든 지역에서 코로나 블루지표가 코로나 전보다 후 환자수가 증가한
-                것으로 나타났습니다.
+                거의 대부분의 지역에서 범불안장애, 경도의 우울 에피소드의 비율이 증가한 것으로 나타났습니다.<br>
+                서울 및 경기도, 인천, 제주도의 경우 경도의 우울 에피소드의 비율이 범불안장애보다 높은 비율을 보이는 것으로 나타났습니다.<br>
+                이외의 지역들도 마찬가지로 경도의 우울 에피소드의 비율도 높았으나, 범불안장애 비율 역시 높은 것으로 나타났습니다.
             </p>
             </div>
         </div>
         <div class="col-md-12 align-self-center">
             <div class="p-3 text-black">
-            <p class="text-left">지역과 관련된 내용 더 추가필요합니다.</p>
+            <p class="text-left">지도의 지역을 선택하시면 지역별로 코로나 전,후 전후 차이를 비교하실 수 있습니다.</p>
             </div>
         </div>
         </div>
@@ -257,24 +244,52 @@
             <h4 class="h4 text-black">코로나 키워드 긍부정 누적 그래프</h4>
         </div>
         <div class="row p-3 bg-white">
-            <div class="p-3 text-black">
-                total 코로나 전후로 코로나 + 감정, 기분, 일상에 관한 키워드의 변화가 있었는지 살펴봄
-                with 코로나 확진자수와 같이
+            <div class="h5 p-3 text-black" style="font-weight: 300;">
+                코로나 발생시기 동안의 코로나 + 감정, 기분, 일상의 키워드와 관련된 글을 크롤링하고 <br> 
+                감성분석 모델로 크롤링된 글에 대한 긍정 | 부정 예측비율을 살펴봅니다.<br> 
             </div>
             <div class="col-md-12">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-dark">
+                        <input
+                        type="radio"
+                        name="options"
+                        class="btnEmotion"
+                        value="emotion"
+                        autocomplete="off"
+                        checked
+                        />
+                        감정
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <input type="radio" name="options" class="btnMood" value="mood" autocomplete="off"
+                        />
+                        기분
+                    </label>
+                    <label class="btn btn-outline-dark">
+                        <input
+                        type="radio"
+                        name="options"
+                        class="btnDaily"
+                        value="daily"
+                        autocomplete="off"
+                        />
+                        일상
+                    </label>
+                </div>
                 <canvas id="total_keyword">total Keyword</canvas>
             </div>
         </div>
         <div class="row p-3 bg-white">
             <div class="col-md-6">
-                <div class="p-3 text-black">
-                    네이버 블로그와 카페에서 코로나 + 일상, 감정, 기분 키워드와 연관된 글을 크롤링 한 결과를 감성분석 모델로 긍/부정 감성분석한 결과
+                <div class="p-3 text-black text-center platform-naver">
+                    NAVER Blog & Cafe
                 </div>
                 <canvas id="naver_sentiment">Naver</canvas>
             </div>
             <div class="col-md-6">
-                <div class="p-3 text-black">
-                    트위터에서 코로나 + 일상, 감정, 기분 키워드와 연관된 글을 크롤링 한 결과를 감성분석 모델로 긍/부정 감성분석한 결과
+                <div class="p-3 text-black text-center platform-twitter">
+                    Twitter
                 </div>
                 <canvas id="twitter_sentiment">Twitter</canvas>
             </div>
@@ -351,33 +366,31 @@
     <div class="container" style="margin-top: 100px">
         <div class="row">
         <h2 class="display-4">감성분석으로 확인하는 코로나 블루</h2>
-        <h2 class="h4">코로나?</h2>
+        <h2 class="h4">지금 나의 글에는 어떤 감성이 들어있을까?</h2>
         </div>
     </div>
 
     <!-- content -->
     <div class="container content">
         <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">text</h4>
+            <h4 class="h4 text-black">NLP기술, 텍스트 감성분석</h4>
         </div>
         <div class="row p-3 bg-white">
             <div class="col-md-6 align-self-center">
                 <div class="p-3 text-black">
                     <p class="text-left">
-                        보건복지부의 21년 1분기 「코로나19 국민 정신건강 실태조사」 2021년 3월
-                        29일부터 4월 12일까지 전국 거준 19~71세의 성인 2,110명을 대상으로 한
-                        정신건강 상태파악 조사에 따르면 코로나로 인해 우울, 자살생각 증가 등
-                        <strong><u>전반적인 정신건강 지표가 악화</u></strong
-                        >된 것으로 나타났습니다.
+                        감성분석을 활용하기 위해 총 3개의 긍부정 라벨링 데이터 셋을 사용하여 모델을 학습하였습니다.
+
                     </p>
-                    <p class="text-left">
-                        우울 평균 점수는 5.7점으로(총점 27점), 2018년에 실시된 지역 사회
-                        건강조사 결과인 2.3점에 비해 <strong><u>2배 이상</u></strong> 증가한
-                        수치입니다. 또한 2021년 3월 자살생각 비율은 16.3%로 2018년 4.7%(2020
-                        자살예방백서)에 비해 약 3.5배 높은 수준이며, 코로나 발생초기인 2020년
-                        3월 9.7%와 비교해도 매우 높은 수치로,
-                        <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
-                    </p>
+                    <li>
+                        네이버 영화 리뷰 긍부정 라벨링 데이터 셋
+                    </li>
+                    <li>
+                        네이버 쇼핑 리뷰 긍부정 라벨링 데이터 셋
+                    </li>
+                    <li>
+                        스팀 게임리뷰 긍부정 라벨링 데이터 셋
+                    </li>
                 </div>
             </div>
             
@@ -385,18 +398,7 @@
                 <div class="p-3 text-black">
                     <p class="text-left">
                         보건복지부의 21년 1분기 「코로나19 국민 정신건강 실태조사」 2021년 3월
-                        29일부터 4월 12일까지 전국 거준 19~71세의 성인 2,110명을 대상으로 한
-                        정신건강 상태파악 조사에 따르면 코로나로 인해 우울, 자살생각 증가 등
-                        <strong><u>전반적인 정신건강 지표가 악화</u></strong
-                        >된 것으로 나타났습니다.
-                    </p>
-                    <p class="text-left">
-                        우울 평균 점수는 5.7점으로(총점 27점), 2018년에 실시된 지역 사회
-                        건강조사 결과인 2.3점에 비해 <strong><u>2배 이상</u></strong> 증가한
-                        수치입니다. 또한 2021년 3월 자살생각 비율은 16.3%로 2018년 4.7%(2020
-                        자살예방백서)에 비해 약 3.5배 높은 수준이며, 코로나 발생초기인 2020년
-                        3월 9.7%와 비교해도 매우 높은 수치로,
-                        <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
+                        
                     </p>
                 </div>
             </div>
@@ -420,22 +422,17 @@
 <script src="{{ url_for('static', filename='./js/statistics_graph.js')}}"></script>
 
 <!-- tableau -->
-<script type="text/javascript">
-    var divElement = document.getElementById("viz1637228153981");
-    var vizElement = divElement.getElementsByTagName("object")[0];
-    if (divElement.offsetWidth > 800) {
-        vizElement.style.width = "100%";
-        vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
-    } else if (divElement.offsetWidth > 500) {
-        vizElement.style.width = "100%";
-        vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
-    } else {
-        vizElement.style.width = "100%";
-        vizElement.style.height = "777px";
-    }
-    var scriptElement = document.createElement("script");
-    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+<script type='text/javascript'>                    
+    var divElement = document.getElementById('viz1637902527976');
+    var vizElement = divElement.getElementsByTagName('object')[0];                    
+    if ( divElement.offsetWidth > 800 ) { 
+        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else if ( divElement.offsetWidth > 500 ) { 
+        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
+    else { vizElement.style.width='100%';vizElement.style.height='777px';}                     
+    var scriptElement = document.createElement('script');                    
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
 </script>
 
  
@@ -524,12 +521,53 @@
             totalKeywordChart.data.datasets[0].data = result.result.positive;
             totalKeywordChart.data.datasets[1].data = result.result.negative;
 
+            // naverKeywordChart
+            // twitterKeywordChart
+
             totalKeywordChart.update();
-            console.log()
         },
         error: function (request, status, error) {
             alert(error);
         },
+    });
+
+    //
+    $(".btnEmotion, .btnMood, .btnDaily").click(function () {
+        let $this = $(this);
+        let btnValue;
+        if ($this.hasClass("btnEmotion")) {
+        btnValue = $(".btnEmotion").val();
+        } else if ($this.hasClass("btnMood")) {
+        btnValue = $(".btnMood").val();
+        } else {
+        btnValue = $(".btnDaily").val();
+        }
+
+        $.ajax({
+        type: "get",
+        url: '{{url_for("statistics.platformKeyword")}}',
+        async: false,
+        data: { btnValue: btnValue },
+        contentType: "application/json",
+        dataType: "json",
+        success: function (result) {
+            // naver graph
+            naverKeywordChart.data.labels = result.result[0];
+            naverKeywordChart.data.datasets[0].data = result.result[1][0];
+            naverKeywordChart.data.datasets[1].data = result.result[1][1];
+
+            // twitter graph
+            twitterKeywordChart.data.labels = result.result[0];
+            twitterKeywordChart.data.datasets[0].data = result.result[1][0];
+            twitterKeywordChart.data.datasets[1].data = result.result[1][1];
+
+            naverKeywordChart.update();
+            twitterKeywordChart.update();
+        },
+        error: function (request, status, error) {
+            alert(error);
+        },
+        });
     });
 
 </script>

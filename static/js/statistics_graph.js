@@ -18,7 +18,8 @@ let patientChart = new Chart(patient, {
             title: {
                 display:true,
                 text: '외래/입원환자 수 추이'
-            }
+            }, 
+            responsive:false
         }
     }
 });
@@ -64,7 +65,8 @@ let sexAge_bar_chart = new Chart(sexAge1, {
             title: {
                 display:true,
                 text: '성별별 코로나 블루 특성'
-            }
+            },
+            responsive:false
         
         }
     }
@@ -110,6 +112,11 @@ let sexAge_pie_chart = new Chart(sexAge2, {
                 y: {
                     beginAtZero: true
                 }
+            },
+            responsive:false,
+            title: {
+                display:true,
+                text: '연령별 요양급여비용총계'
             }
         }
     }
@@ -125,7 +132,7 @@ let totalKeywordChart = new Chart(total_keyword, {
             label : '긍정',
             data: orginData,
             borderColor: '#',
-            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            backgroundColor: 'rgba(80, 162, 235, 0.8)'
         },
         {
             label : '부정',
@@ -138,18 +145,11 @@ let totalKeywordChart = new Chart(total_keyword, {
         plugins: {
             title: {
                 display: true,
-                text: '긍/부정'
+                text: '전체 코로나 + 감정, 기분, 일상 긍부정 비율 그래프'
             },
         },
         responsive: true,
-        // scales: {
-        //     x: {
-        //         stacked: true,
-        //     },
-        //     y: {
-        //         stacked: true
-        //     }
-        // }
+
     }
 });
 
@@ -163,20 +163,20 @@ let naverKeywordChart = new Chart(naver_sentiment, {
             label : '긍정',
             data: orginData,
             borderColor: '#',
-            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            backgroundColor: '#2DB400'
         },
         {
             label : '부정',
             data: orginData,
             borderColor: '#ff4b2b',
-            backgroundColor: 'rgba(255, 99, 132, 1)'
+            backgroundColor: '#adb5bd'
         }]
     },
     options: {
         plugins: {
             title: {
                 display: true,
-                text: 'Chart.js Bar Chart - Stacked'
+                text: '네이버 코로나 + 감정, 기분, 일상'
             },
         },
         responsive: true,
@@ -200,20 +200,20 @@ let twitterKeywordChart = new Chart(twitter_sentiment, {
             label : '긍정',
             data: orginData,
             borderColor: 'rgba(54, 162, 235, 0.5)',
-            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+            backgroundColor: '#00acee'
         },
         {
             label : '부정',
             data: orginData,
             borderColor: 'rgba(54, 162, 235, 0.5)',
-            backgroundColor: 'rgba(255, 99, 132, 1)'
+            backgroundColor: '#adb5bd'
         }]
     },
     options: {
         plugins: {
             title: {
                 display: true,
-                text: 'Chart.js Bar Chart - Stacked'
+                text: '트위터 코로나 + 감정, 기분, 일상'
             },
         },
         responsive: true,

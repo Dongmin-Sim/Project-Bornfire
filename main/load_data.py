@@ -46,3 +46,7 @@ def load_total_data(keyword):
     }
 
     return data
+
+def load_platform_data(keyword):
+    label, data = None, None
+    return label, data

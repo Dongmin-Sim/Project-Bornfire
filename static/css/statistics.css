@@ -34,3 +34,16 @@ margin-left: 20px;
 .content-img img {
     width: 100%;
 }
+
+
+.content .platform-naver {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2DB400 !important;
+}
+
+.content .platform-twitter {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #00acee !important;
+}
