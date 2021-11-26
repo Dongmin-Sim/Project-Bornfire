@@ -25,7 +25,7 @@ def s_supply():
 s_supply()
 
 sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
-sched.add_job(s_supply,'interval',seconds=10)
+sched.add_job(s_supply,'interval',seconds=60)
 sched.start()
 
 feed = Blueprint("feed", __name__)
@@ -51,7 +51,6 @@ def get_feed():
 
     col_list = []
     for col in cols:
-        print(col)
         col_list.append({
             '_id' : col["_id"],
             'nickname': make_nickname(),
@@ -72,10 +71,13 @@ def post_feed():
         return abort(501)
     
     #TODO 분석 툴이 들어 와서 emotion에 저장. 
-    
+    from model.predict_sen import get_sentiment
+
+    predicted = get_sentiment(context)
 
     time = datetime.datetime.utcnow()
-    emotion = 1
+    emotion = predicted[1]
+    print(emotion)
     
     log = {str(time): emotion}
     User_collection.update_one({'User_email': email}, { '$push': { 'User_feed_log': log } })
@@ -93,7 +95,7 @@ def post_feed():
 
     cols = Feed_collection.find(query).sort('_id',-1).limit(1)
     #TODO [DB 정보 확인]DB에서 error가 났을 때,  예외 처리 필요. 
-    print(cols)
+    
     col_list = []
     for col in cols:
         col_list.append({

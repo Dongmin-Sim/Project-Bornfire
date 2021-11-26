@@ -1,3 +1,4 @@
+import pickle
 from flask import Flask, render_template, jsonify,request, redirect, Blueprint
 from datetime import timedelta
 from main.intro import intro 

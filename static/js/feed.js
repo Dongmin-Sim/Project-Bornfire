@@ -12,14 +12,14 @@ $('#button-addon2').click(function(e){
     var postdata = {
         "context" : context
     };
-  
+    alert("사용자의 글을 감정분석중 입니다!")
     $.ajax({
         type: 'POST',
         url: '/feed',
         data: JSON.stringify(postdata),
         dataType : 'json',
         contentType: "application/json",
-
+        
         success: function(datas){
             card(datas);
             $("#context").val('');
