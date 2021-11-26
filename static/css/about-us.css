@@ -38,6 +38,7 @@ body {
 }
 
 .team-item img {
+    height: 400px;
     width: 100%;
 }
 
@@ -89,6 +90,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 
 .profile-contents h2 {
+    text-align: center;
     font-size: 35px;
 }
 
@@ -99,7 +101,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 .profile-contents p {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     min-width: 140px;
     max-height: 0;
     overflow: hidden;
