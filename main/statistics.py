@@ -1,6 +1,6 @@
 from typing import KeysView
 from flask import Blueprint, render_template, jsonify, request, redirect
-from .load_data import load_patient_data, load_sexAge_data, load_total_data, load_platform_data
+from .load_data import load_patient_data, load_sexAge_data, load_keyword_data, update_keyword_data
 
 statistics = Blueprint("statistics", __name__)
 
@@ -25,19 +25,17 @@ def sexAge():
     return jsonify(result=[label, data])
 
 
-@statistics.route("/totalKeyword", methods=['GET'])
-def totalKeyword():
-    keyword = 'total_daily'
-    # keyword = 'total_emotion'
-    # keyword = 'total_mood'
-    data = load_total_data(keyword)
+@statistics.route("/keyword", methods=['GET'])
+def initialKeyword():
+    btnValue = request.args.get('btnValue')
+    data = load_keyword_data(btnValue)
     
     return jsonify(result=data)
 
 
-@statistics.route("/platformKeyword", methods=['GET'])
-def platformKeyword():
+@statistics.route("/keyword", methods=['GET'])
+def updateKeyword():
     btnValue = request.args.get('btnValue')
-    label, data = load_platform_data(btnValue)
+    label, data = update_keyword_data(btnValue)
     
     return jsonify(result=[label, data])

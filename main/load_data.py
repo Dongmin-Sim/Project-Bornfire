@@ -34,19 +34,23 @@ def load_sexAge_data(btnValue):
 
     return label, data
 
-def load_total_data(keyword):
-    keyword = pd.read_csv(root_dir + f'keyword/{keyword}(naver,twitter).csv')
-    # total_emotion = pd.read_csv(root_dir + 'keyword/total_emotion(naver,twitter).csv')
-    # total_mood = pd.read_csv(root_dir + 'keyword/total_daily(naver,twitter).csv')
+def load_keyword_data(btnValue):
+    total_ = pd.read_csv(root_dir + f'keyword/total_{btnValue}(naver,twitter).csv')
+    naver_ = pd.read_csv(root_dir + f'keyword/naver_{btnValue}.csv')
+    tw_ = pd.read_csv(root_dir + f'keyword/tw_{btnValue}.csv')
 
     data = {
-        'label': keyword['data'].to_list(),
-        'positive': keyword['positive'].to_list(),
-        'negative': keyword['negative'].to_list()
+        'label': total_['data'].to_list(),
+        'total_positive': total_['positive'].to_list(),
+        'total_negative': total_['negative'].to_list(),
+        'naver_positive': naver_['Positive'].to_list(),
+        'naver_negative': naver_['Negative'].to_list(),
+        'tw_positive': tw_['Positive'].to_list(),
+        'tw_negative': tw_['Negative'].to_list()
     }
 
     return data
 
-def load_platform_data(keyword):
+def update_keyword_data(btnValue):
     label, data = None, None
     return label, data
