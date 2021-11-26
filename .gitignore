@@ -295,3 +295,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,python,windows,flask,visualstudiocode,jupyternotebooks
+
+project-team-3-bornfire.socket
+bornfire.ini
+wsgi.py

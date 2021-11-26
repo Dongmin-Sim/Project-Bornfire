@@ -74,10 +74,11 @@ def post_feed():
     from model.predict_sen import get_sentiment
 
     predicted = get_sentiment(context)
-
-    time = datetime.datetime.utcnow()
     emotion = predicted[1]
-    print(emotion)
+    print(predicted, emotion)
+    time = datetime.datetime.utcnow()
+    
+    
     
     log = {str(time): emotion}
     User_collection.update_one({'User_email': email}, { '$push': { 'User_feed_log': log } })
