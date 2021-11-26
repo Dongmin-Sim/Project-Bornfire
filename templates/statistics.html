@@ -552,6 +552,11 @@
         dataType: "json",
         success: function (result) {
             // naver graph
+            totalKeywordChart.data.labels = result.result[0];
+            totalKeywordChart.data.datasets[0].data = result.result[1][0];
+            totalKeywordChart.data.datasets[1].data = result.result[1][1];
+
+            // naver graph
             naverKeywordChart.data.labels = result.result[0];
             naverKeywordChart.data.datasets[0].data = result.result[1][0];
             naverKeywordChart.data.datasets[1].data = result.result[1][1];
@@ -561,6 +566,7 @@
             twitterKeywordChart.data.datasets[0].data = result.result[1][0];
             twitterKeywordChart.data.datasets[1].data = result.result[1][1];
 
+            totalKeywordChart.update();
             naverKeywordChart.update();
             twitterKeywordChart.update();
         },
