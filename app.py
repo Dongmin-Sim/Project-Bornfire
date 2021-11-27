@@ -9,6 +9,7 @@ from main.feed import feed
 from main.my_page import mypage
 from main.about_us import about_us
 from main.forgot_pw import forgot_pw
+from main.content_service import content_service
 
 
 app = Flask(__name__)
@@ -33,6 +34,7 @@ app.register_blueprint(feed)
 app.register_blueprint(mypage)
 app.register_blueprint(about_us)
 app.register_blueprint(forgot_pw)
+app.register_blueprint(content_service)
 
 
 # root url

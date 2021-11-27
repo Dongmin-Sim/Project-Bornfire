@@ -1,0 +1,349 @@
+{% extends "base.html" %} 
+{% block head %}
+<!-- place for css link -->
+<link href="{{url_for('static',filename='./css/content_service.css')}}" rel="stylesheet"/>
+{% endblock %} 
+
+{% block body %}
+<div class="container title-wrapper">
+    <!-- 소개글 -->
+    <div class="row">
+      <div class="col-md-12 title">
+        <h1 class="display-3">
+            <span>모닥불에서 잠시 쉬어가세요</span>
+        </h1>
+        <h1 class="display-3">
+            <span>다시 시작할 힘을 얻어가세요</span>
+        </h1>
+        <h1 class="display-3"></h1>
+      </div>
+    </div>
+  
+    <div class="row subtitle">
+      <h2 class="h4">다시 뜨거워질 여러분을 위한 콘텐츠를 살펴보세요</h2>
+    </div>
+</div>
+
+
+
+<div class="content-container">
+    <div class="container">
+        <div class="title-wrapper-left">
+            <h2 class="title-m ">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>코로나 블루 콘텐츠 추천<span>
+                    </div>
+                    <div class="col-md-6">
+                        <hr style="border: solid 2px white !important;">
+                    </div>
+                </div>
+            </h2>
+            <h2 class="title-s">
+                <span>지금 나에게 필요한 콘텐츠를 찾아보세요</span>
+            </h2>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example1" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">몸과 마음 돌보기</h5>
+                    <p class="card-text">누구에게나 일어날 수 있는 갑작스러운 재난은 우리의 몸뿐만 아니라 마음을 해치기도 합니다.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #스트레스
+                        #재난
+                        #나비포옹
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example2.jpeg    " class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">코로나, 마음이 힘들 때 어떻게 할까요?</h5>
+                    <p class="card-text">소진과 관련된 다양한 사연을 듣고 함께 공감하며, 자신과 비슷한 경험이 있다면 정신건강전문의가 제안하는 해결방안을 실천해보는건 어떨까요? </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #소진
+                        #번아웃
+                        #코로나우울
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example3.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">스트레스 바로알기</h5>
+                    <p class="card-text">우리는 좋은 일이든, 슬픈 일이든 예상치 못한 일들을 매일 겪으면서 스트레스를 피하기가 어렵습니다. <br> 스트레스는 무엇이며, 스트레스에서 벗어나기위해 어떻게 관리를 해야하는지에 대하여 국립정신건강센터에서 알려드립니다. 
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #스트레스
+                        #정신과
+                        #감정
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example4.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">감염병 스트레스 마음돌보기</h5>
+                    <p class="card-text">코로나19와 같은 감염병은 생활의 스트레스 요인이 됩니다. 스트레스 상황 속 몸과 마음을 돌보는 방법을 알려드립니다.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #코로나
+                        #스트레스
+                        #코로나우울
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example5.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">마음안정화를 위한 복식호흡훈련(ver.수어)</h5>
+                    <p class="card-text">일상생활을 하다가 화가나거나 놀랐을 때 가슴이 두근거리고 호흡이 가빠지는 것을 경험해보신 적 있으신가요?</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #복식호흡
+                        #심리
+                        #긴장완화
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example6.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">마음안정화를 위한 복식호흡훈련(ver.수어)</h5>
+                    <p class="card-text">일상생활을 하다가 화가나거나 놀랐을 때 가슴이 두근거리고 호흡이 가빠지는 것을 경험해보신 적 있으신가요?</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #복식호흡
+                        #심리
+                        #긴장완화
+                    </small>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example7.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">이제는 마음에 투자하세요! 10월 10일 정신건강의날</h5>
+                    <p class="card-text">세상에서 가장 중요한 건강, 마음건강
+                        이제는 마음에 투자하세요!
+                        
+                        *정신건강의 날(10월 10일)이란?
+                        정신병에 대한 관심을 수면 위로 끌어올리고
+                        조기발견과 치료를 위해 제정한 날입니다.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #정신건강의 날
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example9.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">불안장애 바로알기</h5>
+                    <p class="card-text">이유없이 불안을 느끼거나 불안의 정도가 지나쳐 잠에 못든 적이 자주 있으신가요?</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #정신건강
+                        #불안
+                        #공황
+                    </small>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <a href="">
+                        <img src="../static/assets/img/content-service/content-example8.webp" class="card-img-top" alt="...">
+                    </a>
+                <div class="card-body">
+                    <h5 class="card-title">적응장애 바로알기</h5>
+                    <p class="card-text">우리는 일상생활을 하면서 좋은 일이든 나쁜 일이든 다양한 사건을 경험하게 됩니다. 
+                        준비를 하지 못한 채 겪게 되는 크고 작은 사건들은 우리의 생활에 변화와 스트레스를 가져오게 됩니다.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        #적응장애
+                        #스트레스
+                        #불안
+                    </small>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination-wrapper text-black">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+<div class="service-container">
+    <div class="container">
+        <div class="title-wrapper-left">
+            <h2 class="title-m ">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span>국가 지원 서비스</span>
+                    </div>
+                    <div class="col-md-8">
+                        <hr>
+                    </div>
+                </div>
+            </h2>
+            <h2 class="title-s">
+                <span>지금 나에게 필요한 지원 서비스를 찾아보세요</span>
+            </h2>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card">
+                <a href="https://www.youtube.com/watch?v=LMBttc3a6wg">
+                    <img src="../static/assets/img/content-service/service-example1" class="card-img-top" alt="..." style="width:100%;height:100%;object-fit:contain;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">코로나 19 방역인력 심리지원</h5>
+                    <p class="card-text">
+                        코로나19 방역 인력에 대한 심리지원서비스로 어떤 것이 있을까요?<br>
+                    </p>
+                    <p class="card-text">﹒ 본 컨텐츠는 보건복지부 국립정신건강센터 국가트라우마 센터에서 제작된 컨텐츠로 본 서비스에서 사용한 예시입니다.</p>
+                </div>
+                
+                <div class="card-footer">
+                    <small class="text-muted">#심리지원 #마음안심버스 #코로나우울</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <a href="https://www.youtube.com/watch?v=5J67zD8tB8E">
+                    <img src="../static/assets/img/content-service/service-example2" class="card-img-top" alt="..."
+                    style="width:100%;height:100%;object-fit:contain;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">코로나19로 우울해? 걱정 NO! 국가에서 심리상담 지원해Dream🤗 서유리 요원과 함께 알아볼까요❓🧐ㅣ미션:129</h5>
+                    <p class="card-text">우리 삶을 송두리째 바꿔놓은 코로나19...😰
+                    코로나19로 인한 우울 증세로 어려운 상황에 계신 분들에게
+                    국가에서 심리상담을 지원해 준다는 사실! <br>
+                    알고 계셨나요?<br>
+                    </p>
+                    <p class="card-text">﹒ 본 컨텐츠는 보건복지부 국립정신건강센터 국가트라우마 센터에서 제작된 컨텐츠로 본 서비스에서 사용한 예시입니다.</p>
+                </div>
+                <div class="card-footer"><small class="text-muted">#서유리 #머선129 #보건복지부</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <a href="https://www.youtube.com/watch?v=IymP-7mONAc">
+                    <img src="../static/assets/img/content-service/service-example3" class="card-img-top" alt="..."
+                    style="width:100%;height:100%;object-fit:contain;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">국민 곁에 찾아가는 마음안심버스</h5>
+                    <p class="card-text">여러분, 혹시 '찾아가는 마음안심버스'를 들어보셨나요? 
+                    찾아가는 마음안심버스는,  평상 시에는 장애인, 노인등  재난 취약계층 대상을 찾아가 심리지원을 하고, 재난이 발생했을 때 재난현장에서 위기대응 및 트라우마 예방을 위한 심리 상담을 하고 있습니다. <br>
+                    </p>
+                    <p class="card-text">﹒본 컨텐츠는 보건복지부 국립정신건강센터 국가트라우마 센터에서 제작된 컨텐츠로 본 서비스에서 사용한 예시입니다.</p>
+                </div>
+                <div class="card-footer"><small class="text-muted">#심리지원 #트라우마 #마음안심버스</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <a href="https://nct.go.kr/distMental/crisis/crisis01_2_12.do">
+                    <img src="../static/assets/img/content-service/service-example4.png" class="card-img-top" alt="..."
+                    style="width:100%;height:100%;object-fit:contain;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">재난 정신건강 위기대처-감염병 상황</h5>
+                    <p class="card-text"><br>
+                    ﹒본 컨텐츠는 보건복지부 국립정신건강센터 국가트라우마 센터에서 제작된 컨텐츠로 본 서비스에서 사용한 예시입니다.
+                    </p>
+                </div>
+                <div class="card-footer"><small class="text-muted">#위기대처 #감염병 #재난정신건강</small>
+                </div>
+            </div>
+        </div>
+
+            
+        
+    </div>
+    <div class="pagination-wrapper text-black">
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+{% endblock %} 
+
+
+{% block script %}
+
+{% endblock %}
