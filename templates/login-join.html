@@ -6,92 +6,94 @@
   rel="stylesheet"
 />
 {% endblock %} {% block body %}
-<div class="loginbody">
-  <div class="logincontainer" id="logincontainer">
-    <!-- 회원가입 -->
-    <div class="form-container sign-up-container">
-      <form id="form" action="/join" method="POST">
-        <h1>회원 가입</h1>
+<div class="container">
+  <div class="loginbody">
+    <div class="logincontainer" id="logincontainer">
+      <!-- 회원가입 -->
+      <div class="form-container sign-up-container">
+        <form id="form" action="/join" method="POST">
+          <h1>회원 가입</h1>
 
-        <span>회원가입을 위해 정보를 입력하세요</span>
+          <span>회원가입을 위해 정보를 입력하세요</span>
 
-        <input
-          type="email"
-          placeholder="이메일"
-          id="email"
-          name="user_email"
-          required
-        />
+          <input
+            type="email"
+            placeholder="이메일"
+            id="email"
+            name="user_email"
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="비밀번호"
-          id="password"
-          name="user_pw"
-          required
-        />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            id="password"
+            name="user_pw"
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="비밀번호 확인"
-          id="password2"
-          name="user_pw2"
-          required
-        />
-        <input
-          list="questions"
-          name="user_question"
-          placeholder="비밀번호 찾기 질문 선택"
-          id="question"
-        />
-        <datalist id="questions">
-          <option value="졸업한 초등학교 이름은?"></option>
-          <option value="자신의 보물 1호는?"></option>
-          <option value="가장 친한 친구 이름은?"></option>
-          <option value="자신의 어릴적 별명은?"></option>
-          <option value="기억하는 추억의 장소는?"></option>
-        </datalist>
+          <input
+            type="password"
+            placeholder="비밀번호 확인"
+            id="password2"
+            name="user_pw2"
+            required
+          />
+          <input
+            list="questions"
+            name="user_question"
+            placeholder="비밀번호 찾기 질문 선택"
+            id="question"
+          />
+          <datalist id="questions">
+            <option value="졸업한 초등학교 이름은?"></option>
+            <option value="자신의 보물 1호는?"></option>
+            <option value="가장 친한 친구 이름은?"></option>
+            <option value="자신의 어릴적 별명은?"></option>
+            <option value="기억하는 추억의 장소는?"></option>
+          </datalist>
 
-        <input
-          type="text"
-          placeholder="답변을 작성해주세요"
-          name="user_answer"
-          id="user_answer"
-          required
-        />
+          <input
+            type="text"
+            placeholder="답변을 작성해주세요"
+            name="user_answer"
+            id="user_answer"
+            required
+          />
 
-        <button style="margin-top: 10px">회원 가입</button>
-      </form>
-    </div>
-    <!-- 로그인 -->
-    <div class="form-container sign-in-container">
-      <form action="/login-join" , method="POST" id="login-form">
-        <h1>로그인</h1>
+          <button style="margin-top: 10px">회원 가입</button>
+        </form>
+      </div>
+      <!-- 로그인 -->
+      <div class="form-container sign-in-container">
+        <form action="/login-join" , method="POST" id="login-form">
+          <h1>로그인</h1>
 
-        <span>아이디와 비밀번호를 입력해주세요</span>
-        <input type="text" placeholder="아이디" name="user_email" required />
-        <input type="password" placeholder="비밀번호" name="user_pw" required />
+          <span>아이디와 비밀번호를 입력해주세요</span>
+          <input type="text" placeholder="아이디" name="user_email" required />
+          <input type="password" placeholder="비밀번호" name="user_pw" required />
 
-        <a href="/forgot-pw">비밀번호를 잊으셨나요?</a>
-        <button>로그인</button>
-        <p class="pw-error">{{ data }}</p>
-      </form>
-    </div>
+          <a href="/forgot-pw">비밀번호를 잊으셨나요?</a>
+          <button>로그인</button>
+          <p class="pw-error">{{ data }}</p>
+        </form>
+      </div>
 
-    <!-- 설명 -->
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>모닥불</h1>
-          <p>
-            이미 계정이 있으시다면 <br />아래 로그인하러가기 버튼을 눌러주세요!
-          </p>
-          <button class="ghost" id="signIn">로그인하러 가기</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1>반갑습니다!</h1>
-          <p>익명 감정 공유 서비스, 모닥불입니다.</p>
-          <button class="ghost" id="signUp">회원가입 하러가기</button>
+      <!-- 설명 -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>모닥불</h1>
+            <p>
+              이미 계정이 있으시다면 <br />아래 로그인하러가기 버튼을 눌러주세요!
+            </p>
+            <button class="ghost" id="signIn">로그인하러 가기</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>반갑습니다!</h1>
+            <p>익명 감정 공유 서비스, 모닥불입니다.</p>
+            <button class="ghost" id="signUp">회원가입 하러가기</button>
+          </div>
         </div>
       </div>
     </div>
