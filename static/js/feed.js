@@ -5,7 +5,6 @@ $("#context").keydown(function(key){
     }
 });
 
-
 $('#button-addon2').click(function(e){
     const context = $('#context').val();
     e.preventDefault();

@@ -5,51 +5,89 @@
 <link href="{{url_for('static',filename='./css/feed.css')}}" rel="stylesheet" />
 <!-- place for jquery CDN -->
 {% endblock %} {% block body %}
-<main>
-  <div class="container" style="max-width: 100rem!important;">
-  <div class="jumbotron">
-    <div class="container">
-      <blockquote class="blockquote mb-0">
-        <p>{{ subject }}</p>
-      </blockquote>
+
+<div class="container title-wrapper-left">
+  <!-- 소개글 -->
+  <div class="row mb-3">
+    <div class="col-md-12 title">
+      <h1 class="display-3">
+          <span>오늘의 주제</span>
+      </h1>
     </div>
-    <div class="card mt-5">
+  </div>
+
+  <div class="row subject">
+    <blockquote class="blockquote mb-0">
+      <div class="title-m dynamic-container">
+        <span id="dynamic-txt" class="bottom-line" ></span>
+      </div>
+    </blockquote>
+  </div>
+</div>
+
+<div class="container">
+    <div class="card">
       <form>
         <div class="input-group input-group-lg">
-          <input
-            class="card-header form-control"
-            type="text"
-            placeholder=" 따뜻한 마음을 전해요"
-            id="context"
-          />
+          <input  class="card-header form-control" type="text"
+            placeholder="오늘의 주제에 대해 얘기해주세요" id="context"/>
           <div class="input-group-append input-group-lg">
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-            >
-              포스트
-            </button>
+            <button class="btn btn-outline-secondary" type="button"
+              id="button-addon2">포스트</button>
           </div>
         </div>
       </form>
     </div>
-  </div>
+</div>
+
+<div class="card-container">
+  <!-- <div id="post"> -->
+    <div id="card-row" class="row row-cols-2 row-cols-md-3 g-4">
+      {% for data in datas %}
+        <div class="col">
+          <div id="card" class="card h-100 feed-comment">
+            <div class="card-header">
+              <small>
+                <div id="card-header">{{ data.nickname }}</div>
+              </small>
+            </div>
+            <div id="card-body" class="card-body card-content">
+              <blockquote class="blockquote mb-0">
+                <p class="card-text">{{ data.context }}</p>
+              </blockquote>
+            </div>
+            <div class="card-footer">
+              <div class="feed-button">
+                <button type="button" class="btn btn-dark" value="{{ data._id }}">
+                  🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  <!-- </div> -->
+</div>
+
+
+<!-- previous -->
+<!-- <div class="container" style="max-width: 100rem!important;">
   <div id="post">
     <div class= "row" id="card-row"> 
       {% for data in datas %}
         <div class ="col-md-4">
           <div id="card" class="col-md-12 card feed-comment ">
-            <!-- header -->
+            
             <div id="card-header">{{ data.nickname }}</div>
-            <!-- content -->
+            
             <div id="card-body" class="card-body card-content ">
               <blockquote class="blockquote mb-0">
                 <p>{{ data.context }}</p>
               </blockquote>
             </div>
             
-            <!-- button -->
+            
             <div class="feed-button">
               <button type="button" class="btn btn-dark" value="{{ data._id }}">
                 🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
@@ -60,7 +98,28 @@
       {% endfor %}
     </div>
   </div>
-</main>
+</div> -->
+
 {% endblock %} {% block script %}
 <script src="../static/js/feed.js"></script>
+<script>
+  const subject = {{ subject|tojson }}
+  const dynamicTxt = document.querySelector('#dynamic-txt')
+  let index = 0
+
+  console.log(subject)
+  console.log(typeof(subject))
+
+  let flag = false;
+
+  function typing(){
+    dynamicTxt.textContent += subject[index++];
+    console.log(index)
+    if(index > subject.length - 1) {
+      clearInterval(handle)
+    }
+  }
+  
+  let handle = setInterval(typing, 200)
+</script>
 {% endblock %}
