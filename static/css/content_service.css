@@ -1,0 +1,98 @@
+html {
+  height: 100%;
+}
+
+hr {
+  background-color: white !important;
+  border: solid 1px white !important;
+}
+
+.container {
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+/* title */
+.title-wrapper {
+  margin-top: 100px;
+  text-shadow: none;
+}
+
+.title-wrapper-left {
+  margin-top: 100px;
+  text-shadow: none;
+  text-align: start;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title-s {
+  font-size: 1.2rem;
+}
+
+.title-m {
+  /* font-size: 2.5rem; */
+  font-size: 2.8vw;
+  text-align: left;
+}
+
+.bottoom-line {
+  border-bottom: solid 1px white;
+}
+.subtitle {
+  margin-bottom: 20px;
+}
+
+/* card */
+.card-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.card {
+  /* height: 150px; */
+  color: black;
+  text-shadow: none;
+}
+
+.card-body {
+  text-align: start;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  /* border-bottom: solid 1px rgba(0, 0, 0, 0.2); */
+}
+
+.card-footer {
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  text-align: start;
+}
+
+/* pagination */
+.pagination-wrapper {
+  margin-top: 20px;
+}
+.page-link {
+  color: black !important;
+  text-shadow: none;
+}
+
+.content-container .card-text {
+  padding: 2%;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+.service-container .card-text {
+  padding: 2%;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+
+.service-container .card-body {
+  height: 230px;
+}
