@@ -3,7 +3,7 @@ let orginLabels = ['2018-12', '2019-01', '2019-02', '2019-03', '2019-04', '2019-
 
 
 
-// 일일 감정 통계량 차트
+// 일일 피드 통계량 차트
 let daily_statistics = document.getElementById("daily_statistics").getContext('2d');
 let daily_chart = new Chart(daily_statistics, {
     type: 'line',
@@ -18,7 +18,7 @@ let daily_chart = new Chart(daily_statistics, {
     option: {
     title: {
         display:true,
-        text: '외래/입원환자 수 추이'
+        text: '일일 피드 통계량'
     }
     }
 });
@@ -28,7 +28,8 @@ let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
 let sentiment_chart = new Chart(feed_sentiment, {
     type: 'doughnut',
     data: {
-        labels: Object.keys(predicted_value),
+        // labels: Object.keys(predicted_value),
+        labels: ['부정', '긍정'],
         datasets: [{
             label: '# 긍정',
             data: Object.values(predicted_value),
