@@ -1,8 +1,62 @@
 {% extends "base.html" %} {% block head %}
 <!-- place for css link -->
 <title>Bornfire</title>
+<!-- Link Swiper's CSS -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
 
+<!-- Demo styles -->
+<style>
+html,
+body {
+  position: relative;
+  height: 100%;
+}
 
+.swiper-container {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
+<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
 {% endblock %} {% block body %}
 
 <div class="container title-wrapper">
@@ -32,8 +86,130 @@
 </div>
 
 <!-- main image -->
-<div class="container-fluid" style="height: 500px; background-color: white">
+<div class="container-fluid" style="height: 500px; background-color: white !important">
+  <div class="row">
+    <div class="col-md-6 swiper-container"> 
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"> 
+            <div class="col">
+            <div id="card" class="card h-100 feed-comment">
+              <div class="card-header">
+                <small>
+                  <div id="card-header">hi</div>
+                </small>
+              </div>
+              <div id="card-body" class="card-body card-content">
+                <blockquote class="blockquote mb-0">
+                  <p class="card-text">hi</p>
+                </blockquote>
+              </div>
+              <div class="card-footer">
+                <div class="feed-button">
+                  <button type="button" class="btn btn-dark" value="id">
+                    🙌<span> &nbsp;3</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="swiper-slide">
+            <div class="col">
+              <div id="card" class="card h-100 feed-comment">
+                <div class="card-header">
+                  <small>
+                    <div id="card-header">hi</div>
+                  </small>
+                </div>
+                <div id="card-body" class="card-body card-content">
+                  <blockquote class="blockquote mb-0">
+                    <p class="card-text">hi</p>
+                  </blockquote>
+                </div>
+                <div class="card-footer">
+                  <div class="feed-button">
+                    <button type="button" class="btn btn-dark" value="id">
+                      🙌<span> &nbsp;3</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide"><div class="col">
+            <div id="card" class="card h-100 feed-comment">
+              <div class="card-header">
+                <small>
+                  <div id="card-header">hi</div>
+                </small>
+              </div>
+              <div id="card-body" class="card-body card-content">
+                <blockquote class="blockquote mb-0">
+                  <p class="card-text">hi</p>
+                </blockquote>
+              </div>
+              <div class="card-footer">
+                <div class="feed-button">
+                  <button type="button" class="btn btn-dark" value="id">
+                    🙌<span> &nbsp;3</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          <div class="swiper-slide"><div class="col">
+            <div id="card" class="card h-100 feed-comment">
+              <div class="card-header">
+                <small>
+                  <div id="card-header">hi</div>
+                </small>
+              </div>
+              <div id="card-body" class="card-body card-content">
+                <blockquote class="blockquote mb-0">
+                  <p class="card-text">hi</p>
+                </blockquote>
+              </div>
+              <div class="card-footer">
+                <div class="feed-button">
+                  <button type="button" class="btn btn-dark" value="id">
+                    🙌<span> &nbsp;3</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          <div class="swiper-slide"><div class="col">
+            <div id="card" class="card h-100 feed-comment">
+              <div class="card-header">
+                <small>
+                  <div id="card-header">hi</div>
+                </small>
+              </div>
+              <div id="card-body" class="card-body card-content">
+                <blockquote class="blockquote mb-0">
+                  <p class="card-text">hi</p>
+                </blockquote>
+              </div>
+              <div class="card-footer">
+                <div class="feed-button">
+                  <button type="button" class="btn btn-dark" value="id">
+                    🙌<span> &nbsp;3</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div></div>
+
+        </div>
+       
+      </div>
+    </div>
   
+    <div class="col-md-6">
+      <div>hi</div>
+    </div>  
+  </div>
 
 </div>
 
@@ -160,7 +336,21 @@
     {% endif %}
   </div>
 </div>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>
 
 {% endblock %} {% block script %}
 {% endblock %}
