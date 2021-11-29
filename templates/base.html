@@ -22,7 +22,7 @@
     {% block head %} {% endblock %}
   </head>
 
-  <body class="d-flex h-100 text-center text-white bg-dark">
+  <body class="d-flex text-center text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <!-- header -->
       <header class="mb-5">
@@ -34,15 +34,15 @@
               alt=""
               width="30"
               height="30"
-          />모닥불</a>
-          <!-- <a href="/" style ="text-decoration : none;">모닥불</a> -->
+          /></a>
+          <a href="/" style ="text-decoration : none;">모닥불</a>
         </h3>
         <!-- navigation menu -->
         <nav class="nav nav-masthead justify-content-center float-md-end">
          
           <a class="nav-link" href="/statistics">데이터 분석</a>
           <a class="nav-link" href="/feed">피드</a>
-          <a class="nav-link" href="/service">힐링 / 지원서비스</a>
+          <a class="nav-link" href="/content_service">힐링 / 지원서비스</a>
           {% if session.user_email %}
           <a class="nav-link" href="/about-us">팀 소개</a>
           <a class="nav-link" href="/my-page">마이 페이지</a>
@@ -58,7 +58,7 @@
       {% block body %} {% endblock %}
 
       <!-- footer -->
-      <footer class="mt-auto text-white-50">
+      <footer class="mt-5 p-3 text-white-50">
         <p>
           Copyright 🔥
           <a

@@ -1,8 +1,24 @@
 /* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800"); */
 
-* {
-  box-sizing: border-box;
+/* html {
+  height: 100%;
+} */
+
+.container {
+  height: 100%;
+  margin-bottom: 30px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.container-space {
+  height: 100%;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
 .loginbody {
   text-align: center;
 }
