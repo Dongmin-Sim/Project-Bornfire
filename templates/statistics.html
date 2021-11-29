@@ -368,6 +368,25 @@
         </div>
     </div>
 
+    <div class="container content">
+        <div class="row p-4 bg-white">
+            <h4 class="h4 text-black">한번 확인해보세요!</h4>
+        </div>
+        <div class="row p-4 bg-white">
+            <form>
+                <div class="form-floating text-black">
+                    <textarea id='contenxt' class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2" style="padding-left: 2%;">감정분석을 위한 글을 작성해보세요!</label>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button id='sentiment-btn' class="btn btn-primary" type="button">감정분석</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
     <!-- content -->
     <div class="container content">
         <div class="row p-4 bg-white">
@@ -574,9 +593,6 @@
     });
 
 </script>
- 
 
-<script>
-
-</script>
+<script src="../static/js/statistics.js"></script>
 {% endblock %}
