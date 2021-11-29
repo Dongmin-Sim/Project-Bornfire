@@ -3,6 +3,15 @@
 <title>Bornfire</title>
 
 <link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/css/swiper.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/css/swiper.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/js/swiper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/js/swiper.esm.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/js/swiper.esm.bundle.js"></script>
+
+<script src="../static/js/intro.js"></script>
 
 {% endblock %} {% block body %}
 
@@ -34,11 +43,27 @@
 
 <!-- main image -->
 <div class="container-fluid" style="height: 500px; background-color: white">
-  <div class="row">
-    <div class="col-md-12 p-0">
-      <Canvas>THIS ISCAMVAS</Canvas>
-    </div>
+  
+  <!-- Slider main container -->
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
   </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination">hi</div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev">hi</div>
+  <div class="swiper-button-next">ji</div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
 </div>
 
 <!-- introduce service -->
@@ -164,6 +189,7 @@
     {% endif %}
   </div>
 </div>
+
 
 {% endblock %} {% block script %}
 {% endblock %}

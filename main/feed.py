@@ -25,7 +25,7 @@ def s_supply():
 s_supply()
 
 sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
-sched.add_job(s_supply,'interval',seconds=60)
+sched.add_job(s_supply,'interval',seconds=10)
 sched.start()
 
 feed = Blueprint("feed", __name__)
@@ -67,19 +67,21 @@ def post_feed():
     data = request.json
     email = str(session['user_email'])
     context = str(data.get('context'))
+
     if len(context) == 0:
         return abort(501)
     
-    #TODO 분석 툴이 들어 와서 emotion에 저장. 
     from model.predict_sen import get_sentiment
 
     predicted = get_sentiment(context)
 
-    time = datetime.datetime.utcnow()
+    time = datetime.datetime.now()
     emotion = predicted[1]
+    # TODO 삭제 필요
     print(emotion)
     
     log = {str(time): emotion}
+    # 유저 감정 분석을 위한 데이터 
     User_collection.update_one({'User_email': email}, { '$push': { 'User_feed_log': log } })
 
     data = {
@@ -89,9 +91,12 @@ def post_feed():
         "Meta": {'Likes': [], "Created_at": time},
         'Predicted_value' : emotion
     }
-    # Feed_collection.remove({})
+
     Feed_collection.insert_one(data)
     query = {"$and" : [{"Main_subject_num":m_num},{"Side_subject_num":s_num}]}
+
+    # TODO 내가 글을 쓴 시간 이후에 써진 글중에서 9개(이하)를 뽑아서 보내는 방법이 좋을 것 같다.
+    # TODO 서버에 도달한 시간이 아니라 내가 글쓴 시점에 가장 최신 feed의 시간 정보가 있거나, 다른 방법을 강구해봐야 한다.
 
     cols = Feed_collection.find(query).sort('_id',-1).limit(1)
     #TODO [DB 정보 확인]DB에서 error가 났을 때,  예외 처리 필요. 
@@ -123,7 +128,6 @@ def infinity_page():
             'thumbs-up': len(col['Meta']['Likes'])
         })
 
-# TODO subject collection 넘겨 주는 것 필요.
     return jsonify(col_list)
 
 @feed.route('/likes', methods=["UPDATE"])

@@ -19,7 +19,6 @@ stopwords = ['의','가','이','은','들','는','좀','잘','걍','과','도','
 with open('model/tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-
 padding_len=35
 emb_dim = 100
 cur_dim = 26663     # vocab size

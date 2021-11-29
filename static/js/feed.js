@@ -31,7 +31,6 @@ $('#button-addon2').click(function(e){
             if(jqXHR.status == 404){
                 alert('로그인이 필요합니다.')
             }
-
             if(jqXHR.status == 501){
                 alert("메세지를 입력해주세요.")
             }
@@ -154,14 +153,11 @@ function card_bottom(datas){
         card_header.innerHTML = datas[i]['nickname'];
         card.appendChild(card_header);
 
-        
-        var card_content = document.createElement("div")
-        card_content.setAttribute("class", "card-content")
-        card.appendChild(card_content);
+
 
         var card_body = document.createElement("div");
         card_body.setAttribute("id", "card-body");
-        card_body.setAttribute("class", "card-body");
+        card_body.setAttribute("class", "card-body card-content");
         card.appendChild(card_body);
 
 
