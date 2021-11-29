@@ -25,7 +25,7 @@ def s_supply():
 s_supply()
 
 sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
-sched.add_job(s_supply,'interval',seconds=10)
+sched.add_job(s_supply,'interval',seconds=600)
 sched.start()
 
 feed = Blueprint("feed", __name__)
