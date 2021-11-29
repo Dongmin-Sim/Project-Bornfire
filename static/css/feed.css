@@ -1,53 +1,106 @@
-
-body, h2, p {
+body,
+h2,
+p {
   margin: 0;
   padding: 0;
 }
-main{
-  width: 100%;
+
+.container {
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0;
 }
 
-.feed-comment::-webkit-scrollbar{
+/* title */
+.title-wrapper {
+  margin-top: 150px;
+  text-shadow: none;
+}
+
+.title-wrapper-left {
+  margin-top: 150px;
+  text-shadow: none;
+  text-align: start;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title-s {
+  font-size: 1.2rem;
+}
+
+.title-m {
+  font-size: 2.5vw;
+  text-align: left;
+}
+
+.bottom-line {
+  border-right: solid 1px white;
+}
+
+.subject {
+  float: none;
+  margin: 100 auto;
+}
+/* title typing */
+.dynamic-container {
+  float: none;
+  margin: 0 auto;
+  border-bottom: solid 1px white;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#dynamic-txt {
+  display: table-cell;
+  vertical-align: middle;
+  /* border-right: 0.05em solid white !important; */
+  animation: cursor 0.7s ease infinite;
+}
+
+/* feed */
+.feed-comment::-webkit-scrollbar {
   width: 6px;
 }
 
-.feed-comment::-webkit-scrollbar-track{
+.feed-comment::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-.feed-comment::-webkit-scrollbar-thumb{
+.feed-comment::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background-color: gray;
 }
 
-.feed-comment::-webkit-scrollbar-button{
+.feed-comment::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;
 }
 
 .feed-comment {
-  transition: all 1.5s ease;
+  transition: all 1.1s ease;
   max-height: 300px;
   min-height: 300px;
 }
 
-.feed-comment:hover{
-  transform: scale(1.2);
+.feed-comment:hover {
+  transform: scale(1.1);
   z-index: 1;
 }
-#card-row{
-  width: 100%
+#card-row {
+  width: 100%;
 }
 
 .checkbox-div {
   display: flexbox;
   margin-top: 1em;
-}
-
-.container{
-  height: 100%;
-  margin-top: 3%;
-  margin-bottom: 3%;
 }
 
 .feed-comment {
@@ -59,8 +112,39 @@ main{
 
 .feed-button {
   text-align: end !important;
-  
 }
-#card-header{
+
+#card-header {
   text-align: left;
+}
+
+/* card */
+.card-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.card {
+  /* height: 150px; */
+  color: black;
+  text-shadow: none;
+}
+
+.card-body {
+  text-align: start;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  /* border-bottom: solid 1px rgba(0, 0, 0, 0.2); */
+}
+
+.card-text {
+  text-align: center;
+  padding: 2%;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.card-footer {
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  text-align: start;
 }
