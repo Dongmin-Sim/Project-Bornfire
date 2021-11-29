@@ -68,6 +68,10 @@ def get_myPage():
                 break
             predicted_value[value] += 1
         
+        sorted_predicted = sorted(predicted_value.items())
+        predicted_value = dict(sorted_predicted)
+        print(predicted_value)
+
         data = {
             'user_email': user_email, 
             'my_feed_log': [list(daily_feed.keys()), list(daily_feed.values())],
