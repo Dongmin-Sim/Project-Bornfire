@@ -1,4 +1,4 @@
-import pickle
+import os
 from flask import Flask, render_template, jsonify,request, redirect, Blueprint
 from datetime import timedelta
 from main.intro import intro 
@@ -13,7 +13,10 @@ from main.content_service import content_service
 
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
+
+app.secret_key = str(os.environ.get("FLASK_KEY"))
+
+# app.secret_key = "super secret key"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=3) # 로그인 지속시간을 정합니다. 현재 1분
 
 

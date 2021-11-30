@@ -316,8 +316,8 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
   });
 
 
-  let predicted_value = {{ predicted_value|tojson }}
-  console.log(predicted_value)
+  let predicted_value = {{ predicted_value|tojson }};
+  console.log(predicted_value);
 
   let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
   let sentiment_chart = new Chart(feed_sentiment, {

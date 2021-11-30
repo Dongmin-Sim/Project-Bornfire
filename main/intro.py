@@ -1,11 +1,9 @@
 from collections import defaultdict
-from os import pipe
 from bson.son import SON
 from dateutil.relativedelta import relativedelta
-from flask import Blueprint, render_template, jsonify, request, redirect
-from pymongo.message import query
+from flask import Blueprint, render_template
 
-from main.feed import Subject_collection
+
 from .mongo_connect import db
 from datetime import datetime
 
@@ -35,13 +33,12 @@ def get_intro():
 
     # cols = list(Feed_collection.find(query).sort("Meta.Likes", 1))
     cols = list(Feed_collection.aggregate(pipe))
-    query = {"Main_subject_num": cols[0]['Main_subject_num'],   "Side_subject_num" : cols[0]['Side_subject_num']}
+    query = {"Main_subject_num": cols[0]['Main_subject_num'], "Side_subject_num" : cols[0]['Side_subject_num']}
     projection = {"Side_subject": 1, "_id": 0}
     yesterday_subject = (Subject_collection.find_one(query,projection))['Side_subject']
     
     predicted_value = defaultdict(int)
-    
-    
+
     for col in cols:
         value = col['Predicted_value']
         predicted_value[value] += 1

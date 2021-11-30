@@ -6,7 +6,7 @@ from .mongo_connect import db
 
 User_collection = db.get_collection("User_collection")
 
-def login_required(func):
+def login_required_4_login(func):
     @functools.wraps(func)
     def wrapped_view(**kwargs):
         user = session.get('user_email')
@@ -19,7 +19,7 @@ def login_required(func):
 login = Blueprint("login", __name__)
 
 @login.route("/login-join", methods=["GET","POST"])
-@login_required
+@login_required_4_login
 def get_login():
     if request.method == "GET":
         return render_template('login-join.html')
