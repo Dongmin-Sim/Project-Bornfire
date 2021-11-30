@@ -27,6 +27,7 @@ def get_login():
         email = request.form.get("user_email")
         pw = request.form.get("user_pw")
         user = db.User_collection.find_one({"User_email":email})
+        print(user)
         if bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
             session['user_email'] = email
             return redirect(url_for('feed.get_feed'))
