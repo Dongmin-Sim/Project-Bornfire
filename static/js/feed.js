@@ -30,7 +30,6 @@ $('#button-addon2').click(function(e){
             if(jqXHR.status == 404){
                 alert('로그인이 필요합니다.')
             }
-
             if(jqXHR.status == 501){
                 alert("메세지를 입력해주세요.")
             }
@@ -137,51 +136,56 @@ let fetchList = function(page){
 function card_bottom(datas){
     parent = document.getElementById('card-row');
     for(var i=0; i<datas.length; i++){
-        var card_col = document.createElement("div");
-        card_col.setAttribute("class", "col-md-4");
-        parent.appendChild(card_col, parent.firstChild);
+        var col = document.createElement("div");
+        col.setAttribute("class", "col")
+        parent.appendChild(col);
 
         var card = document.createElement("div");
-        card.setAttribute("id", "card");
-        card.setAttribute("class", "card col-md-12 feed-comment");
-        // document.getElementById('post').appendChild(card);
-        card_col.appendChild(card);
-        
+        card.setAttribute("class", "card h-100 feed-comment");
+        col.appendChild(card)
 
         var card_header = document.createElement("div");
-        card_header.setAttribute("id", "card-header");
-        card_header.innerHTML = datas[i]['nickname'];
+        card_header.setAttribute("class", "card-header");
         card.appendChild(card_header);
-
-        
-        var card_content = document.createElement("div")
-        card_content.setAttribute("class", "card-content")
-        card.appendChild(card_content);
 
         var card_body = document.createElement("div");
         card_body.setAttribute("id", "card-body");
-        card_body.setAttribute("class", "card-body");
+        card_body.setAttribute("class", "card-body card-content");
         card.appendChild(card_body);
 
+        var card_footer = document.createElement("div");
+        card_footer.setAttribute("class", "card-footer")
+        card.appendChild(card_footer);
+
+        var small = document.createElement("small");
+        card_header.appendChild(small);
+
+        var card_header_id = document.createElement("div");
+        card_header_id.setAttribute("id", "card-header");
+        card_header_id.innerText = datas[i]['nickname'];
+        console.log(card_header_id);
+        small.appendChild(card_header_id);
 
         var blockquote = document.createElement("blockquote");
         blockquote.setAttribute("class", "blockquote mb-0");
         card_body.appendChild(blockquote);
 
         var p =  document.createElement("p");
+        p.setAttribute("class", "card-text");
         p.innerHTML = datas[i]['context'];
         blockquote.appendChild(p);
-     
+
+        
         var feed_button =  document.createElement("div")
         feed_button.setAttribute("class", "feed-button");
-        card.appendChild(feed_button);
+        card_footer.appendChild(feed_button);
     
         var button = document.createElement("button");
         button.setAttribute("type", "button");
         button.setAttribute("class", "btn btn-dark");
         button.setAttribute("value", datas[i]['_id']);
         button.innerHTML = " 🙌"+ "<span> &nbsp;"+ datas[i]['thumbs-up']+ "</span>";
-        feed_button.appendChild(button);        
+        feed_button.appendChild(button);       
     }
     return 0;
 }
@@ -189,31 +193,37 @@ function card_bottom(datas){
 function card(datas){
     parent = document.getElementById('card-row');
     for(var i=0; i<datas.length; i++){
-        var card_col = document.createElement("div");
-        card_col.setAttribute("class", "col-md-4");
-        parent.insertBefore(card_col, parent.firstChild);
+        var col = document.createElement("div");
+        col.setAttribute("class", "col")
+        parent.insertBefore(col, parent.firstChild);
 
         var card = document.createElement("div");
-        card.setAttribute("id", "card");
-        card.setAttribute("class", "card col-md-12 feed-comment");
-        // document.getElementById('post').appendChild(card);
-        card_col.appendChild(card);
-        
+        card.setAttribute("class", "card h-100 feed-comment");
+        col.appendChild(card)
 
         var card_header = document.createElement("div");
-        card_header.setAttribute("id", "card-header");
-        card_header.innerHTML = datas[i]['nickname'];
+        card_header.setAttribute("class", "card-header");
         card.appendChild(card_header);
-
-        
-        var card_content = document.createElement("div")
-        card_content.setAttribute("class", "card-content")
-        card.appendChild(card_content);
 
         var card_body = document.createElement("div");
         card_body.setAttribute("id", "card-body");
-        card_body.setAttribute("class", "card-body");
+        card_body.setAttribute("class", "card-body card-content");
         card.appendChild(card_body);
+
+        var card_footer = document.createElement("div");
+        card_footer.setAttribute("class", "card-footer")
+        card.appendChild(card_footer);
+
+        var small = document.createElement("small");
+        card_header.appendChild(small);
+
+        var card_header_id = document.createElement("div");
+        card_header_id.setAttribute("id", "card-header");
+        card_header_id.innerText = datas[i]['nickname'];
+        console.log(card_header_id)
+        small.appendChild(card_header_id)
+
+        
 
 
         var blockquote = document.createElement("blockquote");
@@ -221,12 +231,15 @@ function card(datas){
         card_body.appendChild(blockquote);
 
         var p =  document.createElement("p");
+        p.setAttribute("class", "card-text");
         p.innerHTML = datas[i]['context'];
         blockquote.appendChild(p);
+
+        
      
         var feed_button =  document.createElement("div")
         feed_button.setAttribute("class", "feed-button");
-        card.appendChild(feed_button);
+        card_footer.appendChild(feed_button);
     
         var button = document.createElement("button");
         button.setAttribute("type", "button");
