@@ -2,8 +2,99 @@
 <!-- place for css link -->
 <title>Bornfire</title>
 
-<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+<!-- chartjs -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+  integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 
+
+<!-- Link Swiper's CSS -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+
+<!-- Demo styles -->
+<style>
+.feed-comment {
+  overflow: auto;
+  color: black;
+}
+  .feed-comment::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feed-comment::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.feed-comment::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+
+.feed-comment::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+.swiper-container {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  height: 500px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+
+  height: 400px;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  
+}
+
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.display-6{
+  color: #000;
+  margin-top: 30px;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+</style>
+
+<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
 {% endblock %} {% block body %}
 
 <div class="container title-wrapper">
@@ -33,12 +124,51 @@
 </div>
 
 <!-- main image -->
-<div class="container-fluid" style="height: 500px; background-color: white">
+<div class="container-fluid" style="height: 500px;  background-color: #fff">
+  
   <div class="row">
-    <div class="col-md-12 p-0">
-      <Canvas>THIS ISCAMVAS</Canvas>
+    <div class="col-md-6 swiper-container" style = "background-color: #fff;"> 
+      <div class="col-md-12 title">
+        <h5 class="display-6">{{yesterday_subject}}</h5>
+      </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          {% for lank in lanks %}
+            <div class="swiper-slide">
+              <div class = "col" style="height: 400px !important;" >
+                <div id="card" class="card h-100 feed-comment">
+                  <div class="card-header">
+                    <small>
+                      <div id="card-header">Lank {{ loop.index }}</div>
+                    </small>
+                  </div>
+                  <div id="card-body" class="card-body card-content">
+                    <blockquote class="blockquote mb-0">
+                      <p class="card-text">{{lank.Feed}}</p>
+                    </blockquote>
+                  </div>
+                  <div class="card-footer">
+                    <div class="feed-button">
+                      <button type="button" class="btn btn-dark" >
+                        🙌<span> &nbsp;{{lank.Likes}}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
+  
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <canvas id="feed_sentiment" style = "width:500px; background-color: #fff;"></canvas>
+      </div>
+    </div>  
   </div>
+
 </div>
 
 <!-- introduce service -->
@@ -164,6 +294,83 @@
     {% endif %}
   </div>
 </div>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1.2,
+    spaceBetween: 30,
+    autoHeight: true,
+    centeredSlides: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    loop: true,
+    autoplay : {  // 자동 슬라이드 설정 , 비 활성화 시 false
+       delay : 3000,   // 시간 설정
+       disableOnInteraction : false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
+    },
+  });
+
+
+  let predicted_value = {{ predicted_value|tojson }}
+  console.log(predicted_value)
+
+  let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
+  let sentiment_chart = new Chart(feed_sentiment, {
+      type: 'doughnut',
+      data: {
+          // labels: Object.keys(predicted_value),
+          labels: ['부정', '긍정'],
+          datasets: [{
+              label: '# 긍정',
+              data: Object.values(predicted_value),
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.5)',
+                  'rgba(250, 158, 64, 0.5)',
+                  'rgba(252, 205, 86, 0.5)',
+                  'rgba(75, 192, 192, 0.5)',
+                  'rgba(54, 162, 235, 0.5)',
+                  'rgba(90, 100, 235, 0.5)',
+                  'rgba(153, 102, 255, 0.5)',
+                  'rgba(193, 132, 255, 0.5)',
+                  'rgba(201, 203, 207, 0.5)',
+                  
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 0.5)',
+                  'rgba(250, 158, 64, 0.5)',
+                  'rgba(252, 205, 86, 0.5)',
+                  'rgba(75, 192, 192, 0.5)',
+                  'rgba(54, 162, 235, 0.5)',
+                  'rgba(153, 102, 255, 0.5)',
+                  'rgba(201, 203, 207, 0.5)',
+                  'rgba(90, 100, 235, 0.5)'
+              ],
+              borderWidth: 1
+              },
+              
+      ]
+      },
+      options: {
+          responsive: false,
+          plugins:{
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            title:{
+              display:true,
+              text: "어제 피드 통계"
+            }
+          }  
+      }
+  });
+</script>
 
 {% endblock %} {% block script %}
 {% endblock %}

@@ -25,7 +25,10 @@ def forgot():
         # 에러 발생시 -> 아이디를 확인해주세요 넣어야함!
         # 에러가 발생하지 않았을 때 모달을 띄움
         # 모달안에는 질문, 답을 위한 input -> 정답이라면 비밀번호 변경
-        return jsonify(user["Verify_question"])
+        if user:
+            return jsonify(user["Verify_question"])
+        return redirect(url_for('forgot_pw.forgot'))
+        
 
 @forgot_pw.route("/change-pw", methods=["POST"])
 def change():
