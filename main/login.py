@@ -27,11 +27,13 @@ def get_login():
         email = request.form.get("user_email")
         pw = request.form.get("user_pw")
         user = db.User_collection.find_one({"User_email":email})
-        print(user)
-        if bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
+        if not user:
+                msg = "아이디가 존재하지 않습니다."
+                return render_template('login-join.html', data=msg)
+        elif bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
             session['user_email'] = email
             return redirect(url_for('feed.get_feed'))
-        else:
+        else:   
             msg='비밀번호가 일치하지 않습니다.'
             return render_template('login-join.html', data=msg)
 
