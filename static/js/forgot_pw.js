@@ -15,8 +15,7 @@ $("#button-addon2").click(function () {
       $(".card-title").html(question);
     },
     error: function (request, status, error) {
-      alert("ajax 통신 실패");
-      alert(error);
+      alert("아이디를 찾을 수 없습니다 🤦‍♂️");
     },
   });
 });
@@ -27,7 +26,7 @@ $("#answer-btn").click(function () {
   if (answer == user_answer) {
     $(".change-form").removeClass("change-form");
   } else {
-    alert("답이 틀렸습니다. 다시 한번 입력해주세요.");
+    alert("답이 틀렸습니다. 다시 한번 입력해주세요 🤦‍♂️");
   }
 });
 
@@ -44,7 +43,7 @@ $("#change-pw-btn").click(function (e) {
 
 function checkPasswordsMatch(input1, input2) {
   if (input1 !== input2) {
-    alert("비밀번호가 일치하지 않습니다.");
+    alert("비밀번호가 일치하지 않습니다 🤦‍♂️");
     return false;
   } else {
     return true;
