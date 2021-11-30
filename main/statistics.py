@@ -8,6 +8,22 @@ statistics = Blueprint("statistics", __name__)
 def get_statistics():
     return render_template('statistics.html')
 
+@statistics.route("/statistics", methods=['POST'])
+def get_test_sentiment():
+    data = request.json
+    context = data.get('context')
+    print(context)
+    
+    from model.predict_sen import get_sentiment
+
+    predicted = get_sentiment(context)
+    positive = round(predicted[0], 2)
+    negative = round(1 - positive, 2)
+    
+    print(positive, negative)
+
+    return jsonify(result=[negative, positive])
+
 
 @statistics.route("/patient", methods=['GET'])
 def patient():
@@ -37,5 +53,6 @@ def initialKeyword():
 def updateKeyword():
     btnValue = request.args.get('btnValue')
     label, data = update_keyword_data(btnValue)
+    
     
     return jsonify(result=[label, data])
