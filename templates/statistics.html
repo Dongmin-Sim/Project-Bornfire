@@ -1,84 +1,92 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 <!-- head -->
 {% block head %}
 
 <title>Bornfire - 통계페이지</title>
-<link href="{{url_for('static',filename='./css/statistics.css')}}" rel="stylesheet"/>
+<link
+  href="{{url_for('static',filename='./css/statistics.css')}}"
+  rel="stylesheet"
+/>
 
-{% endblock %} 
-
+{% endblock %}
 
 <!-- body -->
 {% block body %}
 <div class="container">
-    <div class="container" style="margin-top: 100px">
-        <div class="row">
-        <h2 class="display-4">통계 그래프로 보는 코로나 블루</h2>
-        <h2 class="h4">코로나 블루, 나 혼자만의 문제가 아닙니다.</h2>
-        </div>
+  <div class="container" style="margin-top: 100px">
+    <div class="row">
+      <h2 class="display-4">통계 그래프로 보는 코로나 블루</h2>
+      <h2 class="h4">코로나 블루, 나 혼자만의 문제가 아닙니다.</h2>
     </div>
-    
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">코로나로 인해 우울감은 얼마나 늘었을까?</h4>
+  </div>
+
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">코로나로 인해 우울감은 얼마나 늘었을까?</h4>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-4 align-self-center">
+        <div class="p-3 text-black">
+          <p class="text-left">
+            21년 1분기 「코로나19 국민 정신건강 실태조사」 에 따르면 코로나로
+            인해 우울, 자살생각 증가 등
+            <strong><u>전반적인 정신건강 지표가 악화</u></strong
+            >된 것으로 나타났습니다.
+          </p>
+          <p class="text-left">
+            우울 평균 점수는 2018년에 실시된 지역 사회 건강조사 결과에 비해
+            <strong><u>2배 이상</u></strong> 증가한 수치입니다.
+          </p>
+          <div class="text-left">
+            또한 자살생각 비율(2021.3)은 16.3%로 2018년 4.7%에 비해 약 3.5배
+            높은 수준, 코로나 발생초기인 2020년 3월 9.7%와 비교해
+            <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
+          </div>
         </div>
-        <div class="row p-3 bg-white">
-            <div class="col-md-4 align-self-center">
-                <div class="p-3 text-black">
-                    <p class="text-left">
-                        21년 1분기 「코로나19 국민 정신건강 실태조사」
-                        에 따르면 코로나로 인해 우울, 자살생각 증가 등
-                        <strong><u>전반적인 정신건강 지표가 악화</u></strong
-                        >된 것으로 나타났습니다.
-                    </p>
-                    <p class="text-left">
-                        우울 평균 점수는 2018년에 실시된 지역 사회 건강조사 결과에 비해 <strong><u>2배 이상</u></strong> 증가한
-                        수치입니다. 
-                    </p>
-                    <div class="text-left">
-                        또한 자살생각 비율(2021.3)은 16.3%로 2018년 4.7%에 비해 약 3.5배 높은 수준, 코로나 발생초기인 2020년
-                        3월 9.7%와 비교해 <strong><u>지속적으로 증가하고</u></strong> 있는 추세입니다.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-dark">
-                        <input
-                        type="radio"
-                        name=group1"
-                        class="btnValue1"
-                        value="f411"
-                        autocomplete="off"
-                        checked
-                        >
-                        범불안장애
-                    </label>
-                    <label class="btn btn-outline-dark">
-                        <input type="radio" name="group1" class="btnValue2" value="f419" autocomplete="off"
-                        >
-                        명시되지 않은 불안장애
-                    </label>
-                    <label class="btn btn-outline-dark">
-                        <input
-                        type="radio"
-                        name="group1"
-                        class="btnValue3"
-                        value="f320"
-                        autocomplete="off"
-                        >
-                        경도 우울 에피소드
-                    </label>
-                </div>
-                <canvas id="patient"></canvas>
-            </div>
+      </div>
+      <div class="col-md-8">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group1"
+              class="btnValue1"
+              value="f411"
+              autocomplete="off"
+              checked
+            />
+            범불안장애
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group1"
+              class="btnValue2"
+              value="f419"
+              autocomplete="off"
+            />
+            명시되지 않은 불안장애
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group1"
+              class="btnValue3"
+              value="f320"
+              autocomplete="off"
+            />
+            경도 우울 에피소드
+          </label>
         </div>
-        <div class="row p-4 bg-white">
-        <div class="col-md-12 align-self-center">
-            <div class="text-black">
-            <!-- <p class="text-left">
+        <canvas id="patient"></canvas>
+      </div>
+    </div>
+    <div class="row p-4 bg-white">
+      <div class="col-md-12 align-self-center">
+        <div class="text-black">
+          <!-- <p class="text-left">
                 보건의료빅데이터의 질병 소분류(4단상병) 통게 데이터
                 셋(▲범불안장애(F41.1) ▲명시되지 않은 불안장애 (F41.9) ▲경도의 우울병
                 에피소드(F32.0)에 해당하는 데이터)을 바탕으로 분석한 코로나 블루 통계
@@ -86,626 +94,701 @@
                 >를 보이는 것으로 나타났으며, 2021년 3월에는 모든 코로나블루 지표에서
                 가장 가파른 증가세를 보이고 있습니다.
             </p> -->
-            </div>
         </div>
-        </div>
+      </div>
     </div>
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">성별, 연령별로 알아보는 코로나 블루 추이</h4>
-        </div>
-        <div class="row bg-white">
-        <div class="col-md-8">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-dark">
-                <input
-                type="radio"
-                name="group2"
-                class="sexAge-btn-1"
-                value="f411"
-                autocomplete="off"
-                checked
-                />
-                범불안장애
-            </label>
-            <label class="btn btn-outline-dark">
-                <input
-                type="radio"
-                name="group2"
-                class="sexAge-btn-2"
-                value="f419"
-                autocomplete="off"
-                >
-                명시되지 않은 불안장애
-            </label>
-            <label class="btn btn-outline-dark">
-                <input
-                type="radio"
-                name="group2"
-                class="sexAge-btn-3"
-                value="f320"
-                autocomplete="off"
-                >
-                경도 우울 에피소드
-            </label>
-            </div>
-        </div>
-        </div>
-        <div class="row bg-white align-items-center">
-        <div class="col-md-6">
-            <canvas id="sexAge1"></canvas>
-        </div>
-        <div class="col-md-6">
-            <canvas id="sexAge2" style="height:50vh; width:50vw"></canvas>
-        </div>
-        </div>
-        <div class="row p-3 bg-white">
-        <div class="col-md-6 align-self-center">
-            <div class="p-3 text-black">
-            <p class="text-left">
-                전반적으로 코로나 블루의 성별의 특성은
-                <strong><u>남성보다 여성의 비율이 높은 것</u></strong
-                >으로 나타났고, <strong>범불안장애</strong>와,
-                <strong>명시되지 않은 불안장애</strong>는 <u>60-69세의 연령대</u>,
-                <strong>경도의 우울병 에피소드</strong>는 <u>20-29세 연령대</u>의
-                비율이 가장 높은 것으로 나타났습니다.
-            </p>
-            <p class="text-left">
-                ▲범불안장애(F41.1)의 경우 남성, 여성 모두 60-69, 70-79세에 해당하는
-                연령대의 여성비율이 확연히 높은 것으로 나타났습니다.
-            </p>
-            <p class="text-left">
-                ▲명시되지 않은 불안장애 (F41.9)의 경우 20-40세의 연령대에서는 근소한
-                차이를 보였지만, 50-70세의 연령대에서 여성의 비율이 더 높은 것으로
-                나타났습니다.
-            </p>
-            <p class="text-left">
-                ▲경도의 우울병 에피소드(F32.0)의 경우 거의 모든 연령대에서 여성이
-                남성에 비해 약 2배 청구건수가 많은 것으로 나타났습니다.
-            </p>
-            </div>
-        </div>
-        <div class="col-md-6 align-self-center">
-            <div class="p-3 text-black">
-            <p class="text-left">
-                F411, F419에 해당하는 범불안장애와 명시되지 않은 불안장애의 경우 모두
-                60-69세의 연령대의 요양급여비용총계가 가장 높은 것으로 나타났습니다.
-            </p>
-            <p class="text-left">
-                F320에 해당하는 경도의 우울병 에피소드의 경우에는 20-29세에 해당하는
-                연령의 요양급여비용총계가 가장 높은 것으로 나타났습니다.
-            </p>
-            </div>
-        </div>
-        </div>
+  </div>
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">성별, 연령별로 알아보는 코로나 블루 추이</h4>
     </div>
-    
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-        <h4 class="h4 text-black">지역별 코로나 블루, 코로나 블루 지역지수</h4>
+    <div class="row bg-white">
+      <div class="col-md-8">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group2"
+              class="sexAge-btn-1"
+              value="f411"
+              autocomplete="off"
+              checked
+            />
+            범불안장애
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group2"
+              class="sexAge-btn-2"
+              value="f419"
+              autocomplete="off"
+            />
+            명시되지 않은 불안장애
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="group2"
+              class="sexAge-btn-3"
+              value="f320"
+              autocomplete="off"
+            />
+            경도 우울 에피소드
+          </label>
         </div>
-        <div class="row bg-white align-items-center">
-        <div class="col-md-12">
-            <div class='tableauPlaceholder' id='viz1637902527976' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='지역별 코로나 전, 후 1년간 F32, F411 진단 환자수 변동 추이 (2) ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1_rss.png' style='border: none' />
-                    </a>
-                </noscript>
-                <object class='tableauViz'  style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' /> 
-                    <param name='path' value='shared&#47;5BPH5F7GP' /> 
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1.png' /> 
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='ko-KR' />
-                    <param name='filter' value='publish=yes' />
-                </object>
-            </div>                
-        </div>
-        </div>
-        <div class="row p-3 bg-white">
-        <div class="col-md-12 align-self-center">
-            <div class="p-3 text-black">
-            <p class="text-left">
-                거의 대부분의 지역에서 범불안장애, 경도의 우울 에피소드의 비율이 증가한 것으로 나타났습니다.<br>
-                서울 및 경기도, 인천, 제주도의 경우 경도의 우울 에피소드의 비율이 범불안장애보다 높은 비율을 보이는 것으로 나타났습니다.<br>
-                이외의 지역들도 마찬가지로 경도의 우울 에피소드의 비율도 높았으나, 범불안장애 비율 역시 높은 것으로 나타났습니다.
-            </p>
-            </div>
-        </div>
-        <div class="col-md-12 align-self-center">
-            <div class="p-3 text-black">
-            <p class="text-left">지도의 지역을 선택하시면 지역별로 코로나 전,후 전후 차이를 비교하실 수 있습니다.</p>
-            </div>
-        </div>
-        </div>
+      </div>
     </div>
+    <div class="row bg-white align-items-center">
+      <div class="col-md-6">
+        <canvas id="sexAge1"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="sexAge2" style="height: 50vh; width: 50vw"></canvas>
+      </div>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-6 align-self-center">
+        <div class="p-3 text-black">
+          <p class="text-left">
+            전반적으로 코로나 블루의 성별의 특성은
+            <strong><u>남성보다 여성의 비율이 높은 것</u></strong
+            >으로 나타났고, <strong>범불안장애</strong>와,
+            <strong>명시되지 않은 불안장애</strong>는 <u>60-69세의 연령대</u>,
+            <strong>경도의 우울병 에피소드</strong>는 <u>20-29세 연령대</u>의
+            비율이 가장 높은 것으로 나타났습니다.
+          </p>
+          <p class="text-left">
+            ▲범불안장애(F41.1)의 경우 남성, 여성 모두 60-69, 70-79세에 해당하는
+            연령대의 여성비율이 확연히 높은 것으로 나타났습니다.
+          </p>
+          <p class="text-left">
+            ▲명시되지 않은 불안장애 (F41.9)의 경우 20-40세의 연령대에서는 근소한
+            차이를 보였지만, 50-70세의 연령대에서 여성의 비율이 더 높은 것으로
+            나타났습니다.
+          </p>
+          <p class="text-left">
+            ▲경도의 우울병 에피소드(F32.0)의 경우 거의 모든 연령대에서 여성이
+            남성에 비해 약 2배 청구건수가 많은 것으로 나타났습니다.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="p-3 text-black">
+          <p class="text-left">
+            F411, F419에 해당하는 범불안장애와 명시되지 않은 불안장애의 경우
+            모두 60-69세의 연령대의 요양급여비용총계가 가장 높은 것으로
+            나타났습니다.
+          </p>
+          <p class="text-left">
+            F320에 해당하는 경도의 우울병 에피소드의 경우에는 20-29세에 해당하는
+            연령의 요양급여비용총계가 가장 높은 것으로 나타났습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">지역별 코로나 블루, 코로나 블루 지역지수</h4>
+    </div>
+    <div class="row bg-white align-items-center">
+      <div class="col-md-12">
+        <div
+          class="tableauPlaceholder"
+          id="viz1637902527976"
+          style="position: relative"
+        >
+          <noscript>
+            <a href="#">
+              <img
+                alt="지역별 코로나 전, 후 1년간 F32, F411 진단 환자수 변동 추이 (2) "
+                src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1_rss.png"
+                style="border: none"
+              />
+            </a>
+          </noscript>
+          <object class="tableauViz" style="display: none">
+            <param
+              name="host_url"
+              value="https%3A%2F%2Fpublic.tableau.com%2F"
+            />
+            <param name="embed_code_version" value="3" />
+            <param name="path" value="shared&#47;5BPH5F7GP" />
+            <param name="toolbar" value="yes" />
+            <param
+              name="static_image"
+              value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;5B&#47;5BPH5F7GP&#47;1.png"
+            />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="ko-KR" />
+            <param name="filter" value="publish=yes" />
+          </object>
+        </div>
+      </div>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-12 align-self-center">
+        <div class="p-3 text-black">
+          <p class="text-left">
+            거의 대부분의 지역에서 범불안장애, 경도의 우울 에피소드의 비율이
+            증가한 것으로 나타났습니다.<br />
+            서울 및 경기도, 인천, 제주도의 경우 경도의 우울 에피소드의 비율이
+            범불안장애보다 높은 비율을 보이는 것으로 나타났습니다.<br />
+            이외의 지역들도 마찬가지로 경도의 우울 에피소드의 비율도 높았으나,
+            범불안장애 비율 역시 높은 것으로 나타났습니다.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12 align-self-center">
+        <div class="p-3 text-black">
+          <p class="text-left">
+            지도의 지역을 선택하시면 지역별로 코로나 전,후 전후 차이를 비교하실
+            수 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
-    <div class="container" style="margin-top: 100px">
-        <div class="row">
-        <h2 class="display-4">키워드로 보는 코로나 블루</h2>
-        <h2 class="h4">가장 밀접한 키워드는 무엇이었을까요?</h2>
-        </div>
+  <div class="container" style="margin-top: 100px">
+    <div class="row">
+      <h2 class="display-4">키워드로 보는 코로나 블루</h2>
+      <h2 class="h4">가장 밀접한 키워드는 무엇이었을까요?</h2>
     </div>
+  </div>
 
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">코로나 키워드 긍부정 누적 그래프</h4>
-        </div>
-        <div class="row p-3 bg-white">
-            <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                코로나 발생시기 동안의 코로나 + 감정, 기분, 일상의 키워드와 관련된 글을 크롤링하고 <br> 
-                감성분석 모델로 크롤링된 글에 대한 긍정 | 부정 예측비율을 살펴봅니다.<br> 
-            </div>
-            <div class="col-md-12">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-dark">
-                        <input
-                        type="radio"
-                        name="keyword"
-                        class="btnDaily"
-                        value="daily"
-                        autocomplete="off"
-                        checked
-                        />
-                        일상
-                    </label>
-                    <label class="btn btn-outline-dark">
-                        <input
-                        type="radio"
-                        name="keyword"
-                        class="btnEmotion"
-                        value="emotion"
-                        autocomplete="off"
-                        />
-                        감정
-                    </label>
-                    <label class="btn btn-outline-dark">
-                        <input type="radio" name="keyword" class="btnMood" value="mood" autocomplete="off"
-                        />
-                        기분
-                    </label>
-                </div>
-                <canvas id="total_keyword">total Keyword</canvas>
-            </div>
-        </div>
-        <div class="row p-3 bg-white">
-            <div class="col-md-6">
-                <div class="p-3 text-black text-center platform-naver">
-                    NAVER Blog & Cafe
-                </div>
-                <canvas id="naver_sentiment">Naver</canvas>
-            </div>
-            <div class="col-md-6">
-                <div class="p-3 text-black text-center platform-twitter">
-                    Twitter
-                </div>
-                <canvas id="twitter_sentiment">Twitter</canvas>
-            </div>
-        </div>
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">코로나 키워드 긍부정 누적 그래프</h4>
     </div>
-
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">코로나 + 감정, 기분, 일상 워드 클라우드</h4>
+    <div class="row p-3 bg-white">
+      <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+        코로나 발생시기 동안의 코로나 + 감정, 기분, 일상의 키워드와 관련된 글을
+        크롤링하고 <br />
+        감성분석 모델로 크롤링된 글에 대한 긍정 | 부정 예측비율을 살펴봅니다.<br />
+      </div>
+      <div class="col-md-12">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="keyword"
+              class="btnDaily"
+              value="daily"
+              autocomplete="off"
+              checked
+            />
+            일상
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="keyword"
+              class="btnEmotion"
+              value="emotion"
+              autocomplete="off"
+            />
+            감정
+          </label>
+          <label class="btn btn-outline-dark">
+            <input
+              type="radio"
+              name="keyword"
+              class="btnMood"
+              value="mood"
+              autocomplete="off"
+            />
+            기분
+          </label>
         </div>
-        <div class="row p-3 bg-white">
-            <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                코로나 발생시기 동안의 코로나 + 감정, 기분, 일상 키워드와 연관되어<br> 
-                가장 많이 등장한 단어들을 워드클라우드로 시각화하여 확인해봅니다.<br> 
-            </div>
-            <div class="col-md-4 content-img">
-                <!-- image -->
-                <figure>
-                    <img src="../static/assets/img/statistics/naver&twitter-emotion.png" alt="">
-                    <figcaption class="text-black text-center">코로나 & 감정</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-md-4 content-img">
-                <figure>
-                    <img src="../static/assets/img/statistics/naver&twitter-mood.png" alt="">
-                    <figcaption class="text-black text-center">코로나 & 기분</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-md-4 content-img">
-                <figure>
-                    <img src="../static/assets/img/statistics/naver&twitter-daily.png" alt="">
-                    <figcaption class="text-black text-center">코로나 & 일상</figcaption>
-                </figure>
-            </div>
-
-        </div>
-        <div class="row p-3 bg-white">
-            <div class="col-md-4 text-black">
-                <div class="wordcloud-list">아이 - 3647</div>
-                <div class="wordcloud-list">마음 - 3625</div>
-                <div class="wordcloud-list">블루 - 3284</div>
-                <div class="wordcloud-list">사람 - 2868</div>
-                <div class="wordcloud-list">생각 - 2705</div>
-            </div>
-            
-            <div class="col-md-4 text-black">
-                <div class="wordcloud-list">검사 - 5808</div>
-                <div class="wordcloud-list">접종 - 3805</div>
-                <div class="wordcloud-list">좋은 - 3364</div>
-                <div class="wordcloud-list">전환 - 3328</div>
-                <div class="wordcloud-list">사람 - 3164</div>
-            </div>
-
-            <div class="col-md-4 text-black">
-                <div class="wordcloud-list">생활 - 4734</div>
-                <div class="wordcloud-list">마스크 - 4150</div>
-                <div class="wordcloud-list">접종 - 4043</div>
-                <div class="wordcloud-list">회복 - 3428</div>
-                <div class="wordcloud-list">바이러스 - 3316</div>
-            </div>
-            
-        </div>
-
+        <canvas id="total_keyword">total Keyword</canvas>
+      </div>
     </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-6">
+        <div class="p-3 text-black text-center platform-naver">
+          NAVER Blog & Cafe
+        </div>
+        <canvas id="naver_sentiment">Naver</canvas>
+      </div>
+      <div class="col-md-6">
+        <div class="p-3 text-black text-center platform-twitter">Twitter</div>
+        <canvas id="twitter_sentiment">Twitter</canvas>
+      </div>
+    </div>
+  </div>
 
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">코로나 + 감정, 기분, 일상 워드 클라우드</h4>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+        코로나 발생시기 동안의 코로나 + 감정, 기분, 일상 키워드와 연관되어<br />
+        가장 많이 등장한 단어들을 워드클라우드로 시각화하여 확인해봅니다.<br />
+      </div>
+      <div class="col-md-4 content-img">
+        <!-- image -->
+        <figure>
+          <img
+            src="../static/assets/img/statistics/naver&twitter-emotion.png"
+            alt=""
+          />
+          <figcaption class="text-black text-center">코로나 & 감정</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-md-4 content-img">
+        <figure>
+          <img
+            src="../static/assets/img/statistics/naver&twitter-mood.png"
+            alt=""
+          />
+          <figcaption class="text-black text-center">코로나 & 기분</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-md-4 content-img">
+        <figure>
+          <img
+            src="../static/assets/img/statistics/naver&twitter-daily.png"
+            alt=""
+          />
+          <figcaption class="text-black text-center">코로나 & 일상</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="col-md-4 text-black">
+        <div class="wordcloud-list">아이 - 3647</div>
+        <div class="wordcloud-list">마음 - 3625</div>
+        <div class="wordcloud-list">블루 - 3284</div>
+        <div class="wordcloud-list">사람 - 2868</div>
+        <div class="wordcloud-list">생각 - 2705</div>
+      </div>
+
+      <div class="col-md-4 text-black">
+        <div class="wordcloud-list">검사 - 5808</div>
+        <div class="wordcloud-list">접종 - 3805</div>
+        <div class="wordcloud-list">좋은 - 3364</div>
+        <div class="wordcloud-list">전환 - 3328</div>
+        <div class="wordcloud-list">사람 - 3164</div>
+      </div>
+
+      <div class="col-md-4 text-black">
+        <div class="wordcloud-list">생활 - 4734</div>
+        <div class="wordcloud-list">마스크 - 4150</div>
+        <div class="wordcloud-list">접종 - 4043</div>
+        <div class="wordcloud-list">회복 - 3428</div>
+        <div class="wordcloud-list">바이러스 - 3316</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
-    <div class="container" style="margin-top: 100px">
-        <div class="row">
-        <h2 class="display-4">감성분석으로 확인하는 코로나 블루</h2>
-        <h2 class="h4">지금 나의 글에는 어떤 감성이 들어있을까?</h2>
+  <div class="container" style="margin-top: 100px">
+    <div class="row">
+      <h2 class="display-4">감성분석으로 확인하는 코로나 블루</h2>
+      <h2 class="h4">지금 나의 글에는 어떤 감성이 들어있을까?</h2>
+    </div>
+  </div>
+
+  <div class="container content">
+    <div class="row p-4 pb-0 bg-white">
+      <h4 class="h4 text-black">한번 직접 확인해보세요</h4>
+      <div class="h5 p-4 pt-1 pb-0 text-black" style="font-weight: 300">
+        <p>감성분석 모델을 테스트 해보세요! 여러분의 글 감정을 분석해줍니다.</p>
+      </div>
+    </div>
+    <div class="row p-4 pt-0 bg-white">
+      <form>
+        <div class="form-floating text-black">
+          <textarea
+            id="context"
+            class="form-control"
+            placeholder="Leave a comment here"
+            style="height: 100px"
+          ></textarea>
+          <label for="floatingTextarea2" style="padding-left: 2%"
+            >감정분석을 위한 글을 작성해보세요!</label
+          >
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button id="sentiment-btn" class="btn btn-primary" type="button">
+              감정분석
+            </button>
+          </div>
         </div>
+      </form>
+    </div>
+    <div class="row p-4 bg-white">
+      <div class="col-lg-3 text-black align-self-center p-5 text-center">
+        <h3 class="display-5">긍정</h3>
+        <p id="positive-rate" class="display-6"></p>
+        %
+      </div>
+      <div class="col-lg-6">
+        <canvas
+          id="test-sentiment"
+          width="400"
+          height="400"
+          style="margin: auto; display: block"
+        ></canvas>
+      </div>
+      <div class="col-lg-3 text-black align-self-center p-5 text-center">
+        <h3 class="display-5">부정</h3>
+        <p class="display-6" id="negative-rate"></p>
+        %
+      </div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="container content">
+    <div class="row p-4 bg-white">
+      <h4 class="h4 text-black">NLP기술, 텍스트 감성분석</h4>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+        <p>
+          <strong>감성 분석(Sentiment Analysis)</strong>이란 텍스트에 들어있는
+          의견이나 감성, 평가, 태도 등에 대한 <br />
+          분석 기법으로 모닥불에서는 사용자가 작성한 피드 게시글에 대한
+          감성분석을 실시합니다.<br />
+        </p>
+        <p>
+          저희 모닥불에서는 감성분석 모델 학습을 위해 <br />3개의 긍부정 라벨링
+          데이터 셋을 사용하여 모델을 학습하였습니다.
+        </p>
+      </div>
+      <div class="col-md-4 align-self-center">
+        <div
+          class="h6 p-4 pt-1 pb-1 text-black text-center"
+          style="font-weight: 300"
+        >
+          <strong>네이버 영화 리뷰</strong>
+        </div>
+      </div>
+      <div class="col-md-4 align-self-center">
+        <div
+          class="h6 p-4 pt-1 pb-1 text-black text-center"
+          style="font-weight: 300"
+        >
+          <strong>네이버 쇼핑 리뷰</strong>
+        </div>
+      </div>
+      <div class="col-md-4 align-self-center">
+        <div
+          class="h6 p-4 pt-1 pb-1 text-black text-center"
+          style="font-weight: 300"
+        >
+          <strong>스팀 게임 리뷰</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row p-3 pt-1 bg-white">
+      <div class="col-md-4 align-self-center">
+        <div class="content-img">
+          <img src="../static/assets/img/statistics/movie-review.png" alt="" />
+        </div>
+      </div>
+      <div class="col-md-4 align-self-center">
+        <div class="content-img">
+          <img
+            src="../static/assets/img/statistics/shopping-review.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="col-md-4 align-self-center">
+        <div class="content-img">
+          <img src="../static/assets/img/statistics/game-review.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="row p-4 bg-white pt-5 pb-0">
+      <h4 class="h4 text-black">모델 학습 과정</h4>
+    </div>
+    <div class="row p-3 bg-white">
+      <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+        <p>
+          감성분석을 위한 모델 학습 과정은 <br />
+          크게 데이터셋 전처리 → 토크나이징 & 패딩 → 인코딩 → 모델 학습 → 예측로
+          나뉘어 학습되었습니다.
+        </p>
+      </div>
     </div>
 
-    <div class="container content">
-        <div class="row p-4 pb-0 bg-white">
-            <h4 class="h4 text-black">한번 직접 확인해보세요</h4>
-            <div class="h5 p-4 pt-1 pb-0 text-black" style="font-weight: 300;">
-                <p>
-                감성분석 모델을 테스트 해보세요! 여러분의 글 감정을 분석해줍니다.
-                </p>
-            </div>
+    <div class="row p-5 pt-1 bg-white">
+      <h5 class="h5 text-black">데이터 전처리</h5>
+      <div class="col-md-6 align-self-center">
+        <div class="content-img">
+          <img
+            src="../static/assets/img/statistics/preprocessing.png"
+            alt="데이터 전처리"
+          />
         </div>
-        <div class="row p-4 pt-0 bg-white">
-            <form>
-                <div class="form-floating text-black">
-                    <textarea id='context' class="form-control" placeholder="Leave a comment here"  style="height: 100px"></textarea>
-                    <label for="floatingTextarea2" style="padding-left: 2%;">감정분석을 위한 글을 작성해보세요!</label>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button id='sentiment-btn' class="btn btn-primary" type="button">감정분석</button>
-                    </div>
-                </div>
-            </form>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+          <!-- model compile -->
+          <p class="text-left">
+            수집된 데이터 셋에서 특수문자 제거 등 데이터 전처리를 실시합니다.
+          </p>
         </div>
-        <div class="row p-4 bg-white">
-            <div class="col-lg-3 text-black align-self-center p-5 text-center">
-                    <h3 class="display-5">긍정</h3>
-                    <p id="positive-rate" class="display-6"></p>%
-            </div>
-            <div class="col-lg-6">
-                <canvas id="test-sentiment" width="400" height="400" style="margin: auto; display: block;"></canvas>
-            </div>
-            <div class="col-lg-3 text-black align-self-center p-5 text-center">
-                    <h3 class="display-5">부정</h3>
-                    <p class="display-6" id="negative-rate"></p>%
-            </div>
-    </div>
+      </div>
     </div>
 
-
-    <!-- content -->
-    <div class="container content">
-        <div class="row p-4 bg-white">
-            <h4 class="h4 text-black">NLP기술, 텍스트 감성분석</h4>
+    <div class="row p-5 pt-1 bg-white">
+      <h5 class="h5 text-black">토크나이징 & 패딩</h5>
+      <div class="col-md-6 align-self-center">
+        <div class="content-img">
+          <img
+            src="../static/assets/img/statistics/tokenizing_padding.png"
+            alt="분석 절차 이미지"
+          />
         </div>
-        <div class="row p-3 bg-white">
-            <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                <p>
-                <strong>감성 분석(Sentiment Analysis)</strong>이란 텍스트에 들어있는 의견이나 감성, 평가, 태도 등에 대한 <br> 분석 기법으로 모닥불에서는 사용자가 작성한 피드 게시글에 대한 감성분석을 실시합니다.<br>
-                </p>
-                <p>
-                저희 모닥불에서는 감성분석 모델 학습을 위해 <br>3개의 긍부정 라벨링 데이터 셋을 사용하여 모델을 학습하였습니다.
-                </p>
-            </div>
-            <div class="col-md-4 align-self-center">
-                <div class="h6 p-4 pt-1 pb-1 text-black text-center" style="font-weight: 300;">
-                    <strong>네이버 영화 리뷰</strong>
-                </div>
-            </div>
-            <div class="col-md-4 align-self-center">
-                <div class="h6 p-4 pt-1 pb-1 text-black text-center" style="font-weight: 300;">
-                    <strong>네이버 쇼핑 리뷰</strong>
-                </div>
-            </div>
-            <div class="col-md-4 align-self-center">
-                <div class="h6 p-4 pt-1 pb-1 text-black text-center" style="font-weight: 300;">
-                    <strong>스팀 게임 리뷰</strong>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+          <!-- model compile -->
+          <p class="text-left">
+            Okt 형태소 분석기를 사용하여 문장에서 형태소를 분리합니다.
+          </p>
+          <p class="text-left">
+            의, 은, 는, 이가 와 같은 분석에 사용되지 않을 불용어를 정의하고
+            제거합니다.
+          </p>
+          <p class="text-left">
+            적절한 padding 길이를 지정합니다. 저희는 35로 지정했습니다.
+          </p>
         </div>
-        <div class="row p-3 pt-1 bg-white">
-            <div class="col-md-4 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/movie-review.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-4 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/shopping-review.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-4 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/game-review.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="row p-4 bg-white pt-5 pb-0">
-            <h4 class="h4 text-black">모델 학습 과정</h4>
-        </div>
-        <div class="row p-3 bg-white">
-            <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                <p>
-                감성분석을 위한 모델 학습 과정은 <br>
-                크게 데이터셋 전처리 → 토크나이징 & 패딩 → 인코딩 → 모델 학습 → 예측로 나뉘어 학습되었습니다.
-                </p>
-            </div>
-        </div>
-
-        <div class="row p-5 pt-1 bg-white">
-            <h5 class="h5 text-black">데이터 전처리</h5>
-            <div class="col-md-6 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/preprocessing.png" alt="데이터 전처리">
-                </div>
-            </div>
-            <div class="col-md-6 align-self-center">
-                <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                    <!-- model compile -->
-                    <p class="text-left">
-                        수집된 데이터 셋에서 특수문자 제거 등 데이터 전처리를 실시합니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row p-5 pt-1 bg-white">
-            <h5 class="h5 text-black">토크나이징 & 패딩</h5>
-            <div class="col-md-6 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/tokenizing_padding.png" alt="분석 절차 이미지">
-                </div>
-            </div>
-            <div class="col-md-6 align-self-center">
-                <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                    <!-- model compile -->
-                    <p class="text-left">
-                        Okt 형태소 분석기를 사용하여 문장에서 형태소를 분리합니다.
-                    </p>
-                    <p class="text-left">
-                        의, 은, 는, 이가 와 같은 분석에 사용되지 않을 불용어를 정의하고 제거합니다.
-                    </p>
-                    <p class="text-left">
-                        적절한 padding 길이를 지정합니다. 저희는 35로 지정했습니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row p-5 pt-1 bg-white">
-            <h5 class="h5 text-black">인코딩</h5>
-            <div class="col-md-6 align-self-center">
-                <div class="content-img">
-                    <img src="../static/assets/img/statistics/encoding.png" alt="분석 절차 이미지">
-                </div>
-            </div>
-            <div class="col-md-6 align-self-center">
-                <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                    <!-- model compile -->
-                    <p class="text-left">
-                        정수 인코딩 및 tensorflow, keras의 Tokenizer를 이용하여 단어 사전을 생성합니다.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row p-5 bg-white">
-            <h5 class="h5 text-black">모델학습 & 예측</h5>
-            <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                <p>
-                감성분석을 위한 모델로는 Bi-LSTM 모델을 사용하여 학습을 진행했습니다.
-                </p>
-            </div>
-            <div class="col-md-6 align-self-center">
-                <div class="content-img text-black">
-                    <figure>
-                        <img src="../static/assets/img/statistics/model.png" alt="분석 절차 이미지">
-                        <figcaption class="text-center">model plot</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-md-6 align-self-center">
-                <div class="h5 p-4 pt-1 text-black" style="font-weight: 300;">
-                    <!-- model compile -->
-                    <p class="text-left">
-                        모델 학습의 옵티마이저와 loss, metrics 값입니다. <br>
-                        optimizer='adam',<br>
-                        loss='binary_crossentropy', <br>
-                        metrics=['acc']
-                    </p>
-                    <!-- epochs, sigmoid -->
-                    <p class="text-left">
-                        모델학습시에 사용한 활성화함수와 에폭입니다.<br>
-                        activation='sigmoid'<br>
-                        epochs=10
-                    </p>
-                    <!-- accuracy -->
-                    <p class="text-left">
-                        모델의 최종 정확도는 다음과 같습니다<br>
-                        Model Accuracy : 0.8614
-                    </p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="row p-5 pt-1 bg-white">
+      <h5 class="h5 text-black">인코딩</h5>
+      <div class="col-md-6 align-self-center">
+        <div class="content-img">
+          <img
+            src="../static/assets/img/statistics/encoding.png"
+            alt="분석 절차 이미지"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+          <!-- model compile -->
+          <p class="text-left">
+            정수 인코딩 및 tensorflow, keras의 Tokenizer를 이용하여 단어 사전을
+            생성합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-5 bg-white">
+      <h5 class="h5 text-black">모델학습 & 예측</h5>
+      <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+        <p>
+          감성분석을 위한 모델로는 Bi-LSTM 모델을 사용하여 학습을 진행했습니다.
+        </p>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="content-img text-black">
+          <figure>
+            <img
+              src="../static/assets/img/statistics/model.png"
+              alt="분석 절차 이미지"
+            />
+            <figcaption class="text-center">model plot</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="h5 p-4 pt-1 text-black" style="font-weight: 300">
+          <!-- model compile -->
+          <p class="text-left">
+            모델 학습의 옵티마이저와 loss, metrics 값입니다. <br />
+            optimizer='adam',<br />
+            loss='binary_crossentropy', <br />
+            metrics=['acc']
+          </p>
+          <!-- epochs, sigmoid -->
+          <p class="text-left">
+            모델학습시에 사용한 활성화함수와 에폭입니다.<br />
+            activation='sigmoid'<br />
+            epochs=10
+          </p>
+          <!-- accuracy -->
+          <p class="text-left">
+            모델의 최종 정확도는 다음과 같습니다<br />
+            Model Accuracy : 0.8614
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock %} 
-
-{% block script %} 
+{% endblock %} {% block script %}
 <!-- chartjs -->
 <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
-    integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer">
-</script>
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+  integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 
 <!-- chart -->
 <script src="{{ url_for('static', filename='./js/statistics_graph.js')}}"></script>
 
 <!-- tableau -->
-<script type='text/javascript'>                    
-    var divElement = document.getElementById('viz1637902527976');
-    var vizElement = divElement.getElementsByTagName('object')[0];                    
-    if ( divElement.offsetWidth > 800 ) { 
-        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-    } else if ( divElement.offsetWidth > 500 ) { 
-        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
-    else { vizElement.style.width='100%';vizElement.style.height='777px';}                     
-    var scriptElement = document.createElement('script');                    
-    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+<script type="text/javascript">
+  var divElement = document.getElementById("viz1637902527976");
+  var vizElement = divElement.getElementsByTagName("object")[0];
+  if (divElement.offsetWidth > 800) {
+    vizElement.style.width = "100%";
+    vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+  } else if (divElement.offsetWidth > 500) {
+    vizElement.style.width = "100%";
+    vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+  } else {
+    vizElement.style.width = "100%";
+    vizElement.style.height = "777px";
+  }
+  var scriptElement = document.createElement("script");
+  scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
 
- 
 <!-- statistics chart -->
 <script>
-    // 환자수 추이 ajax
-    $(".btnValue1, .btnValue2, .btnValue3").click(function () {
-        let $this = $(this);
-        let btnValue;
-        if ($this.hasClass("btnValue1")) {
-        btnValue = $(".btnValue1").val();
-        } else if ($this.hasClass("btnValue2")) {
-        btnValue = $(".btnValue2").val();
-        } else {
-        btnValue = $(".btnValue3").val();
-        }
+  // 환자수 추이 ajax
+  $(".btnValue1, .btnValue2, .btnValue3").click(function () {
+    let $this = $(this);
+    let btnValue;
+    if ($this.hasClass("btnValue1")) {
+      btnValue = $(".btnValue1").val();
+    } else if ($this.hasClass("btnValue2")) {
+      btnValue = $(".btnValue2").val();
+    } else {
+      btnValue = $(".btnValue3").val();
+    }
 
-        let data = {
-        btnValue: btnValue,
-        };
-        $.ajax({
-        type: "get",
-        url: '{{url_for("statistics.patient")}}',
-        // async: false,
-        data: data,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (result) {
-            patientChart.data.labels = result.result[0];
-            patientChart.data.datasets[0].data = result.result[1];
-            patientChart.update();
-        },
-        error: function (request, status, error) {
-            alert(error);
-        },
-        });
+    let data = {
+      btnValue: btnValue,
+    };
+    $.ajax({
+      type: "get",
+      url: '{{url_for("statistics.patient")}}',
+      // async: false,
+      data: data,
+      contentType: "application/json",
+      dataType: "json",
+      success: function (result) {
+        patientChart.data.labels = result.result[0];
+        patientChart.data.datasets[0].data = result.result[1];
+        patientChart.update();
+      },
+      error: function (request, status, error) {
+        alert(error);
+      },
     });
+  });
 
-    // 성별/연령별 ajax
-    $(".sexAge-btn-1, .sexAge-btn-2, .sexAge-btn-3").click(function () {
-        let $this = $(this);
-        let btnValue;
-        if ($this.hasClass("sexAge-btn-1")) {
-        btnValue = $(".sexAge-btn-1").val();
-        } else if ($this.hasClass("sexAge-btn-2")) {
-        btnValue = $(".sexAge-btn-2").val();
-        } else {
-        btnValue = $(".sexAge-btn-3").val();
-        }
+  // 성별/연령별 ajax
+  $(".sexAge-btn-1, .sexAge-btn-2, .sexAge-btn-3").click(function () {
+    let $this = $(this);
+    let btnValue;
+    if ($this.hasClass("sexAge-btn-1")) {
+      btnValue = $(".sexAge-btn-1").val();
+    } else if ($this.hasClass("sexAge-btn-2")) {
+      btnValue = $(".sexAge-btn-2").val();
+    } else {
+      btnValue = $(".sexAge-btn-3").val();
+    }
 
-        $.ajax({
-        type: "get",
-        url: '{{url_for("statistics.sexAge")}}',
-        // async: false,
-        data: { btnValue: btnValue },
-        contentType: "application/json",
-        dataType: "json",
-        success: function (result) {
-            // sexAge chart1 - bar
-            sexAge_bar_chart.data.labels = result.result[0];
-            sexAge_bar_chart.data.datasets[0].data = result.result[1][0];
-            sexAge_bar_chart.data.datasets[1].data = result.result[1][1];
+    $.ajax({
+      type: "get",
+      url: '{{url_for("statistics.sexAge")}}',
+      // async: false,
+      data: { btnValue: btnValue },
+      contentType: "application/json",
+      dataType: "json",
+      success: function (result) {
+        // sexAge chart1 - bar
+        sexAge_bar_chart.data.labels = result.result[0];
+        sexAge_bar_chart.data.datasets[0].data = result.result[1][0];
+        sexAge_bar_chart.data.datasets[1].data = result.result[1][1];
 
-            // sexAge chart2 - pie
-            sexAge_pie_chart.data.labels = result.result[0];
-            sexAge_pie_chart.data.datasets[0].data = result.result[1][2];
+        // sexAge chart2 - pie
+        sexAge_pie_chart.data.labels = result.result[0];
+        sexAge_pie_chart.data.datasets[0].data = result.result[1][2];
 
-            sexAge_bar_chart.update();
-            sexAge_pie_chart.update();
-        },
-        error: function (request, status, error) {
-            alert(error);
-        },
-        });
+        sexAge_bar_chart.update();
+        sexAge_pie_chart.update();
+      },
+      error: function (request, status, error) {
+        alert(error);
+      },
     });
+  });
 </script>
 
 <!-- keyword chart -->
 <script>
-    // 키워드 ajax
-    $(".btnEmotion, .btnMood, .btnDaily").click(function () {
-        let $this = $(this);
-        let btnValue;
-        if ($this.hasClass("btnEmotion")) {
-        btnValue = $(".btnEmotion").val();
-        } else if ($this.hasClass("btnMood")) {
-        btnValue = $(".btnMood").val();
-        } else {
-        btnValue = $(".btnDaily").val();
-        }
+  // 키워드 ajax
+  $(".btnEmotion, .btnMood, .btnDaily").click(function () {
+    let $this = $(this);
+    let btnValue;
+    if ($this.hasClass("btnEmotion")) {
+      btnValue = $(".btnEmotion").val();
+    } else if ($this.hasClass("btnMood")) {
+      btnValue = $(".btnMood").val();
+    } else {
+      btnValue = $(".btnDaily").val();
+    }
 
-        $.ajax({
-        type: "get",
-        url: '{{url_for("statistics.initialKeyword")}}',
-        data: { btnValue: btnValue },
-        contentType: "application/json", 
-        dataType: "json",
-        success: function (result) {
-            totalKeywordChart.data.labels = result.result.label
-            totalKeywordChart.data.datasets[0].data = result.result.total_positive;
-            totalKeywordChart.data.datasets[1].data = result.result.total_negative;
+    $.ajax({
+      type: "get",
+      url: '{{url_for("statistics.initialKeyword")}}',
+      data: { btnValue: btnValue },
+      contentType: "application/json",
+      dataType: "json",
+      success: function (result) {
+        totalKeywordChart.data.labels = result.result.label;
+        totalKeywordChart.data.datasets[0].data = result.result.total_positive;
+        totalKeywordChart.data.datasets[1].data = result.result.total_negative;
 
-            naverKeywordChart.data.labels = result.result.label
-            naverKeywordChart.data.datasets[0].data = result.result.naver_positive;
-            naverKeywordChart.data.datasets[1].data = result.result.naver_negative;
+        naverKeywordChart.data.labels = result.result.label;
+        naverKeywordChart.data.datasets[0].data = result.result.naver_positive;
+        naverKeywordChart.data.datasets[1].data = result.result.naver_negative;
 
-            twitterKeywordChart.data.labels = result.result.label
-            twitterKeywordChart.data.datasets[0].data = result.result.tw_positive;
-            twitterKeywordChart.data.datasets[1].data = result.result.tw_negative;
+        twitterKeywordChart.data.labels = result.result.label;
+        twitterKeywordChart.data.datasets[0].data = result.result.tw_positive;
+        twitterKeywordChart.data.datasets[1].data = result.result.tw_negative;
 
-            totalKeywordChart.update();
-            naverKeywordChart.update();
-            twitterKeywordChart.update();
-        },
-        error: function (request, status, error) {
-            alert(error);
-        },
+        totalKeywordChart.update();
+        naverKeywordChart.update();
+        twitterKeywordChart.update();
+      },
+      error: function (request, status, error) {
+        alert(error);
+      },
     });
-    });
-
+  });
 </script>
 
 <script src="../static/js/statistics.js"></script>

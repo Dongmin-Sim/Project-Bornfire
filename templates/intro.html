@@ -10,91 +10,86 @@
   referrerpolicy="no-referrer"
 ></script>
 
-
 <!-- Link Swiper's CSS -->
-<link
-rel="stylesheet"
-href="https://unpkg.com/swiper/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- Demo styles -->
 <style>
-.feed-comment {
-  overflow: auto;
-  color: black;
-}
+  .feed-comment {
+    overflow: auto;
+    color: black;
+  }
   .feed-comment::-webkit-scrollbar {
-  width: 6px;
-}
+    width: 6px;
+  }
 
-.feed-comment::-webkit-scrollbar-track {
-  background-color: transparent;
-}
+  .feed-comment::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
-.feed-comment::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: gray;
-}
+  .feed-comment::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: gray;
+  }
 
-.feed-comment::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
-}
+  .feed-comment::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
 
-.swiper-container {
-  font-family: sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-  height: 500px;
-}
+  .swiper-container {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    height: 500px;
+  }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
 
+    height: 400px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
 
-  height: 400px;
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  
-}
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.display-6{
-  color: #000;
-  margin-top: 30px;
-  margin-bottom: 35px;
-  font-size: 18px;
-}
+  .display-6 {
+    color: #000;
+    margin-top: 30px;
+    margin-bottom: 35px;
+    font-size: 18px;
+  }
 </style>
 
-<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+<link
+  href="{{url_for('static',filename='./css/intro.css')}}"
+  rel="stylesheet"
+/>
 {% endblock %} {% block body %}
 
 <div class="container title-wrapper">
@@ -124,51 +119,52 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
 </div>
 
 <!-- main image -->
-<div class="container-fluid" style="height: 500px;  background-color: #fff">
-  
+<div class="container-fluid" style="height: 500px; background-color: #fff">
   <div class="row">
-    <div class="col-md-6 swiper-container" style = "background-color: #fff;"> 
+    <div class="col-md-6 swiper-container" style="background-color: #fff">
       <div class="col-md-12 title">
         <h5 class="display-6">{{yesterday_subject}}</h5>
       </div>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           {% for lank in lanks %}
-            <div class="swiper-slide">
-              <div class = "col" style="height: 400px !important;" >
-                <div id="card" class="card h-100 feed-comment">
-                  <div class="card-header">
-                    <small>
-                      <div id="card-header">Lank {{ loop.index }}</div>
-                    </small>
-                  </div>
-                  <div id="card-body" class="card-body card-content">
-                    <blockquote class="blockquote mb-0">
-                      <p class="card-text">{{lank.Feed}}</p>
-                    </blockquote>
-                  </div>
-                  <div class="card-footer">
-                    <div class="feed-button">
-                      <button type="button" class="btn btn-dark" >
-                        🙌<span> &nbsp;{{lank.Likes}}</span>
-                      </button>
-                    </div>
+          <div class="swiper-slide">
+            <div class="col" style="height: 400px !important">
+              <div id="card" class="card h-100 feed-comment">
+                <div class="card-header">
+                  <small>
+                    <div id="card-header">Lank {{ loop.index }}</div>
+                  </small>
+                </div>
+                <div id="card-body" class="card-body card-content">
+                  <blockquote class="blockquote mb-0">
+                    <p class="card-text">{{lank.Feed}}</p>
+                  </blockquote>
+                </div>
+                <div class="card-footer">
+                  <div class="feed-button">
+                    <button type="button" class="btn btn-dark">
+                      🙌<span> &nbsp;{{lank.Likes}}</span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
           {% endfor %}
         </div>
       </div>
     </div>
-  
+
     <div class="col-md-6">
       <div class="col-md-12">
-        <canvas id="feed_sentiment" style = "width:500px; background-color: #fff;"></canvas>
+        <canvas
+          id="feed_sentiment"
+          style="width: 500px; background-color: #fff"
+        ></canvas>
       </div>
-    </div>  
+    </div>
   </div>
-
 </div>
 
 <!-- introduce service -->
@@ -193,7 +189,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     <div class="col-md-6">
       <img
         class="img-fluid rounded-3"
-        src="../static/assets/img/intro/sample_img.png"
+        src="../static/assets/img/intro/intro1.png"
         alt=""
       />
     </div>
@@ -204,7 +200,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     <div class="col-md-6">
       <img
         class="img-fluid rounded-3"
-        src="../static/assets/img/intro/sample_img.png"
+        src="../static/assets/img/intro/intro2.png"
         alt=""
       />
     </div>
@@ -241,7 +237,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     <div class="col-md-6">
       <img
         class="img-fluid rounded-3"
-        src="../static/assets/img/intro/sample_img.png"
+        src="../static/assets/img/intro/intro3.png"
         alt=""
       />
     </div>
@@ -252,7 +248,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     <div class="col-md-6">
       <img
         class="img-fluid rounded-3"
-        src="../static/assets/img/intro/sample_img.png"
+        src="../static/assets/img/intro/intro4.png"
         alt=""
       />
     </div>
@@ -268,7 +264,6 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     </div>
   </div>
 </div>
-
 
 <!-- go login -->
 <div class="row text-center" style="width: 100%">
@@ -338,7 +333,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
                   'rgba(153, 102, 255, 0.5)',
                   'rgba(193, 132, 255, 0.5)',
                   'rgba(201, 203, 207, 0.5)',
-                  
+
               ],
               borderColor: [
                   'rgba(255, 99, 132, 0.5)',
@@ -352,7 +347,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
               ],
               borderWidth: 1
               },
-              
+
       ]
       },
       options: {
@@ -367,10 +362,9 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
               display:true,
               text: "어제 피드 통계"
             }
-          }  
+          }
       }
   });
 </script>
 
-{% endblock %} {% block script %}
-{% endblock %}
+{% endblock %} {% block script %} {% endblock %}
