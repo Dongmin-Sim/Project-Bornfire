@@ -5,7 +5,6 @@ from pymongo import cursor
 from .mongo_connect import db
 from .nickname import make_nickname
 import functools
-import time
 import random
 from apscheduler.schedulers.background import BackgroundScheduler
 
@@ -29,15 +28,6 @@ sched.add_job(s_supply,'interval',seconds=60)
 sched.start()
 
 feed = Blueprint("feed", __name__)
-
-
-# def login_required(func):
-#     def wrapper():
-#         user = session.get('user_email')
-#         if user is None:
-#             return abort(404)
-#         func()
-#     return wrapper
 
 def login_required(func):
     @functools.wraps(func)
