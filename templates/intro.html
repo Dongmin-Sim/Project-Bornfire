@@ -45,12 +45,16 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
 </div>
 
 <!-- main image -->
-<div class="container-fluid" style="height: 500px; background-color: #fff">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 swiper-container" style="background-color: #fff">
-      <div class="col-md-12 title">
-        <h5 class="display-6">{{yesterday_subject}}</h5>
-      </div>
+    <div class="col-md-12 title">
+      <h2 class="display-5">어제 공감 top5 피드 </h2>
+    </div>
+    <div class="col-md-12 title text-center">
+      <h5 class="display-5" style="font-size: 2vw;">{{yesterday_subject}}</h5>
+    </div>
+    <div class="col-md-6 swiper-container">
+      
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           {% for lank in lanks %}
@@ -59,12 +63,12 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
               <div id="card" class="card h-100 feed-comment">
                 <div class="card-header">
                   <small>
-                    <div id="card-header">Lank {{ loop.index }}</div>
+                    <div id="card-header">TOP {{ loop.index }}</div>
                   </small>
                 </div>
                 <div id="card-body" class="card-body card-content">
                   <blockquote class="blockquote mb-0">
-                    <p class="card-text">{{lank.Feed}}</p>
+                    <p class="card-text ">{{lank.Feed}}</p>
                   </blockquote>
                 </div>
                 <div class="card-footer">
@@ -81,12 +85,12 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
         </div>
       </div>
     </div>
-
+    <!-- canvas -->
     <div class="col-md-6">
+      <h2 class="h5 text-center">전날 피드 감정 통계</h2>
       <div class="col-md-12">
         <canvas
-          id="feed_sentiment"
-          style="width: 500px; background-color: #fff"
+          id="feed_sentiment" width="500vw" height="380vh" style="margin: auto;"
         ></canvas>
       </div>
     </div>
@@ -250,26 +254,13 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
               label: '# 긍정',
               data: Object.values(predicted_value),
               backgroundColor: [
-                  'rgba(255, 99, 132, 0.5)',
-                  'rgba(250, 158, 64, 0.5)',
-                  'rgba(252, 205, 86, 0.5)',
-                  'rgba(75, 192, 192, 0.5)',
-                  'rgba(54, 162, 235, 0.5)',
-                  'rgba(90, 100, 235, 0.5)',
-                  'rgba(153, 102, 255, 0.5)',
-                  'rgba(193, 132, 255, 0.5)',
-                  'rgba(201, 203, 207, 0.5)',
+                  'rgba(255, 99, 132, 0.7)',
+                  'rgba(250, 158, 64, 0.7)',
 
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 0.5)',
-                  'rgba(250, 158, 64, 0.5)',
-                  'rgba(252, 205, 86, 0.5)',
-                  'rgba(75, 192, 192, 0.5)',
-                  'rgba(54, 162, 235, 0.5)',
-                  'rgba(153, 102, 255, 0.5)',
-                  'rgba(201, 203, 207, 0.5)',
-                  'rgba(90, 100, 235, 0.5)'
+                  'rgba(255, 99, 132, 0.7)',
+                  'rgba(250, 158, 64, 0.7)',
               ],
               borderWidth: 1
               },
@@ -278,16 +269,17 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
       },
       options: {
           responsive: false,
+          aspectRatio: 1,
           plugins:{
             scales: {
                 y: {
                     beginAtZero: true
                 }
             },
-            title:{
-              display:true,
-              text: "어제 피드 통계"
-            }
+            // title:{
+            //   display:true,
+            //   text: "어제 피드 통계"
+            // }
           }
       }
   });
