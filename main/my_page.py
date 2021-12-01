@@ -8,7 +8,7 @@ import bcrypt
 
 mypage = Blueprint("mypage", __name__)
 
-def login_required(func):
+def login_required_4_mypage(func):
     @functools.wraps(func)
     def wrapped_view(**kwargs):
         user = session.get('user_email')
@@ -21,7 +21,7 @@ def login_required(func):
 col = db.get_collection("User_collection")
 
 @mypage.route("/my-page", methods=['GET'])
-@login_required
+@login_required_4_mypage
 def get_myPage():
     global col
     if session.get('user_email') is not None:

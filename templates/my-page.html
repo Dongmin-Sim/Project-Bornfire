@@ -111,12 +111,12 @@
   });
 
   // 일일 피드 통계량
-  let temp = {{ data|tojson }}
-  let week_labels = temp['my_feed_log'][0]
-  let week_value = temp['my_feed_log'][1]
+  let temp = {{ data|tojson }};
+  let week_labels = temp['my_feed_log'][0];
+  let week_value = temp['my_feed_log'][1];
   
-  let predicted_value = temp['predicted_value']
-  console.log(predicted_value)
+  let predicted_value = temp['predicted_value'];
+  console.log(predicted_value);
 
 </script>
 

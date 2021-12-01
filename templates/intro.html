@@ -11,6 +11,13 @@
 ></script>
 
 <!-- Link Swiper's CSS -->
+<<<<<<< HEAD
+<link
+rel="stylesheet"
+href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+<link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+=======
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- Demo styles -->
@@ -90,6 +97,7 @@
   href="{{url_for('static',filename='./css/intro.css')}}"
   rel="stylesheet"
 />
+>>>>>>> 7cc241cf4989b909d50cb58d0ccbcf567d22cc75
 {% endblock %} {% block body %}
 
 <div class="container title-wrapper">
@@ -311,8 +319,8 @@
   });
 
 
-  let predicted_value = {{ predicted_value|tojson }}
-  console.log(predicted_value)
+  let predicted_value = {{ predicted_value|tojson }};
+  console.log(predicted_value);
 
   let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
   let sentiment_chart = new Chart(feed_sentiment, {
