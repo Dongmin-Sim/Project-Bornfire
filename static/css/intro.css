@@ -142,7 +142,9 @@
   
 }
 
-
+.col {
+  height : 400px !important;
+}
 
 .swiper-slide img {
   display: block;
@@ -156,4 +158,9 @@
   margin-top: 30px;
   margin-bottom: 35px;
   font-size: 18px;
+}
+
+#feed-sentiment{
+  width: 500px; 
+  background-color: #fff;
 }

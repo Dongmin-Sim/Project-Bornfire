@@ -36,21 +36,6 @@ body {
     color: #999;
 }
 
-.fire{
-    max-width: 100%;
-    height: auto;
-    margin-bottom: -200px;
-}
-
-.github{
-    position: relative;
-    top: 37em;
-    left: -3em;
-    margin: 0 30;
-    font-size: 20px;
-    word-spacing: 190.5px;
-}
-
 .wrapper {
     display: flex;
     height: 60vh;
