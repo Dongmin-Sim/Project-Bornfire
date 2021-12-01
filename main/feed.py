@@ -74,11 +74,12 @@ def post_feed():
     from model.predict_sen import get_sentiment
 
     predicted = get_sentiment(context)
-
-    time = datetime.datetime.now()
     emotion = predicted[1]
-    # TODO 삭제 필요
-    print(emotion)
+    print(predicted, emotion)
+    time = datetime.datetime.utcnow()
+    now_time = datetime.datetime.now()
+    print('utcnow:',time, 'now',now_time)
+    
     
     log = {str(time): emotion}
     # 유저 감정 분석을 위한 데이터 
