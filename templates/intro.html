@@ -10,12 +10,14 @@
   referrerpolicy="no-referrer"
 ></script>
 
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 <!-- Link Swiper's CSS -->
-<link
-rel="stylesheet"
-href="https://unpkg.com/swiper/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <link href="{{url_for('static',filename='./css/intro.css')}}" rel="stylesheet"/>
+
 {% endblock %} {% block body %}
 
 <div class="container title-wrapper">
@@ -55,7 +57,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
         <div class="swiper-wrapper">
           {% for lank in lanks %}
           <div class="swiper-slide">
-            <div class="col" style="height: 400px !important">
+            <div class="col">
               <div id="card" class="card h-100 feed-comment">
                 <div class="card-header">
                   <small>
@@ -84,10 +86,7 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
 
     <div class="col-md-6">
       <div class="col-md-12">
-        <canvas
-          id="feed_sentiment"
-          style="width: 500px; background-color: #fff"
-        ></canvas>
+        <canvas id="feed-sentiment"></canvas>
       </div>
     </div>
   </div>
@@ -215,82 +214,9 @@ href="https://unpkg.com/swiper/swiper-bundle.min.css"
     {% endif %}
   </div>
 </div>
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1.2,
-    spaceBetween: 30,
-    autoHeight: true,
-    centeredSlides: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    loop: true,
-    autoplay : {  // 자동 슬라이드 설정 , 비 활성화 시 false
-       delay : 3000,   // 시간 설정
-       disableOnInteraction : false,  // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
-    },
-  });
-
-
   let predicted_value = {{ predicted_value|tojson }};
-  console.log(predicted_value);
-
-  let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
-  let sentiment_chart = new Chart(feed_sentiment, {
-      type: 'doughnut',
-      data: {
-          // labels: Object.keys(predicted_value),
-          labels: ['부정', '긍정'],
-          datasets: [{
-              label: '# 긍정',
-              data: Object.values(predicted_value),
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.5)',
-                  'rgba(250, 158, 64, 0.5)',
-                  'rgba(252, 205, 86, 0.5)',
-                  'rgba(75, 192, 192, 0.5)',
-                  'rgba(54, 162, 235, 0.5)',
-                  'rgba(90, 100, 235, 0.5)',
-                  'rgba(153, 102, 255, 0.5)',
-                  'rgba(193, 132, 255, 0.5)',
-                  'rgba(201, 203, 207, 0.5)',
-
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 0.5)',
-                  'rgba(250, 158, 64, 0.5)',
-                  'rgba(252, 205, 86, 0.5)',
-                  'rgba(75, 192, 192, 0.5)',
-                  'rgba(54, 162, 235, 0.5)',
-                  'rgba(153, 102, 255, 0.5)',
-                  'rgba(201, 203, 207, 0.5)',
-                  'rgba(90, 100, 235, 0.5)'
-              ],
-              borderWidth: 1
-              },
-
-      ]
-      },
-      options: {
-          responsive: false,
-          plugins:{
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            title:{
-              display:true,
-              text: "어제 피드 통계"
-            }
-          }
-      }
-  });
 </script>
-
+<script src = "../static/js/intro.js"></script>
 {% endblock %} {% block script %} {% endblock %}
