@@ -77,7 +77,8 @@ def post_feed():
     emotion = predicted[1]
     print(predicted, emotion)
     time = datetime.datetime.utcnow()
-    
+    now_time = datetime.datetime.now()
+    print('utcnow:',time, 'now',now_time)
     
     
     log = {str(time): emotion}
