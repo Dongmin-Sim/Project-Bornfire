@@ -43,14 +43,9 @@ def get_login():
         elif bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
             session['user_email'] = email
             return redirect(url_for('feed.get_feed'))
-<<<<<<< HEAD
         else:   
             msg='비밀번호가 일치하지 않습니다.'
             return render_template('login-join.html', data=msg)
-=======
-        else:
-            return redirect(url_for('login.get_login'))
->>>>>>> page404
 
 @login.route("/logout")
 def get_logout():
