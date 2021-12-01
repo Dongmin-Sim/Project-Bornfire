@@ -23,7 +23,6 @@ $('#button-addon2').click(function(e){
             card(datas);
             $("#context").val('');
         },
-<<<<<<< HEAD
         error: function(jqXHR, status, error){
             if(jqXHR.status == 500){
                 alert("잘못된 접근입니다.")
@@ -34,10 +33,6 @@ $('#button-addon2').click(function(e){
             if(jqXHR.status == 501){
                 alert("메세지를 입력해주세요.")
             }
-=======
-        error: function(request, status, error){
-            alert('로그인이 필요합니다.')
->>>>>>> page404
         }
     })
 })
@@ -258,24 +253,3 @@ function card(datas){
         feed_button.appendChild(button);          
     }
 }
-
-// function button_click(ObjectId){
-    
-//     $.ajax({
-//         type: 'UPDATE',
-//         url: '/thumbs',
-//         data: JSON.stringify(ObjectId),
-//         dataType : 'json',
-//         contentType: "application/json",
-//         success: function(thumbs_up){
-//             console.log($(this));
-//             $(this).innerHTML = "🙌"+ "<span>" + "&nbsp;"+ thumbs_up + "</span>";
-//         },
-//         error: function(request, status, error){
-//             alert('ajax 통신 실패')
-//             alert(error);
-//         }
-//     })
-
-
-// }
