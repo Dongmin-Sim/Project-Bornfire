@@ -5,7 +5,30 @@
   text-align: left;
 }
 
-/* title */
+.container-fluid {
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  text-shadow: none;
+}
+
+/* title title */
+.title {
+  margin-bottom: 20px;
+}
+
+.title-s {
+  font-size: 1.2rem;
+}
+
+.title-m {
+  /* font-size: 2.5rem; */
+  font-size: 2.8vw;
+  text-align: left;
+}
+
+/* title wrapper */
 .title-wrapper {
   margin-top: 150px;
   margin-bottom: 150px;
@@ -61,7 +84,7 @@
   }
 }
 
-.feed-comment {
+.feed-comment { 
   overflow: auto;
   color: black;
 }
@@ -102,7 +125,7 @@
   font-size: 18px;
 
 
-  height: 400px;
+  height: 300px;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
