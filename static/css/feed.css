@@ -118,7 +118,6 @@ p {
   text-align: left;
 }
 
-<<<<<<< HEAD
 /* card */
 .card-container {
   margin-top: 25px;
@@ -149,7 +148,6 @@ p {
   border-top: solid 1px rgba(0, 0, 0, 0.2);
   text-align: start;
 }
-=======
 .goupbtn {
   top: 90%;
   left: 90%;
@@ -161,4 +159,3 @@ p {
   position: fixed;
   z-index: 2;
 }
->>>>>>> page404
