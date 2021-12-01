@@ -23,6 +23,7 @@ $('#button-addon2').click(function(e){
             card(datas);
             $("#context").val('');
         },
+<<<<<<< HEAD
         error: function(jqXHR, status, error){
             if(jqXHR.status == 500){
                 alert("잘못된 접근입니다.")
@@ -33,6 +34,10 @@ $('#button-addon2').click(function(e){
             if(jqXHR.status == 501){
                 alert("메세지를 입력해주세요.")
             }
+=======
+        error: function(request, status, error){
+            alert('로그인이 필요합니다.')
+>>>>>>> page404
         }
     })
 })
@@ -189,6 +194,10 @@ function card_bottom(datas){
     }
     return 0;
 }
+
+function clickme() {
+    window.scrollTo({top:0, left:0, behavior:'smooth'});
+  }
 
 function card(datas){
     parent = document.getElementById('card-row');

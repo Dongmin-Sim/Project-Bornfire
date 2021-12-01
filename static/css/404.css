@@ -7,6 +7,7 @@ body {
   background-color: #212529;
   padding: 0;
   margin: 0;
+  
 }
 
 #notfound {
@@ -14,7 +15,7 @@ body {
   height: 100vh;
 }
 
-#notfound .notfound {
+#notfound .notfound { 
   position: absolute;
   left: 50%;
   top: 50%;
@@ -37,17 +38,14 @@ body {
   margin-bottom: 25px;
 }
 
-.notfound .notfound-404 h1 {
-  color: rgb(238, 232, 232);
+#notfound h1 {
+  color: #fff;
   font-family: "Titillium Web", sans-serif;
-  font-size: 186px;
+  font-size: 200px;
   font-weight: 900;
-  margin: 0px;
+  margin-top: -1em;
   text-transform: uppercase;
-  background:#fff;
-  -webkit-text-fill-color: transparent;
   background-size: cover;
-  background-position: center;
 }
 
 .notfound h2 {
@@ -55,15 +53,17 @@ body {
   font-family: "Titillium Web", sans-serif;
   font-size: 26px;
   font-weight: 700;
-  margin: 0;
+  margin-top:5em;
 }
 
 .notfound p {
   color: #fff;
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  margin-bottom: 0px;
+  margin-top: 3em;
+  margin-bottom: 50px;
+  margin-left: 0.5em;
   text-transform: uppercase;
 }
 
@@ -75,6 +75,7 @@ body {
   text-decoration: none;
   border: none;
   background: #5c91fe;
+  margin-left: -12em;
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 700;

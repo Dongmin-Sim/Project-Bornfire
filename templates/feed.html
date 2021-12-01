@@ -41,7 +41,6 @@
 </div>
 
 <div class="card-container">
-  <!-- <div id="post"> -->
     <div id="card-row" class="row row-cols-2 row-cols-md-3 g-4">
       {% for data in datas %}
         <div class="col">
@@ -67,38 +66,8 @@
         </div>
       {% endfor %}
     </div>
-  <!-- </div> -->
 </div>
 
-
-<!-- previous -->
-<!-- <div class="container" style="max-width: 100rem!important;">
-  <div id="post">
-    <div class= "row" id="card-row"> 
-      {% for data in datas %}
-        <div class ="col-md-4">
-          <div id="card" class="col-md-12 card feed-comment ">
-            
-            <div id="card-header">{{ data.nickname }}</div>
-            
-            <div id="card-body" class="card-body card-content ">
-              <blockquote class="blockquote mb-0">
-                <p>{{ data.context }}</p>
-              </blockquote>
-            </div>
-            
-            
-            <div class="feed-button">
-              <button type="button" class="btn btn-dark" value="{{ data._id }}">
-                🙌<span> &nbsp;{{ data['thumbs-up'] }}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</div> -->
 
 {% endblock %} {% block script %}
 <script src="../static/js/feed.js"></script>

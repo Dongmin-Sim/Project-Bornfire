@@ -16,6 +16,16 @@ def login_required(func):
 
     return wrapped_view
 
+def login_required(func):
+    @functools.wraps(func)
+    def wrapped_view(**kwargs):
+        user = session.get('user_email')
+        if user:
+            return redirect(url_for('index'))
+        return func(**kwargs)
+
+    return wrapped_view
+
 login = Blueprint("login", __name__)
 
 @login.route("/login-join", methods=["GET","POST"])
@@ -33,9 +43,14 @@ def get_login():
         elif bcrypt.checkpw(pw.encode('utf-8'),user["User_pw"].encode('utf-8')):
             session['user_email'] = email
             return redirect(url_for('feed.get_feed'))
+<<<<<<< HEAD
         else:   
             msg='비밀번호가 일치하지 않습니다.'
             return render_template('login-join.html', data=msg)
+=======
+        else:
+            return redirect(url_for('login.get_login'))
+>>>>>>> page404
 
 @login.route("/logout")
 def get_logout():
