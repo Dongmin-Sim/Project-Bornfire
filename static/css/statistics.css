@@ -1,36 +1,57 @@
 .container {
-    height: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: left;
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
 /* content */
 .content {
-    box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
-    text-shadow: none;
-    text-align: left;
-    font-size: 1rem;
+  box-shadow: 2px 50px 50px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+  text-align: left;
+  font-size: 1rem;
 }
 
 .content .btn-group {
-margin-left: 20px;
+  margin-left: 20px;
 }
 
 @media (min-width: 992px) {
-.rounded-lg-3 {
+  .rounded-lg-3 {
     border-radius: 0.3rem;
+  }
 }
-}
-  
 
 .content-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-img img {
-    width: 100%;
+  width: 100%;
+}
+
+.content .platform-naver {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2db400 !important;
+}
+
+.content .platform-twitter {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00acee !important;
+}
+
+.content .wordcloud-list {
+  width: 100%;
+  padding: 5px;
+
+  margin-bottom: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }

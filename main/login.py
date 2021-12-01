@@ -16,6 +16,16 @@ def login_required_4_login(func):
 
     return wrapped_view
 
+def login_required(func):
+    @functools.wraps(func)
+    def wrapped_view(**kwargs):
+        user = session.get('user_email')
+        if user:
+            return redirect(url_for('index'))
+        return func(**kwargs)
+
+    return wrapped_view
+
 login = Blueprint("login", __name__)
 
 @login.route("/login-join", methods=["GET","POST"])

@@ -30,7 +30,7 @@ def get_myPage():
         # 유저의 feed_log 불러오기
         feed_log = col.find_one({"User_email": user_email}, {"User_feed_log":True, "_id":False})['User_feed_log']
         # 피드 작성 최신 순으로 
-        feed_log.reverse()
+        # feed_log.reverse()
 
         # TODO: 일일 피드 통계량
         days = []

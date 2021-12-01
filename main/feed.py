@@ -25,12 +25,29 @@ def s_supply():
 s_supply()
 
 sched = BackgroundScheduler(daemon = True,timezone="Asia/Seoul")
-sched.add_job(s_supply,'interval',seconds=10)
+sched.add_job(s_supply,'interval',seconds=60)
 sched.start()
 
 feed = Blueprint("feed", __name__)
 
 
+# def login_required(func):
+#     def wrapper():
+#         user = session.get('user_email')
+#         if user is None:
+#             return abort(404)
+#         func()
+#     return wrapper
+
+def login_required(func):
+    @functools.wraps(func)
+    def wrapped_view(**kwargs):
+        user = session.get('user_email')
+        if user is None:
+            return abort(404)
+        return func(**kwargs)
+
+    return wrapped_view
 
 def login_required(func):
     @functools.wraps(func)
@@ -61,6 +78,8 @@ def get_feed():
     return render_template('feed.html', datas = col_list, subject = subject)
 
 
+
+
 @feed.route('/feed', methods=['POST'])
 @login_required
 def post_feed():
@@ -74,11 +93,12 @@ def post_feed():
     from model.predict_sen import get_sentiment
 
     predicted = get_sentiment(context)
-
-    time = datetime.datetime.now()
     emotion = predicted[1]
-    # TODO 삭제 필요
-    print(emotion)
+    print(predicted, emotion)
+    time = datetime.datetime.utcnow()
+    now_time = datetime.datetime.now()
+    print('utcnow:',time, 'now',now_time)
+    
     
     log = {str(time): emotion}
     # 유저 감정 분석을 위한 데이터 

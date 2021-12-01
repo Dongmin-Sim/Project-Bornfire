@@ -13,7 +13,6 @@ from main.content_service import content_service
 
 
 app = Flask(__name__)
-
 app.secret_key = str(os.environ.get("FLASK_KEY"))
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=3) # 로그인 지속시간을 정합니다. 현재 1분
 
