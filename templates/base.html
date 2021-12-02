@@ -38,7 +38,7 @@
           <a href="/" style ="text-decoration : none;">모닥불</a>
         </h3>
         <!-- navigation menu -->
-        <nav class="nav nav-masthead justify-content-center float-md-end">
+        <nav class="nav nav-masthead  justify-content-center float-md-end">
          
           <a class="nav-link" href="/statistics">데이터 분석</a>
           <a class="nav-link" href="/feed">피드</a>
@@ -53,10 +53,10 @@
           {% endif %}
         </nav>
       </header>
-
+      
       <!-- body -->
       {% block body %} {% endblock %}
-
+      <input class="goupbtn" type="button" value="Top" onclick="clickme()">
       <!-- footer -->
       <footer class="mt-5 p-3 text-white-50">
         <p>
@@ -68,8 +68,14 @@
         </p>
       </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
+    <script>
+      function clickme() {
+        window.scrollTo({top:0, left:0, behavior:'smooth'});
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    
     {% block script %} {% endblock %}
   </body>
 </html>

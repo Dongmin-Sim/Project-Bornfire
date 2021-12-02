@@ -190,10 +190,6 @@ function card_bottom(datas){
     return 0;
 }
 
-function clickme() {
-    window.scrollTo({top:0, left:0, behavior:'smooth'});
-  }
-
 function card(datas){
     parent = document.getElementById('card-row');
     for(var i=0; i<datas.length; i++){
