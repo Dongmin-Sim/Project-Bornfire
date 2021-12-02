@@ -24,7 +24,7 @@ let daily_chart = new Chart(daily_statistics, {
 });
 
 
-let feed_sentiment = document.getElementById('feed_sentiment').getContext('2d');
+let feed_sentiment = document.getElementById('feed-sentiment').getContext('2d');
 let sentiment_chart = new Chart(feed_sentiment, {
     type: 'doughnut',
     data: {
