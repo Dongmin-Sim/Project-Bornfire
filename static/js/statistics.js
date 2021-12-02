@@ -24,9 +24,8 @@ $('#sentiment-btn').click(function(e){
         contentType: "application/json",
         
         success: function(result){
-            negative = result.result[0] * 100
-            positive = result.result[1] * 100
-
+            negative = parseInt(result.result[0] * 100)
+            positive = parseInt(result.result[1] * 100)
             document.querySelector('#positive-rate').innerHTML = positive
 
             document.querySelector('#negative-rate').innerHTML = negative
