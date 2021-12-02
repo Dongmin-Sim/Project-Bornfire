@@ -46,31 +46,28 @@ def get_myPage():
             days.append(new_date)
         
         daily_feed = dict(sorted(daily_feed.items()))
-
         for log in feed_log:
             key = list(log.keys())[0]
             feed_date = key[:10]
 
             if feed_date not in days:
-                break
+                continue
             daily_feed[feed_date] += 1
 
         # TODO: 월별 긍/부정 비율 그래프
         predicted_value = defaultdict(int)
         month = str(today.month)
-        
         for log in feed_log:
             key = list(log.keys())[0]
             value = list(log.values())[0]
             feed_month = key[5:7]
 
             if feed_month != month:
-                break
+                continue
             predicted_value[value] += 1
         
         sorted_predicted = sorted(predicted_value.items())
         predicted_value = dict(sorted_predicted)
-        print(predicted_value)
 
         data = {
             'user_email': user_email, 
