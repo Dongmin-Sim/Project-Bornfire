@@ -300,4 +300,4 @@ $RECYCLE.BIN/
 project-team-3-bornfire.socket
 bornfire.ini
 wsgi.py
-env.py
+main/env.py

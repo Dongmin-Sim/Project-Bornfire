@@ -1,4 +1,4 @@
-import os
+from main.env import SECRET_KEY
 from flask import Flask, render_template, jsonify,request, redirect, Blueprint
 from datetime import timedelta
 from main.intro import intro 
@@ -13,7 +13,7 @@ from main.content_service import content_service
 
 
 app = Flask(__name__)
-app.secret_key = str(os.environ.get("FLASK_KEY"))
+app.secret_key = SECRET_KEY
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=3) # 로그인 지속시간을 정합니다. 현재 1분
 
 
@@ -51,5 +51,6 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
+    print(SECRET_KEY)
     app.run(host='0.0.0.0', debug=True)
 
