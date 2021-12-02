@@ -1,6 +1,12 @@
 {% extends "base.html" %} {% block head %}
 <title>Bornfire - 회원가입</title>
-
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      alert("{{messages[-1]}}")
+    </script>
+  {% endif %}
+{% endwith %}
 <link
   href="{{url_for('static',filename='./css/sign_up_in.css')}}"
   rel="stylesheet"

@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, jsonify, request, redirect,url_for
+from os import abort, error
+from flask import Blueprint, render_template, jsonify, request, redirect,url_for, flash
 from .user_validate import password_validate,email_validate
 import pymongo
 import bcrypt
@@ -6,6 +7,7 @@ from .mongo_connect import db
 
 
 join = Blueprint("join", __name__)
+collection = db.get_collection("User_collection")
 
 @join.route("/join", methods=["POST"])
 def post_join():
@@ -24,6 +26,13 @@ def post_join():
         
         hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),bcrypt.gensalt())
         hashed_pw=hashed_pw.decode('utf-8')
-        collection = db.get_collection("User_collection")
-        collection.insert_one({"User_email":email,"User_pw":hashed_pw,"User_feed_log":[],"Verify_question": {question:answer}})
-        return redirect(url_for('login.get_login'))
+        
+        try:
+            collection.insert_one({"User_email":email, "User_pw":hashed_pw,"User_feed_log":[],"Verify_question": {question:answer}})
+            flash('회원가입이 완료되었습니다 🔥')
+            return redirect(url_for('login.get_login'))
+        except pymongo.errors.DuplicateKeyError:
+            flash('이미 존재하는 아이디 입니다. ')
+            return redirect(url_for('login.get_login'))
+            
+        
